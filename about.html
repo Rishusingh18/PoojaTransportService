@@ -11,7 +11,7 @@
   <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="Css/redesign.css">
-  <link rel="icon" type="image/png" href="favicon.ico.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script src="main.js" defer></script>
   <style>
     .page-hero {
@@ -66,25 +66,96 @@
   </div>
 
   <!-- ================= HEADER ================= -->
-  <header class="new-header">
-    <div class="container">
-      <div class="new-logo">
-        <a href="index.html">
-          <img src="image/logo.png" alt="Pooja Transport Service">
+  <header class="viamaster-header">
+    <div class="header-container">
+      <div class="header-logo">
+        <a href="index.html" title="Return to homepage">
+          <img src="image/logo.png" alt="Pooja Transport Service Logo">
+          <span class="logo-text">POOJA <span>TRANSPORT</span></span>
         </a>
       </div>
-      <nav class="new-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="service.html">Services</a>
-        <a href="contact.html">Contact</a>
+
+      <nav class="header-nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a href="about.html" class="nav-link">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="service.html" class="nav-link">Services <i class="fas fa-chevron-down nav-arrow"></i></a>
+            <div class="mega-menu">
+              <div class="mega-menu-inner">
+                <div class="mega-menu-left">
+                  <h3>Our Services</h3>
+                  <div class="mega-contact-item">
+                    <span class="label">Call Us</span>
+                    <a href="tel:+919910204916">+91 9910204916</a>
+                  </div>
+                  <div class="mega-contact-item">
+                    <span class="label">General Enquiries</span>
+                    <a href="mailto:poojatransportservice3@gmail.com">poojatransportservice3@gmail.com</a>
+                  </div>
+                  <div class="mega-contact-item">
+                    <span class="label">Quality Guarantee</span>
+                    <span class="val"><i class="fas fa-certificate"></i> ISO 9001:2015</span>
+                  </div>
+                </div>
+                <div class="mega-menu-right">
+                  <div class="mega-services-grid">
+                    <a href="service.html#household" class="mega-service-card">
+                      <img src="image/local_shifting.png" alt="Household Shifting">
+                      <span>Household Shifting</span>
+                    </a>
+                    <a href="service.html#office" class="mega-service-card">
+                      <img src="image/packing1.jpg" alt="Office Relocation">
+                      <span>Office Relocation</span>
+                    </a>
+                    <a href="service.html#vehicle" class="mega-service-card">
+                      <img src="image/gallery1.jpg" alt="Car & Bike Transport">
+                      <span>Car & Bike Transport</span>
+                    </a>
+                    <a href="service.html#packing" class="mega-service-card">
+                      <img src="image/packing2.jpg" alt="Packing & Unpacking">
+                      <span>Packing & Unpacking</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cities <i class="fas fa-chevron-down nav-arrow"></i></a>
+            <div class="dropdown-menu">
+              <a href="cities/packers-movers-dehradun.html">Dehradun</a>
+              <a href="cities/packers-movers-greater-noida.html">Greater Noida</a>
+              <a href="cities/packers-movers-kanpur.html">Kanpur</a>
+              <a href="cities/packers-movers-lucknow.html">Lucknow</a>
+              <a href="cities/packers-movers-varanasi.html">Varanasi</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+        </ul>
       </nav>
-      <div class="mobile-toggle" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
+
+      <div class="header-cta">
+        <a href="tel:+919910204916" class="login-link">
+          <i class="fas fa-phone-alt"></i> Call Us
+        </a>
+        <span class="cta-divider"></span>
+        <a href="contact.html" class="quick-quote-btn">
+          Quick Quote
+        </a>
       </div>
-      <a href="tel:+919910204916" class="btn btn-primary hide-mobile">
-        <i class="fas fa-headset" style="margin-right: 8px;"></i> Contact Us
-      </a>
+
+      <button class="mobile-burger-btn" onclick="toggleMenu()" aria-label="Menu toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 

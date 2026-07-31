@@ -1,0 +1,941 @@
+{
+  "nodes": [
+    {
+      "id": "readme_md_main",
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "C:\\PoojaTransportService\\README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "about_html_main",
+      "label": "about.html",
+      "file_type": "document",
+      "source_file": "C:\\PoojaTransportService\\about.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "about_html_about_pooja_transport_service",
+      "label": "About Pooja Transport Service",
+      "file_type": "concept",
+      "source_file": "C:\\PoojaTransportService\\about.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "cities_packers_movers_dehradun_html_main",
+      "label": "packers-movers-dehradun.html",
+      "file_type": "document",
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-dehradun.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "cities_packers_movers_dehradun_html_packers_and_movers_in_dehradun",
+      "label": "Packers and Movers in Dehradun",
+      "file_type": "concept",
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-dehradun.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "cities_packers_movers_greater_noida_html_main",
+      "label": "packers-movers-greater-noida.html",
+      "file_type": "document",
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-greater-noida.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "cities_packers_movers_greater_noida_html_packers_and_movers_in_greater",
+      "label": "Packers and Movers in Greater Noida",
+      "file_type": "concept",
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-greater-noida.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "cities_packers_movers_kanpur_html_main",
+      "label": "packers-movers-kanpur.html",
+      "file_type": "document",
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-kanpur.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "cities_packers_movers_kanpur_html_packers_and_movers_in_kanpur",
+      "label": "Packers and Movers in Kanpur",
+      "file_type": "concept",
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-kanpur.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "cities_packers_movers_lucknow_html_main",
+      "label": "packers-movers-lucknow.html",
+      "file_type": "document",
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-lucknow.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "cities_packers_movers_lucknow_html_packers_and_movers_in_lucknow",
+      "label": "Packers and Movers in Lucknow",
+      "file_type": "concept",
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-lucknow.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "cities_packers_movers_varanasi_html_main",
+      "label": "packers-movers-varanasi.html",
+      "file_type": "document",
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-varanasi.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "cities_packers_movers_varanasi_html_packers_and_movers_in_varanasi",
+      "label": "Packers and Movers in Varanasi",
+      "file_type": "concept",
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-varanasi.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "contact_html_main",
+      "label": "contact.html",
+      "file_type": "document",
+      "source_file": "C:\\PoojaTransportService\\contact.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "contact_html_contact_us",
+      "label": "Contact Us",
+      "file_type": "concept",
+      "source_file": "C:\\PoojaTransportService\\contact.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_html_main",
+      "label": "index.html",
+      "file_type": "document",
+      "source_file": "C:\\PoojaTransportService\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_html_relocate_with_elite_precision",
+      "label": "Relocate with Elite Precision",
+      "file_type": "concept",
+      "source_file": "C:\\PoojaTransportService\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "robots_txt_main",
+      "label": "robots.txt",
+      "file_type": "document",
+      "source_file": "C:\\PoojaTransportService\\robots.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "service_html_main",
+      "label": "service.html",
+      "file_type": "document",
+      "source_file": "C:\\PoojaTransportService\\service.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "service_html_our_shifting_services",
+      "label": "Our Shifting Services",
+      "file_type": "concept",
+      "source_file": "C:\\PoojaTransportService\\service.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "favicon_ico_png_main",
+      "label": "favicon.ico.png",
+      "file_type": "image",
+      "source_file": "C:\\PoojaTransportService\\favicon.ico.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "image_gallery1_jpg_main",
+      "label": "gallery1.jpg",
+      "file_type": "image",
+      "source_file": "C:\\PoojaTransportService\\image\\gallery1.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "image_gallery2_jpg_main",
+      "label": "gallery2.jpg",
+      "file_type": "image",
+      "source_file": "C:\\PoojaTransportService\\image\\gallery2.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "image_gallery3_jpg_main",
+      "label": "gallery3.jpg",
+      "file_type": "image",
+      "source_file": "C:\\PoojaTransportService\\image\\gallery3.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "image_gallery4_jpg_main",
+      "label": "gallery4.jpg",
+      "file_type": "image",
+      "source_file": "C:\\PoojaTransportService\\image\\gallery4.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "image_gallery5_jpg_main",
+      "label": "gallery5.jpg",
+      "file_type": "image",
+      "source_file": "C:\\PoojaTransportService\\image\\gallery5.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "image_local_shifting_png_main",
+      "label": "local_shifting.png",
+      "file_type": "image",
+      "source_file": "C:\\PoojaTransportService\\image\\local_shifting.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "image_logo_png_main",
+      "label": "logo.png",
+      "file_type": "image",
+      "source_file": "C:\\PoojaTransportService\\image\\logo.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "image_packing1_jpg_main",
+      "label": "packing1.jpg",
+      "file_type": "image",
+      "source_file": "C:\\PoojaTransportService\\image\\packing1.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "image_packing2_jpg_main",
+      "label": "packing2.jpg",
+      "file_type": "image",
+      "source_file": "C:\\PoojaTransportService\\image\\packing2.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "image_packing3_jpg_main",
+      "label": "packing3.jpg",
+      "file_type": "image",
+      "source_file": "C:\\PoojaTransportService\\image\\packing3.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "image_packing4_jpg_main",
+      "label": "packing4.jpg",
+      "file_type": "image",
+      "source_file": "C:\\PoojaTransportService\\image\\packing4.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "about_html_main",
+      "target": "about_html_about_pooja_transport_service",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\about.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "about_html_main",
+      "target": "service_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\about.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "about_html_main",
+      "target": "contact_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\about.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "about_html_main",
+      "target": "about_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\about.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "about_html_main",
+      "target": "index_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\about.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "about_html_main",
+      "target": "image_packing4_jpg_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\about.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "about_html_main",
+      "target": "image_logo_png_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\about.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "about_html_main",
+      "target": "image_packing3_jpg_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\about.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "about_html_main",
+      "target": "image_packing2_jpg_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\about.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "about_html_main",
+      "target": "image_packing1_jpg_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\about.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_dehradun_html_main",
+      "target": "cities_packers_movers_dehradun_html_packers_and_movers_in_dehradun",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-dehradun.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_dehradun_html_main",
+      "target": "service_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-dehradun.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_dehradun_html_main",
+      "target": "contact_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-dehradun.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_dehradun_html_main",
+      "target": "index_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-dehradun.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_dehradun_html_main",
+      "target": "about_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-dehradun.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_dehradun_html_main",
+      "target": "image_logo_png_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-dehradun.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_greater_noida_html_main",
+      "target": "cities_packers_movers_greater_noida_html_packers_and_movers_in_greater",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-greater-noida.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_greater_noida_html_main",
+      "target": "service_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-greater-noida.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_greater_noida_html_main",
+      "target": "contact_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-greater-noida.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_greater_noida_html_main",
+      "target": "index_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-greater-noida.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_greater_noida_html_main",
+      "target": "about_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-greater-noida.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_greater_noida_html_main",
+      "target": "image_logo_png_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-greater-noida.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_kanpur_html_main",
+      "target": "cities_packers_movers_kanpur_html_packers_and_movers_in_kanpur",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-kanpur.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_kanpur_html_main",
+      "target": "service_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-kanpur.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_kanpur_html_main",
+      "target": "contact_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-kanpur.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_kanpur_html_main",
+      "target": "index_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-kanpur.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_kanpur_html_main",
+      "target": "about_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-kanpur.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_kanpur_html_main",
+      "target": "image_logo_png_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-kanpur.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_lucknow_html_main",
+      "target": "cities_packers_movers_lucknow_html_packers_and_movers_in_lucknow",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-lucknow.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_lucknow_html_main",
+      "target": "service_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-lucknow.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_lucknow_html_main",
+      "target": "contact_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-lucknow.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_lucknow_html_main",
+      "target": "index_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-lucknow.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_lucknow_html_main",
+      "target": "about_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-lucknow.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_lucknow_html_main",
+      "target": "image_logo_png_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-lucknow.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_varanasi_html_main",
+      "target": "cities_packers_movers_varanasi_html_packers_and_movers_in_varanasi",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-varanasi.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_varanasi_html_main",
+      "target": "service_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-varanasi.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_varanasi_html_main",
+      "target": "contact_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-varanasi.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_varanasi_html_main",
+      "target": "index_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-varanasi.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_varanasi_html_main",
+      "target": "about_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-varanasi.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cities_packers_movers_varanasi_html_main",
+      "target": "image_logo_png_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\cities\\packers-movers-varanasi.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "contact_html_main",
+      "target": "contact_html_contact_us",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\contact.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "contact_html_main",
+      "target": "service_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\contact.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "contact_html_main",
+      "target": "contact_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\contact.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "contact_html_main",
+      "target": "about_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\contact.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "contact_html_main",
+      "target": "index_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\contact.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "contact_html_main",
+      "target": "image_logo_png_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\contact.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_html_main",
+      "target": "index_html_relocate_with_elite_precision",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_html_main",
+      "target": "service_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_html_main",
+      "target": "contact_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_html_main",
+      "target": "about_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_html_main",
+      "target": "index_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_html_main",
+      "target": "image_logo_png_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "service_html_main",
+      "target": "service_html_our_shifting_services",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\service.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "service_html_main",
+      "target": "service_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\service.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "service_html_main",
+      "target": "contact_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\service.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "service_html_main",
+      "target": "about_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\service.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "service_html_main",
+      "target": "index_html_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\service.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "service_html_main",
+      "target": "image_logo_png_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\PoojaTransportService\\service.html",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
