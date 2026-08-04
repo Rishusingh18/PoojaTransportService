@@ -7,9 +7,7 @@ import {
   PackageCheck, 
   Lock, 
   Clock, 
-  TrendingUp, 
-  Sparkles,
-  CheckCircle2
+  TrendingUp
 } from 'lucide-react';
 
 export const About: React.FC = () => {
@@ -59,7 +57,7 @@ export const About: React.FC = () => {
     <section className="about-redesign-section" id="why-us">
       <div className="container">
         <div className="about-grid">
-          {/* Visual Showcase Stack */}
+          {/* Visual Showcase Frame */}
           <div className="about-showcase-wrapper">
             <div className="about-image-card">
               <img 
@@ -69,69 +67,27 @@ export const About: React.FC = () => {
               />
               <div className="about-img-overlay"></div>
 
-              {/* Secondary Authentic Move Image Float */}
-              <div className="about-secondary-photo-card">
-                <img 
-                  src="/image/gallery3.jpg" 
-                  alt="Authentic Pooja Transport Service Move" 
-                  className="about-secondary-img"
-                />
-                <div className="secondary-photo-badge">
-                  <CheckCircle2 style={{ width: '12px', height: '12px', color: '#10b981' }} />
-                  <span>Real On-Site Move</span>
-                </div>
-              </div>
-              
               {/* Vector Badge 1: Top Floating Pill */}
               <div className="about-top-pill-vector">
                 <ShieldCheck style={{ width: '16px', height: '16px', color: '#34d399' }} />
                 <span>ISO 9001:2015 Certified • 10+ Yrs Trust</span>
               </div>
 
-              {/* Vector Badge 2: Live Fleet Widget */}
-              <div className="about-gps-widget">
-                <div className="gps-indicator">
-                  <span className="pulse-dot"></span>
-                  <Truck style={{ width: '16px', height: '16px', color: '#3b82f6' }} />
-                </div>
-                <div>
-                  <div className="gps-title">GPS Live Tracking Active</div>
-                  <div className="gps-sub">Real-Time Route Telemetry</div>
-                </div>
-              </div>
-
-              {/* Vector Badge 3: Bottom Glass Float Badge */}
+              {/* Vector Badge 2: Bottom Glass Float Badge */}
               <div className="about-glass-badge-vector">
                 <div className="about-glass-badge-icon-vector">
-                  <Award style={{ width: '22px', height: '22px', color: '#ffffff' }} />
+                  <ShieldCheck style={{ width: '20px', height: '20px', color: '#10b981' }} />
                 </div>
                 <div>
-                  <div className="about-glass-badge-title">100% Damage-Free</div>
-                  <div className="about-glass-badge-sub">Backing 5-Layer Tech Packing Standard</div>
+                  <div className="about-glass-badge-title">100% Damage-Free Guarantee</div>
+                  <div className="about-glass-badge-sub">Engineered 5-Layer Tech Packing</div>
                 </div>
-              </div>
-
-              {/* Authentic Vector Stamp Graphic */}
-              <div className="about-vector-stamp">
-                <svg viewBox="0 0 100 100" width="76" height="76" className="stamp-svg">
-                  <path id="stamp-curve" fill="transparent" d="M 14, 50 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" />
-                  <text className="stamp-text">
-                    <textPath href="#stamp-curve" startOffset="0%">• VERIFIED SAFETY • GUARANTEED CARE </textPath>
-                  </text>
-                  <circle cx="50" cy="50" r="20" fill="#d22b2b" />
-                  <path d="M43 50 l5 5 l10 -10" stroke="white" strokeWidth="2.8" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
               </div>
             </div>
           </div>
 
           {/* Text Content Column */}
           <div className="about-content-col">
-            <div className="section-tag-glow">
-              <Sparkles style={{ width: '14px', height: '14px', color: '#ef4444' }} />
-              <span>WHY CHOOSE US</span>
-            </div>
-            
             <h2 className="about-main-heading">
               Relocate With Uncompromising <br />
               <span className="gradient-text">Trust & Precision</span>
