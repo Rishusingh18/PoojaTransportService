@@ -116,7 +116,7 @@ export const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
                   }
                 : {
                     position: 'absolute',
-                    top: '-60px',
+                    top: '-175px',
                     right: 'calc(100% + 20px)',
                     left: 'auto',
                     zIndex: 2000,
@@ -137,7 +137,7 @@ export const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
               <div
                 style={{
                   position: 'absolute',
-                  top: '80px',
+                  top: '145px',
                   right: '-9px',
                   left: 'auto',
                   width: '16px',
