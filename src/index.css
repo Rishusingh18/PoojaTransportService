@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+:root {
+  --color-surface: #f8f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eff4ff;
+  --color-surface-container: #e5eeff;
+  --color-surface-container-high: #dce9ff;
+  --color-surface-container-highest: #d3e4fe;
+  --color-on-background: #0b1c30;
+  --color-on-surface-variant: #45464d;
+  --color-outline-variant: #c6c6cd;
+  --color-primary-container: #131b2e;
+  --color-on-primary: #ffffff;
+  --color-secondary-container: #f8df71;
+  --color-tertiary-container: #00174b;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-on-background);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.editorial-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(248,249,255,0.95) 0%, rgba(248,249,255,0.7) 45%, rgba(248,249,255,0.1) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* Minimalist border-bottom inputs from Stitch reference */
+.input-minimal {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #c6c6cd;
+  padding: 0.75rem 0;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-minimal:focus {
+  border-color: #0b1c30;
+  box-shadow: none;
+}
+
+/* Preserved Logo Styles */
+.header-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.header-logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  color: #0b1c30;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-text-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6e5e00;
+}

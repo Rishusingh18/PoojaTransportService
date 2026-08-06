@@ -5,30 +5,68 @@
   <meta charset="UTF-8">
   <title>Contact Us | Pooja Transport Service - Get a Free Quote Today</title>
   <meta name="description"
-    content="Contact Pooja Transport Service for reliable shifting services in Delhi, Noida, Ghaziabad and across India. Get a free moving quote via call or WhatsApp.">
+    content="Contact Pooja Transport Service for reliable house shifting and office relocation across India. Instant quote via WhatsApp or phone.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts & Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS & Kinetic Enterprise Theme Config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#f8f9ff",
+            "surface-dim": "#cbdbf5",
+            "surface-bright": "#f8f9ff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#eff4ff",
+            "surface-container": "#e5eeff",
+            "surface-container-high": "#dce9ff",
+            "surface-container-highest": "#d3e4fe",
+            "surface-variant": "#d3e4fe",
+            "on-background": "#0b1c30",
+            "on-surface": "#0b1c30",
+            "on-surface-variant": "#45464d",
+            "outline": "#76777d",
+            "outline-variant": "#c6c6cd",
+            "primary": "#0b1c30",
+            "on-primary": "#ffffff",
+            "primary-container": "#131b2e",
+            "on-primary-container": "#7c839b",
+            "secondary": "#6e5e00",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#f8df71",
+            "on-secondary-container": "#736200",
+            "tertiary-container": "#00174b",
+            "on-tertiary-container": "#497cff"
+          },
+          fontFamily: {
+            display: ["Playfair Display", "serif"],
+            sans: ["Inter", "sans-serif"],
+            body: ["Inter", "sans-serif"]
+          },
+          maxWidth: {
+            "container-max": "1280px"
+          },
+          spacing: {
+            "margin-desktop": "64px",
+            "margin-mobile": "24px",
+            "gutter": "32px"
+          }
+        }
+      }
+    }
+  </script>
   <link rel="icon" type="image/svg+xml" href="/assets/favicon-B3YU7BmQ.svg">
   <script src="main.js" defer></script>
-  <style>
-    .page-hero {
-      background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=2000&auto=format&fit=crop') center/cover;
-      padding: 6rem 0;
-      text-align: center;
-      color: white;
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    @media (max-width: 1024px) {
-      .contact-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18154472207"></script>
 <script>
@@ -38,325 +76,197 @@
 
   gtag('config', 'AW-18154472207');
 </script>
-  <link rel="stylesheet" crossorigin href="/assets/redesign-CpsGmtkA.css">
+  <link rel="stylesheet" crossorigin href="/assets/redesign-hqzbb4E3.css">
 </head>
 
-<body>
+<body class="bg-surface text-on-background font-sans antialiased">
 
-  <!-- ================= MOBILE MENU ================= -->
-  <div class="mobile-drawer" id="mobileDrawer">
-    <div class="drawer-header">
-      <img src="/assets/logo-B3rPISgf.png" alt="Pooja Transport Service">
-      <div class="drawer-close" onclick="toggleMenu()"><i class="fas fa-times"></i></div>
-    </div>
-    <nav class="drawer-nav">
-      <a href="index.html" onclick="toggleMenu()"><i class="fas fa-home"></i> Home</a>
-      <a href="about.html" onclick="toggleMenu()"><i class="fas fa-info-circle"></i> About Us</a>
-      <a href="service.html" onclick="toggleMenu()"><i class="fas fa-truck"></i> Services</a>
-      <a href="contact.html" onclick="toggleMenu()"><i class="fas fa-envelope"></i> Contact</a>
-      <hr style="margin: 1rem 0; opacity: 0.1;">
-      <a href="tel:+919910204916" class="btn btn-primary" style="width: 100%;"><i class="fas fa-phone"></i> Call Now</a>
-    </nav>
-  </div>
-
-  <!-- ================= TOPBAR ================= -->
-  <div class="new-topbar">
-    <div class="container">
-      <div class="topbar-info">
-        <span><i class="fas fa-phone"></i> +91 9910204916</span>
-        <span class="hide-mobile"><i class="fas fa-envelope"></i> poojatransportservice3@gmail.com</span>
-      </div>
-
-      <div class="topbar-info hide-mobile">
-        <span><i class="fas fa-certificate"></i> ISO Certified</span>
-        <span><i class="fas fa-clock"></i> 24/7 Support</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= HEADER ================= -->
-  <header class="viamaster-header">
-    <div class="header-container">
-      <div class="header-logo">
-        <a href="index.html" title="Return to homepage">
-          <img src="/assets/logo-B3rPISgf.png" alt="Pooja Transport Service Logo">
-          <span class="logo-text">POOJA <span>TRANSPORT</span></span>
+  <!-- TOP BAR -->
+  <div class="bg-primary-container text-on-primary py-2.5 px-4 text-xs font-medium border-b border-outline-variant/20">
+    <div class="max-w-container-max mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-6">
+        <a href="tel:+919910204916" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+          <i class="fas fa-phone-alt text-[10px]"></i> +91 9910204916
+        </a>
+        <a href="mailto:poojatransportservice3@gmail.com" class="hidden sm:flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
+          <i class="fas fa-envelope text-[10px]"></i> poojatransportservice3@gmail.com
         </a>
       </div>
+      <div class="flex items-center space-x-6">
+        <span class="hidden md:inline-flex items-center gap-1 opacity-80">
+          <i class="fas fa-certificate text-[10px] text-amber-400"></i> ISO 9001:2015 Certified
+        </span>
+      </div>
+    </div>
+  </div>
 
-      <nav class="header-nav">
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="about.html" class="nav-link">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a href="service.html" class="nav-link">Services <i class="fas fa-chevron-down nav-arrow"></i></a>
-            <div class="mega-menu">
-              <div class="mega-menu-inner">
-                <div class="mega-menu-left">
-                  <h3>Our Services</h3>
-                  <div class="mega-contact-item">
-                    <span class="label">Call Us</span>
-                    <a href="tel:+919910204916">+91 9910204916</a>
-                  </div>
-                  <div class="mega-contact-item">
-                    <span class="label">General Enquiries</span>
-                    <a href="mailto:poojatransportservice3@gmail.com">poojatransportservice3@gmail.com</a>
-                  </div>
-                  <div class="mega-contact-item">
-                    <span class="label">Quality Guarantee</span>
-                    <span class="val"><i class="fas fa-certificate"></i> ISO 9001:2015</span>
-                  </div>
-                </div>
-                <div class="mega-menu-right">
-                  <div class="mega-services-grid">
-                    <a href="service.html#household" class="mega-service-card">
-                      <img src="/assets/local_shifting-CCJ12SUb.png" alt="Household Shifting">
-                      <span>Household Shifting</span>
-                    </a>
-                    <a href="service.html#office" class="mega-service-card">
-                      <img src="/assets/packing1-Dj8gxUPA.jpg" alt="Office Relocation">
-                      <span>Office Relocation</span>
-                    </a>
-                    <a href="service.html#vehicle" class="mega-service-card">
-                      <img src="/assets/gallery1-Vqfh3gtT.jpg" alt="Car & Bike Transport">
-                      <span>Car & Bike Transport</span>
-                    </a>
-                    <a href="service.html#packing" class="mega-service-card">
-                      <img src="/assets/packing2--hHYjKAI.jpg" alt="Packing & Unpacking">
-                      <span>Packing & Unpacking</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Cities <i class="fas fa-chevron-down nav-arrow"></i></a>
-            <div class="dropdown-menu">
-              <a href="cities/packers-movers-dehradun.html">Dehradun</a>
-              <a href="cities/packers-movers-greater-noida.html">Greater Noida</a>
-              <a href="cities/packers-movers-kanpur.html">Kanpur</a>
-              <a href="cities/packers-movers-lucknow.html">Lucknow</a>
-              <a href="cities/packers-movers-varanasi.html">Varanasi</a>
-            </div>
-          </li>
-          <li class="nav-item active">
-            <a href="contact.html" class="nav-link">Contact</a>
-          </li>
-        </ul>
+  <!-- HEADER WITH PRESERVED LOGO -->
+  <header class="w-full top-0 sticky bg-[#0b1c30] text-white border-b border-white/10 z-50 transition-shadow duration-300 shadow-md">
+    <div class="flex justify-between items-center h-20 max-w-container-max mx-auto px-4 md:px-margin-desktop">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="/image/logo.png" alt="Pooja Transport Service Logo" class="h-12 w-auto object-contain" />
+        <span class="flex flex-col">
+          <span class="font-display font-bold text-xl tracking-tight text-white leading-tight">
+            POOJA <span class="text-amber-400">TRANSPORT</span>
+          </span>
+          <span class="text-[10px] font-semibold tracking-widest text-slate-300 uppercase">
+            Relocation Excellence
+          </span>
+        </span>
+      </a>
+
+      <nav class="hidden lg:flex space-x-8 items-center">
+        <a href="index.html" class="text-slate-300 text-sm font-medium hover:text-white transition-colors">Home</a>
+        <a href="about.html" class="text-slate-300 text-sm font-medium hover:text-white transition-colors">About Us</a>
+        <a href="service.html" class="text-slate-300 text-sm font-medium hover:text-white transition-colors">Services</a>
+        <a href="contact.html" class="text-white font-semibold border-b-2 border-amber-400 pb-1 text-sm hover:text-amber-300 transition-colors">Contact</a>
       </nav>
 
-      <div class="header-cta">
-        <a href="tel:+919910204916" class="login-link">
-          <i class="fas fa-phone-alt"></i> Call Us
-        </a>
-        <span class="cta-divider"></span>
-        <a href="contact.html" class="quick-quote-btn">
-          Quick Quote
+      <div class="hidden lg:flex items-center space-x-4">
+        <a href="index.html#quote" class="bg-amber-400 text-[#0b1c30] text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded hover:bg-amber-300 transition-all shadow-sm">
+          Get Consultation
         </a>
       </div>
 
-      <button class="mobile-burger-btn" onclick="toggleMenu()" aria-label="Menu toggle">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="lg:hidden text-white p-2 focus:outline-none" onclick="toggleMenu()">
+        <i class="fas fa-bars text-xl"></i>
       </button>
     </div>
   </header>
 
-  <!-- ================= HERO ================= -->
-  <section class="page-hero">
-    <div class="container">
-      <h1 style="font-size: 3rem; margin-bottom: 1rem;">Contact Us</h1>
-      <p style="font-size: 1.25rem; opacity: 0.9;">We're Here to Help You Move Smarter & Safer</p>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT CONTENT ================= -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="contact-grid">
-        <!-- Contact Info -->
-        <div>
-          <h2 style="font-size: 2rem; color: var(--primary); margin-bottom: 2rem;">Get in Touch</h2>
+  <main>
+    <!-- Contact Consultation Section -->
+    <section class="py-20 max-w-container-max mx-auto px-4 md:px-margin-desktop">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant p-8 md:p-12 rounded-xl shadow-sm">
+          <span class="text-xs font-semibold text-on-surface-variant uppercase tracking-widest block mb-2">Direct Engagement</span>
+          <h1 class="font-display text-3xl md:text-5xl text-on-background font-bold mb-6">Initiate Consultation</h1>
           
-          <div style="margin-bottom: 2rem;">
-            <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 1.5rem;">
-              <div style="width: 50px; height: 50px; background: #eff6ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.25rem;">
-                <i class="fas fa-phone-alt"></i>
+          <form onsubmit="handleContactSubmit(event)" class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant block mb-2">Full Name</label>
+                <input type="text" id="c-name" class="w-full input-minimal text-sm text-on-background" placeholder="Rajesh Kumar" required>
               </div>
               <div>
-                <h4 style="margin-bottom: 0.25rem;">Call Us Directly</h4>
-                <p style="color: var(--text-muted); font-weight: 600;">+91 9910204916</p>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Available 24/7 for Enquiries</p>
+                <label class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant block mb-2">Mobile Phone</label>
+                <input type="tel" id="c-phone" class="w-full input-minimal text-sm text-on-background" placeholder="+91 9910204916" required>
               </div>
             </div>
 
-            <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 1.5rem;">
-              <div style="width: 50px; height: 50px; background: #ecfdf5; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.25rem;">
-                <i class="fab fa-whatsapp"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant block mb-2">Moving From</label>
+                <input type="text" id="c-from" class="w-full input-minimal text-sm text-on-background" placeholder="City or Area" required>
               </div>
               <div>
-                <h4 style="margin-bottom: 0.25rem;">WhatsApp Chat</h4>
-                <a href="https://wa.me/919910204916" target="_blank" style="color: var(--accent); font-weight: 600;">Chat with an Expert</a>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Instant Response Guaranteed</p>
+                <label class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant block mb-2">Moving To</label>
+                <input type="text" id="c-to" class="w-full input-minimal text-sm text-on-background" placeholder="Destination City" required>
               </div>
             </div>
 
-            <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 1.5rem;">
-              <div style="width: 50px; height: 50px; background: #fff7ed; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--secondary); font-size: 1.25rem;">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div>
-                <h4 style="margin-bottom: 0.25rem;">Email Address</h4>
-                <p style="color: var(--text-muted); font-weight: 600;">poojatransportservice3@gmail.com</p>
-              </div>
+            <div>
+              <label class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant block mb-2">Service Requirement</label>
+              <select id="c-service" class="w-full input-minimal text-sm text-on-background bg-transparent">
+                <option value="Household Shifting">Household & Executive Shifting</option>
+                <option value="Corporate Relocation">Corporate Infrastructure Move</option>
+                <option value="Vehicle Transport">Car & Bike Vehicle Carrier</option>
+                <option value="Warehousing">Bespoke Warehousing & Storage</option>
+              </select>
             </div>
 
-            <div style="display: flex; gap: 20px; align-items: flex-start;">
-              <div style="width: 50px; height: 50px; background: #f1f5f9; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-size: 1.25rem;">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div>
-                <h4 style="margin-bottom: 0.25rem;">Main Head Office</h4>
-                <p style="color: var(--text-muted);">Gaur City Center, Greater Noida, Uttar Pradesh</p>
-              </div>
-            </div>
-          </div>
-
-          <div style="background: var(--primary); color: white; padding: 2rem; border-radius: var(--radius-lg);">
-            <h4 style="margin-bottom: 1rem; color: var(--secondary);">Why Choose Pooja?</h4>
-            <ul style="font-size: 0.9rem;">
-              <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="margin-right: 10px; color: var(--secondary);"></i> 10+ Years of Excellence</li>
-              <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="margin-right: 10px; color: var(--secondary);"></i> ISO Certified Quality</li>
-              <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="margin-right: 10px; color: var(--secondary);"></i> Licensed & GST Registered</li>
-              <li><i class="fas fa-check" style="margin-right: 10px; color: var(--secondary);"></i> Trained In-house Staff</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Form -->
-        <div class="quote-form-card" style="box-shadow: var(--shadow-premium);">
-          <h3 style="text-align: left; border-bottom: 1px solid #f1f5f9; padding-bottom: 1rem; margin-bottom: 2rem;">Send Us a Message</h3>
-          <form id="contactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label>Your Name</label>
-                <input type="text" id="name" placeholder="John Doe" required>
-              </div>
-              <div class="form-group">
-                <label>Mobile Number</label>
-                <input type="tel" id="mobile" placeholder="+91 XXXX XXX XXX" required>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Moving From</label>
-                <input type="text" id="from" placeholder="Origin City" required>
-              </div>
-              <div class="form-group">
-                <label>Moving To</label>
-                <input type="text" id="to" placeholder="Destination City" required>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Floor Number</label>
-                <input type="text" id="floor" placeholder="e.g. 2nd Floor" required>
-              </div>
-              <div class="form-group">
-                <label>Shifting Date</label>
-                <input type="date" id="date" required>
-              </div>
+            <div>
+              <label class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant block mb-2">Move Details & Notes</label>
+              <textarea id="c-message" rows="4" class="w-full input-minimal text-sm text-on-background resize-none" placeholder="Provide context regarding item inventory, floor elevator access, and target move dates..."></textarea>
             </div>
 
-            <div style="margin-bottom: 1.5rem;">
-              <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Items to Shift</label>
-              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem;">
-                <button type="button" class="btn" style="padding: 6px 12px; font-size: 0.75rem; border: 1px solid #cbd5e1; background: #f8fafc;" onclick="addQuickItem('1 BHK')">+ 1 BHK</button>
-                <button type="button" class="btn" style="padding: 6px 12px; font-size: 0.75rem; border: 1px solid #cbd5e1; background: #f8fafc;" onclick="addQuickItem('2 BHK')">+ 2 BHK</button>
-                <button type="button" class="btn" style="padding: 6px 12px; font-size: 0.75rem; border: 1px solid #cbd5e1; background: #f8fafc;" onclick="addQuickItem('3 BHK')">+ 3 BHK</button>
-                <button type="button" class="btn" style="padding: 6px 12px; font-size: 0.75rem; border: 1px solid #cbd5e1; background: #f8fafc;" onclick="addQuickItem('Fridge')">+ Fridge</button>
-                <button type="button" class="btn" style="padding: 6px 12px; font-size: 0.75rem; border: 1px solid #cbd5e1; background: #f8fafc;" onclick="addQuickItem('Sofa')">+ Sofa</button>
-                <button type="button" class="btn" style="padding: 6px 12px; font-size: 0.75rem; border: 1px solid #cbd5e1; background: #f8fafc;" onclick="addQuickItem('Bed')">+ Bed</button>
-                <button type="button" class="btn" style="padding: 6px 12px; font-size: 0.75rem; border: 1px solid #cbd5e1; background: #f8fafc;" onclick="addQuickItem('Few Items')">+ Few Items</button>
-              </div>
-              <textarea id="items" placeholder="List your major items here..." style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: var(--radius); height: 100px; resize: none;" required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-secondary" style="width: 100%; padding: 1rem;">
-              <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Send on WhatsApp
+            <button type="submit" class="bg-primary-container text-on-primary text-xs font-semibold uppercase tracking-widest py-4 px-8 rounded w-full sm:w-auto hover:bg-opacity-90 transition-all">
+              <i class="fab fa-whatsapp text-emerald-400 mr-2 text-base"></i> Transmit Request via WhatsApp
             </button>
           </form>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ================= FOOTER ================= -->
-  <footer style="background: #0f172a; color: white; padding: 4rem 0 1rem;">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
-        <div>
-          <img src="/assets/logo-B3rPISgf.png" alt="Pooja Transport Service" style="height: 50px; margin-bottom: 1.5rem; filter: brightness(0) invert(1);">
-          <p style="opacity: 0.7; font-size: 0.9rem;">Pooja Transport Service is a leading relocation service provider dedicated to making shifting easy, safe, and affordable for everyone.</p>
-        </div>
-        </div>
-        <div>
-          <h4 style="margin-bottom: 1.5rem; color: var(--secondary);">Quick Links</h4>
-          <ul style="opacity: 0.7; font-size: 0.9rem;">
-            <li><a href="index.html" style="color: white; display: block; margin-bottom: 0.5rem;">Home</a></li>
-            <li><a href="about.html" style="color: white; display: block; margin-bottom: 0.5rem;">About Us</a></li>
-            <li><a href="service.html" style="color: white; display: block; margin-bottom: 0.5rem;">Our Services</a></li>
-            <li><a href="contact.html" style="color: white; display: block; margin-bottom: 0.5rem;">Contact Us</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 style="margin-bottom: 1.5rem; color: var(--secondary);">Contact Us</h4>
-          <p style="opacity: 0.7; font-size: 0.9rem; margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt"></i> Gaur City Center, Greater Noida</p>
-          <p style="opacity: 0.7; font-size: 0.9rem; margin-bottom: 0.5rem;"><i class="fas fa-phone"></i> +91 9910204916</p>
-          <p style="opacity: 0.7; font-size: 0.9rem;"><i class="fas fa-envelope"></i> poojatransportservice3@gmail.com</p>
+        <!-- Contact Cards Column -->
+        <div class="lg:col-span-5 space-y-8">
+          <div class="bg-surface-container border border-outline-variant rounded-xl p-8 space-y-4">
+            <h3 class="font-display text-2xl font-bold text-on-background border-b border-outline-variant/40 pb-3">Operations Command</h3>
+            <div class="space-y-4 text-xs text-on-surface-variant">
+              <div>
+                <p class="uppercase tracking-widest font-semibold text-on-background mb-1">Direct Call Dispatch</p>
+                <a href="tel:+919910204916" class="text-sm font-bold text-on-background hover:text-primary">+91 9910204916</a>
+              </div>
+              <div>
+                <p class="uppercase tracking-widest font-semibold text-on-background mb-1">General Enquiries</p>
+                <a href="mailto:poojatransportservice3@gmail.com" class="text-sm font-bold text-on-background hover:text-primary">poojatransportservice3@gmail.com</a>
+              </div>
+              <div>
+                <p class="uppercase tracking-widest font-semibold text-on-background mb-1">Headquarters Address</p>
+                <p class="text-sm font-semibold text-on-background">Gaur City Center, Greater Noida, Uttar Pradesh, India</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-primary-container text-on-primary rounded-xl p-8 space-y-3">
+            <span class="text-[10px] font-semibold uppercase tracking-widest text-amber-400">ISO 9001:2015 Guarantee</span>
+            <h4 class="font-display text-xl font-bold">Guaranteed Price Lock</h4>
+            <p class="text-xs text-on-primary-container leading-relaxed">
+              Every relocation quote is binding with zero hidden surge costs. Full 100% transit insurance protection included with itemized inventory.
+            </p>
+          </div>
         </div>
       </div>
-      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; font-size: 0.8rem; opacity: 0.5;">
-        <p>© 2026 Pooja Transport Service. All Rights Reserved.</p>
+    </section>
+  </main>
+
+  <!-- FOOTER WITH PRESERVED LOGO -->
+  <footer class="w-full bg-surface-container-high border-t border-outline-variant py-16 text-on-background">
+    <div class="max-w-container-max mx-auto px-4 md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="md:col-span-1 space-y-4">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="/image/logo.png" alt="Pooja Transport Service Logo" class="h-10 w-auto object-contain" />
+          <span class="font-display font-bold text-lg text-on-background">POOJA <span class="text-[#6e5e00]">TRANSPORT</span></span>
+        </a>
+        <p class="text-xs text-on-surface-variant">ISO 9001:2015 Certified Relocation Forwarder.</p>
+        <p class="text-[11px] text-on-surface-variant opacity-75">© 2026 Pooja Transport Service.</p>
+      </div>
+      <div class="flex flex-col space-y-3">
+        <h4 class="text-xs font-semibold text-on-background uppercase tracking-widest">Services</h4>
+        <a href="service.html#household" class="text-xs text-on-surface-variant hover:text-on-background">Household Shifting</a>
+        <a href="service.html#office" class="text-xs text-on-surface-variant hover:text-on-background">Corporate Relocation</a>
+      </div>
+      <div class="flex flex-col space-y-3">
+        <h4 class="text-xs font-semibold text-on-background uppercase tracking-widest">Contact</h4>
+        <p class="text-xs text-on-surface-variant">+91 9910204916</p>
+        <p class="text-xs text-on-surface-variant">poojatransportservice3@gmail.com</p>
+      </div>
+      <div class="flex flex-col space-y-3">
+        <h4 class="text-xs font-semibold text-on-background uppercase tracking-widest">Headquarters</h4>
+        <p class="text-xs text-on-surface-variant">Gaur City Center, Greater Noida, UP</p>
       </div>
     </div>
   </footer>
 
-  <!-- ================= STICKY ACTIONS ================= -->
-  <div class="sticky-actions hide-mobile">
-    <a href="https://wa.me/919910204916" class="action-btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="tel:+919910204916" class="action-btn btn-call"><i class="fas fa-phone"></i></a>
-  </div>
-
-  <div class="mobile-only-bar">
-    <a href="tel:+919910204916" class="btn btn-primary" style="background-color: var(--primary); color: white;"><i class="fas fa-phone"></i> Call Now</a>
-    <a href="https://wa.me/919910204916" class="btn btn-secondary" style="background-color: var(--secondary); color: var(--text-dark);"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-  </div>
-
   <script>
-    function addQuickItem(itemName) {
-      addQuickItemShared(itemName, 'items');
-    }
-
-    document.getElementById('contactForm')?.addEventListener('submit', function (e) {
+    function handleContactSubmit(e) {
       e.preventDefault();
-      sendWhatsAppQuote({
-        name: document.getElementById('name').value,
-        mobile: document.getElementById('mobile').value,
-        from: document.getElementById('from').value,
-        to: document.getElementById('to').value,
-        floor: document.getElementById('floor').value,
-        date: document.getElementById('date').value,
-        items: document.getElementById('items').value
-      });
-    });
+      const name = document.getElementById('c-name').value;
+      const phone = document.getElementById('c-phone').value;
+      const from = document.getElementById('c-from').value;
+      const to = document.getElementById('c-to').value;
+      const service = document.getElementById('c-service').value;
+      const message = document.getElementById('c-message').value;
+
+      const text = "Hello Pooja Transport Service, I want to request a Shifting Quote." +
+        "%0a%0a*--- Move Details ---*" +
+        "%0a*Name:* " + encodeURIComponent(name) +
+        "%0a*Mobile:* " + encodeURIComponent(phone) +
+        "%0a*From:* " + encodeURIComponent(from) +
+        "%0a*To:* " + encodeURIComponent(to) +
+        "%0a*Service:* " + encodeURIComponent(service) +
+        (message ? "%0a*Notes:* " + encodeURIComponent(message) : "");
+
+      window.open("https://wa.me/919910204916?text=" + text, '_blank');
+    }
   </script>
 </body>
-
 </html>

@@ -6,103 +6,125 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
   return (
-    <header className="viamaster-header">
-      <div className="header-container" style={{ paddingLeft: '0.75rem' }}>
-        <div className="header-logo" style={{ marginLeft: 0 }}>
-          <a href="index.html" title="Return to homepage">
-            <img src="image/logo.png" alt="Pooja Transport Service Logo" style={{ height: '63px', width: 'auto' }} />
-            <span className="logo-text">POOJA <span>TRANSPORT</span></span>
-          </a>
-        </div>
+    <header className="w-full top-0 sticky bg-[#0b1c30] text-white border-b border-white/10 z-50 transition-shadow duration-300 shadow-md">
+      <div className="flex justify-between items-center h-20 max-w-container-max mx-auto px-4 md:px-margin-desktop">
+        {/* Preserved Brand Logo */}
+        <a href="index.html" className="flex items-center gap-3 group" title="Pooja Transport Service Homepage">
+          <img 
+            src="/image/logo.png" 
+            alt="Pooja Transport Service Logo" 
+            className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+          />
+          <span className="flex flex-col">
+            <span className="font-display font-bold text-xl tracking-tight text-white leading-tight">
+              POOJA <span className="text-amber-400">TRANSPORT</span>
+            </span>
+            <span className="text-[10px] font-semibold tracking-widest text-slate-300 uppercase">
+              Relocation Excellence
+            </span>
+          </span>
+        </a>
 
-        <nav className="header-nav">
-          <ul className="nav-list">
-            <li className="nav-item active">
-              <a href="index.html" className="nav-link">Home</a>
-            </li>
-            <li className="nav-item">
-              <a href="about.html" className="nav-link">About Us</a>
-            </li>
-            <li className="nav-item">
-              <a href="service.html" className="nav-link">
-                Services <i className="fas fa-chevron-down nav-arrow"></i>
-              </a>
-              <div className="mega-menu">
-                <div className="mega-menu-inner">
-                  <div className="mega-menu-left">
-                    <h3>Our Services</h3>
-                    <div className="mega-contact-item">
-                      <span className="label">Call Us</span>
-                      <a href="tel:+919910204916">+91 9910204916</a>
-                    </div>
-                    <div className="mega-contact-item">
-                      <span className="label">General Enquiries</span>
-                      <a href="mailto:poojatransportservice3@gmail.com">poojatransportservice3@gmail.com</a>
-                    </div>
-                    <div className="mega-contact-item">
-                      <span className="label">Quality Guarantee</span>
-                      <span className="val"><i className="fas fa-certificate"></i> ISO 9001:2015</span>
-                    </div>
-                  </div>
-                  <div className="mega-menu-right">
-                    <div className="mega-services-grid">
-                      <a href="service.html#household" className="mega-service-card">
-                        <img src="image/local_shifting.png" alt="Household Shifting" />
-                        <span>Household Shifting</span>
-                      </a>
-                      <a href="service.html#office" className="mega-service-card">
-                        <img src="image/packing1.jpg" alt="Office Relocation" />
-                        <span>Office Relocation</span>
-                      </a>
-                      <a href="service.html#vehicle" className="mega-service-card">
-                        <img src="image/gallery1.jpg" alt="Car & Bike Transport" />
-                        <span>Car & Bike Transport</span>
-                      </a>
-                      <a href="service.html#packing" className="mega-service-card">
-                        <img src="image/packing2.jpg" alt="Packing & Unpacking" />
-                        <span>Packing & Unpacking</span>
-                      </a>
-                    </div>
-                  </div>
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex space-x-8 items-center">
+          <a href="index.html" className="text-white font-semibold border-b-2 border-amber-400 pb-1 text-sm hover:text-amber-300 transition-colors">
+            Home
+          </a>
+          <a href="about.html" className="text-slate-300 text-sm font-medium hover:text-white transition-colors">
+            About Us
+          </a>
+          
+          {/* Services Mega Dropdown */}
+          <div className="relative group">
+            <a href="service.html" className="text-slate-300 text-sm font-medium hover:text-white transition-colors flex items-center gap-1 py-6">
+              Services <i className="fas fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform"></i>
+            </a>
+            
+            <div className="absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-[#131b2e] border border-white/10 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-6 grid grid-cols-2 gap-4 z-50 text-white">
+              <a href="service.html#household" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
+                <div className="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-amber-400 font-bold shrink-0">
+                  <i className="fas fa-home text-sm"></i>
                 </div>
-              </div>
-            </li>
-            <li className="nav-item">
-              <a href="#" className="nav-link">
-                Cities <i className="fas fa-chevron-down nav-arrow"></i>
+                <div>
+                  <div className="font-semibold text-sm text-white">Household Relocation</div>
+                  <p className="text-xs text-slate-300 mt-0.5">White-glove packing & safe transit for homes.</p>
+                </div>
               </a>
-              <div className="dropdown-menu">
-                <a href="cities/packers-movers-dehradun.html">Dehradun</a>
-                <a href="cities/packers-movers-greater-noida.html">Greater Noida</a>
-                <a href="cities/packers-movers-kanpur.html">Kanpur</a>
-                <a href="cities/packers-movers-lucknow.html">Lucknow</a>
-                <a href="cities/packers-movers-varanasi.html">Varanasi</a>
-              </div>
-            </li>
-            <li className="nav-item">
-              <a href="contact.html" className="nav-link">Contact</a>
-            </li>
-          </ul>
+
+              <a href="service.html#office" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
+                <div className="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-amber-400 font-bold shrink-0">
+                  <i className="fas fa-building text-sm"></i>
+                </div>
+                <div>
+                  <div className="font-semibold text-sm text-white">Corporate Infrastructure</div>
+                  <p className="text-xs text-slate-300 mt-0.5">Headquarters & office move execution.</p>
+                </div>
+              </a>
+
+              <a href="service.html#vehicle" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
+                <div className="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-amber-400 font-bold shrink-0">
+                  <i className="fas fa-car text-sm"></i>
+                </div>
+                <div>
+                  <div className="font-semibold text-sm text-white">Car & Bike Carrier</div>
+                  <p className="text-xs text-slate-300 mt-0.5">Enclosed vehicle transport with live tracking.</p>
+                </div>
+              </a>
+
+              <a href="service.html#warehousing" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
+                <div className="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-amber-400 font-bold shrink-0">
+                  <i className="fas fa-warehouse text-sm"></i>
+                </div>
+                <div>
+                  <div className="font-semibold text-sm text-white">Bespoke Warehousing</div>
+                  <p className="text-xs text-slate-300 mt-0.5">Climate-controlled short & long term storage.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* Cities Dropdown */}
+          <div className="relative group">
+            <a href="#" className="text-slate-300 text-sm font-medium hover:text-white transition-colors flex items-center gap-1 py-6">
+              Cities <i className="fas fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform"></i>
+            </a>
+            <div className="absolute top-full left-0 w-52 bg-[#131b2e] border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
+              <a href="cities/packers-movers-dehradun.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Dehradun</a>
+              <a href="cities/packers-movers-greater-noida.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Greater Noida</a>
+              <a href="cities/packers-movers-kanpur.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Kanpur</a>
+              <a href="cities/packers-movers-lucknow.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Lucknow</a>
+              <a href="cities/packers-movers-varanasi.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Varanasi</a>
+            </div>
+          </div>
+
+          <a href="contact.html" className="text-slate-300 text-sm font-medium hover:text-white transition-colors">
+            Contact
+          </a>
         </nav>
 
-        <div className="header-cta">
-          <a href="tel:+919910204916" className="login-link">
-            <i className="fas fa-phone-alt"></i> Call Us
+        {/* CTA Actions */}
+        <div className="hidden lg:flex items-center space-x-4">
+          <a 
+            href="tel:+919910204916" 
+            className="flex items-center gap-2 text-sm font-semibold text-white hover:text-amber-400 transition-colors px-3 py-2"
+          >
+            <i className="fas fa-phone-alt text-xs text-amber-400"></i> +91 9910204916
           </a>
-          <span className="cta-divider"></span>
-          <a href="contact.html" className="quick-quote-btn">
-            Quick Quote
+          <a 
+            href="#quote" 
+            className="bg-amber-400 text-[#0b1c30] text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded hover:bg-amber-300 transition-all shadow-sm"
+          >
+            Get Consultation
           </a>
         </div>
 
+        {/* Mobile Hamburger Toggle */}
         <button 
-          className="mobile-burger-btn" 
-          onClick={onToggleMenu} 
-          aria-label="Menu toggle"
+          className="lg:hidden p-2 text-white focus:outline-none" 
+          onClick={onToggleMenu}
+          aria-label="Toggle Navigation Menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <i className="fas fa-bars text-xl"></i>
         </button>
       </div>
     </header>

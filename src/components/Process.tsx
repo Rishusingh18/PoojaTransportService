@@ -4,39 +4,52 @@ export const Process: React.FC = () => {
   const steps = [
     {
       num: '01',
-      title: 'Consultation',
-      description: 'Detailed mapping of your relocation needs and item audit.'
+      title: 'Consultation & Audit',
+      description: 'Comprehensive assessment of volume, fragile items, and route parameters to construct a fixed price quote.'
     },
     {
       num: '02',
-      title: 'Elite Packing',
-      description: '5-layer specialized packing using premium imported materials.'
+      title: 'Technical 5-Layer Packing',
+      description: 'White-glove wrapping using anti-static bubble layers, corner guards, and custom wooden crating.'
     },
     {
       num: '03',
-      title: 'Secure Transit',
-      description: 'Real-time GPS tracking in weather-sealed specialized containers.'
+      title: 'Telemetry-Monitored Transit',
+      description: 'Live GPS satellite tracking in weather-proof container vehicles driven by certified haulers.'
     },
     {
       num: '04',
-      title: 'Assisted Setup',
-      description: 'Professional unpacking and systematic arrangement at your new home.'
+      title: 'Unpacking & Room Staging',
+      description: 'Assisted uncrating, furniture assembly, and room-by-room staging at your new destination.'
     }
   ];
 
   return (
-    <section className="section-padding" style={{ background: 'white' }}>
-      <div className="container">
-        <div className="text-center" style={{ marginBottom: '5rem', textAlign: 'center' }}>
-          <h2 className="section-title">Seamless 4-Step <br />Relocation</h2>
+    <section className="py-24 bg-surface-container-lowest border-b border-outline-variant/40">
+      <div className="max-w-container-max mx-auto px-4 md:px-margin-desktop">
+        <div className="mb-16 text-center max-w-2xl mx-auto">
+          <span className="text-xs font-semibold text-on-surface-variant uppercase tracking-widest block mb-2">
+            Protocol & Methodology
+          </span>
+          <h2 className="font-display text-3xl md:text-5xl text-on-background font-bold tracking-tight">
+            The 4-Step Relocation Flow
+          </h2>
         </div>
 
-        <div className="process-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
-            <div key={index} className="process-step" style={{ textAlign: 'center' }}>
-              <div className="step-num-premium">{step.num}</div>
-              <h4 style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>{step.title}</h4>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{step.description}</p>
+            <div key={index} className="bg-surface border border-outline-variant/60 rounded-xl p-8 flex flex-col justify-between hover:border-primary/40 transition-all duration-300">
+              <div>
+                <span className="font-display text-4xl font-bold text-on-surface-variant/40 block mb-4">
+                  {step.num}
+                </span>
+                <h3 className="font-display text-xl text-on-background font-bold mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-xs text-on-surface-variant leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -44,3 +57,4 @@ export const Process: React.FC = () => {
     </section>
   );
 };
+

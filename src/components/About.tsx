@@ -2,140 +2,180 @@ import React from 'react';
 import { 
   ShieldCheck, 
   Award, 
-  Truck, 
-  UserCheck, 
-  PackageCheck, 
+  Target, 
+  Zap, 
   Lock, 
   Clock, 
-  TrendingUp
+  TrendingUp,
+  MapPin
 } from 'lucide-react';
 
 export const About: React.FC = () => {
-  const features = [
-    {
-      icon: UserCheck,
-      iconBg: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%)',
-      iconColor: '#10b981',
-      badge: '100% Police Verified',
-      title: 'Verified Executive Crew',
-      description: 'Every crew member undergoes multi-step background checks & white-glove packing certification.'
-    },
-    {
-      icon: PackageCheck,
-      iconBg: 'linear-gradient(135deg, rgba(210, 43, 43, 0.15) 0%, rgba(210, 43, 43, 0.05) 100%)',
-      iconColor: '#d22b2b',
-      badge: 'Zero-Damage Shield',
-      title: '5-Layer Tech Packing',
-      description: 'Custom shockproof wooden crating, anti-static bubble wrap, and moisture protection barriers.'
-    },
-    {
-      icon: Truck,
-      iconBg: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%)',
-      iconColor: '#3b82f6',
-      badge: 'Live Satellite Tracking',
-      title: 'GPS Smart Fleet',
-      description: 'Containerized vehicles with air-ride anti-vibration suspension & real-time telemetry.'
-    },
-    {
-      icon: Lock,
-      iconBg: 'linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%)',
-      iconColor: '#f59e0b',
-      badge: '0% Hidden Charges',
-      title: 'Transparent Price Lock',
-      description: '100% itemized binding quotes guaranteed in writing with zero unexpected surge costs.'
-    }
-  ];
-
-  const stats = [
-    { value: '50,000+', label: 'Successful Relocations', icon: TrendingUp },
-    { value: '99.8%', label: 'On-Time Arrival', icon: Clock },
-    { value: '100%', label: 'Transit Protected', icon: ShieldCheck },
-    { value: '4.9 / 5', label: 'Satisfaction Rating', icon: Award }
-  ];
-
   return (
-    <section className="about-redesign-section" id="why-us">
-      <div className="container">
-        <div className="about-grid">
-          {/* Visual Showcase Frame */}
-          <div className="about-showcase-wrapper">
-            <div className="about-image-card">
-              <img 
-                src="/image/packing1.jpg" 
-                alt="Professional Relocation and Packing Team - Pooja Transport Service"
-                className="about-primary-img"
-              />
-              <div className="about-img-overlay"></div>
+    <section className="py-24 bg-surface border-b border-outline-variant/40" id="why-us">
+      <div className="max-w-container-max mx-auto px-4 md:px-margin-desktop">
+        
+        {/* Section Title */}
+        <div className="mb-16 max-w-3xl">
+          <span className="text-xs font-semibold text-on-surface-variant uppercase tracking-widest block mb-2">
+            The Kinetic Standard
+          </span>
+          <h2 className="font-display text-3xl md:text-5xl text-on-background font-bold tracking-tight mb-4">
+            Relocate with Absolute Authority & Precision.
+          </h2>
+          <p className="text-base md:text-lg text-on-surface-variant leading-relaxed">
+            Pooja Transport Service delivers stress-free, white-glove relocations across India. Built on certified packing protocols, live satellite telemetry, and a 100% transit protection guarantee.
+          </p>
+        </div>
 
-              {/* Vector Badge 1: Top Floating Pill */}
-              <div className="about-top-pill-vector">
-                <ShieldCheck style={{ width: '16px', height: '16px', color: '#34d399' }} />
-                <span>ISO 9001:2015 Certified • 10+ Yrs Trust</span>
+        {/* 3 Core Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {/* Pillar 1 */}
+          <div className="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-8 flex flex-col justify-between hover:border-primary/40 transition-all duration-300">
+            <div>
+              <div className="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-primary mb-6">
+                <Lock className="w-6 h-6" />
               </div>
-
-              {/* Vector Badge 2: Bottom Glass Float Badge */}
-              <div className="about-glass-badge-vector">
-                <div className="about-glass-badge-icon-vector">
-                  <ShieldCheck style={{ width: '20px', height: '20px', color: '#10b981' }} />
-                </div>
-                <div>
-                  <div className="about-glass-badge-title">100% Damage-Free Guarantee</div>
-                  <div className="about-glass-badge-sub">Engineered 5-Layer Tech Packing</div>
-                </div>
-              </div>
+              <h3 className="font-display text-xl text-on-background font-bold mb-3">
+                Absolute Discretion
+              </h3>
+              <p className="text-xs text-on-surface-variant leading-relaxed">
+                Confidential handling for high-profile residential and commercial assets. Verified crew members under non-disclosure execution protocols.
+              </p>
+            </div>
+            <div className="mt-6 pt-4 border-t border-outline-variant/30 text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider">
+              100% Police Verified Crew
             </div>
           </div>
 
-          {/* Text Content Column */}
-          <div className="about-content-col">
-            <h2 className="about-main-heading">
-              Relocate With Uncompromising <br />
-              <span className="gradient-text">Trust & Precision</span>
-            </h2>
+          {/* Pillar 2 */}
+          <div className="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-8 flex flex-col justify-between hover:border-primary/40 transition-all duration-300">
+            <div>
+              <div className="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-primary mb-6">
+                <Zap className="w-6 h-6 text-[#6e5e00]" />
+              </div>
+              <h3 className="font-display text-xl text-on-background font-bold mb-3">
+                Strategic Execution
+              </h3>
+              <p className="text-xs text-on-surface-variant leading-relaxed">
+                Phased shifting schedules engineered to eliminate downtime for offices and minimize disruption for families during transit.
+              </p>
+            </div>
+            <div className="mt-6 pt-4 border-t border-outline-variant/30 text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider">
+              Zero-Downtime Guarantee
+            </div>
+          </div>
 
-            <p className="about-description">
-              Delivering stress-free, white-glove relocations for homes and businesses across India. Engineered with certified packing protocols, satellite fleet tracking, and a zero-damage commitment.
-            </p>
-
-            {/* 2x2 Feature Cards Grid */}
-            <div className="about-feature-grid">
-              {features.map((feat, idx) => {
-                const IconComponent = feat.icon;
-                return (
-                  <div key={idx} className="about-card-modern">
-                    <div className="card-header-flex">
-                      <div className="card-icon-box" style={{ background: feat.iconBg }}>
-                        <IconComponent style={{ width: '20px', height: '20px', color: feat.iconColor }} />
-                      </div>
-                      <span className="card-badge" style={{ color: feat.iconColor, borderColor: `${feat.iconColor}33`, background: `${feat.iconColor}12` }}>
-                        {feat.badge}
-                      </span>
-                    </div>
-                    <h4 className="card-title">{feat.title}</h4>
-                    <p className="card-desc">{feat.description}</p>
-                  </div>
-                );
-              })}
+          {/* Pillar 3 */}
+          <div className="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-8 flex flex-col justify-between hover:border-primary/40 transition-all duration-300">
+            <div>
+              <div className="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-primary mb-6">
+                <Target className="w-6 h-6" />
+              </div>
+              <h3 className="font-display text-xl text-on-background font-bold mb-3">
+                Pinpoint Precision
+              </h3>
+              <p className="text-xs text-on-surface-variant leading-relaxed">
+                5-layer shockproof technical packing, moisture barrier sealing, and GPS containerized tracking to ensure zero item damage.
+              </p>
+            </div>
+            <div className="mt-6 pt-4 border-t border-outline-variant/30 text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider">
+              100% Transit Coverage
             </div>
           </div>
         </div>
 
-        {/* Bottom Trust Metrics Ribbon */}
-        <div className="about-metrics-ribbon">
-          {stats.map((stat, idx) => {
-            const StatIcon = stat.icon;
-            return (
-              <div key={idx} className="metric-item">
-                <div className="metric-icon-wrap">
-                  <StatIcon style={{ width: '20px', height: '20px', color: '#d22b2b' }} />
-                </div>
-                <div>
-                  <div className="metric-value">{stat.value}</div>
-                  <div className="metric-label">{stat.label}</div>
-                </div>
+        {/* Statistics & Impact Banner */}
+        <div className="bg-primary-container text-on-primary rounded-xl p-8 md:p-12 shadow-lg mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+            <div>
+              <div className="font-display text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">
+                99.9%
               </div>
-            );
-          })}
+              <div className="text-xs uppercase tracking-widest text-on-primary-container font-semibold">
+                On-Time Delivery
+              </div>
+            </div>
+            <div>
+              <div className="font-display text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">
+                50,000+
+              </div>
+              <div className="text-xs uppercase tracking-widest text-on-primary-container font-semibold">
+                Moves Executed
+              </div>
+            </div>
+            <div>
+              <div className="font-display text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">
+                10+ Yrs
+              </div>
+              <div className="text-xs uppercase tracking-widest text-on-primary-container font-semibold">
+                Industry Leadership
+              </div>
+            </div>
+            <div>
+              <div className="font-display text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">
+                ISO 9001
+              </div>
+              <div className="text-xs uppercase tracking-widest text-on-primary-container font-semibold">
+                Certified Quality
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Executive Team / Operational Leadership */}
+        <div className="border-t border-outline-variant/40 pt-16">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+            <div>
+              <span className="text-xs font-semibold text-on-surface-variant uppercase tracking-widest block mb-2">
+                Command & Operations
+              </span>
+              <h3 className="font-display text-2xl md:text-3xl text-on-background font-bold">
+                Operational Leadership
+              </h3>
+            </div>
+            <p className="text-xs text-on-surface-variant max-w-md">
+              Guided by relocation veterans committed to safety, punctuality, and client satisfaction across every route.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div className="group">
+              <div className="w-full aspect-[4/5] rounded overflow-hidden bg-surface-container border border-outline-variant/60 mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop" 
+                  alt="Relocation Director - Pooja Transport Service" 
+                  className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                />
+              </div>
+              <h4 className="font-display text-lg font-bold text-on-background">Rajesh Singh</h4>
+              <p className="text-xs text-on-surface-variant font-semibold uppercase tracking-wider mt-0.5">Founder & Managing Director</p>
+            </div>
+
+            <div className="group">
+              <div className="w-full aspect-[4/5] rounded overflow-hidden bg-surface-container border border-outline-variant/60 mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" 
+                  alt="Head of Logistics - Pooja Transport Service" 
+                  className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                />
+              </div>
+              <h4 className="font-display text-lg font-bold text-on-background">Sunita Sharma</h4>
+              <p className="text-xs text-on-surface-variant font-semibold uppercase tracking-wider mt-0.5">Head of Client Experience</p>
+            </div>
+
+            <div className="group">
+              <div className="w-full aspect-[4/5] rounded overflow-hidden bg-surface-container border border-outline-variant/60 mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop" 
+                  alt="VP Fleet Operations - Pooja Transport Service" 
+                  className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                />
+              </div>
+              <h4 className="font-display text-lg font-bold text-on-background">Amit Vikram</h4>
+              <p className="text-xs text-on-surface-variant font-semibold uppercase tracking-wider mt-0.5">VP, Fleet & Security</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -143,3 +183,4 @@ export const About: React.FC = () => {
 };
 
 export default About;
+

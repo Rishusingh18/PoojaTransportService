@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Services - ReloGlobal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-variant": "#d3e4fe",
+                        "outline": "#76777d",
+                        "primary-container": "#131b2e",
+                        "on-secondary-fixed": "#211b00",
+                        "on-surface-variant": "#45464d",
+                        "tertiary": "#000000",
+                        "on-secondary-container": "#736200",
+                        "surface-tint": "#565e74",
+                        "tertiary-fixed": "#dbe1ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container": "#e5eeff",
+                        "tertiary-container": "#00174b",
+                        "secondary-container": "#f8df71",
+                        "secondary-fixed-dim": "#dec65a",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c6c6cd",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-container-high": "#dce9ff",
+                        "surface-bright": "#f8f9ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-secondary-fixed-variant": "#534600",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#003ea8",
+                        "on-tertiary-fixed": "#00174b",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface": "#f8f9ff",
+                        "primary": "#000000",
+                        "primary-fixed": "#dae2fd",
+                        "on-primary-container": "#7c839b",
+                        "secondary-fixed": "#fbe273",
+                        "background": "#f8f9ff",
+                        "on-primary-fixed": "#131b2e",
+                        "secondary": "#6e5e00",
+                        "inverse-primary": "#bec6e0",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#497cff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "24px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "caption": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg antialiased">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full top-0 sticky border-b border-outline-variant z-50">
+<div class="flex justify-between items-center h-24 max-w-container-max mx-auto px-margin-desktop md:px-margin-desktop px-margin-mobile">
+<!-- Brand Logo -->
+<a class="font-display-lg text-display-lg-mobile md:text-display-lg tracking-tight text-on-background" href="#">
+                ReloGlobal
+            </a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md transition-colors duration-300" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Network</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Our Approach</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Resources</a>
+</nav>
+<!-- Trailing Action / Mobile Menu -->
+<div class="flex items-center gap-4">
+<button class="hidden md:block bg-primary-container text-on-primary font-label-md text-label-md px-6 py-3 rounded scale-95 duration-200 hover:opacity-90">
+                    Get Quote
+                </button>
+<button class="md:hidden text-on-background">
+<span class="material-symbols-outlined text-[32px]">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="py-16 md:py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-6 space-y-4">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Our Expertise</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-background">
+                        Precision logistics for every scale.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        From bespoke residential moves to complex corporate infrastructure relocation, our dedicated teams engineer seamless transitions across the globe.
+                    </p>
+</div>
+<div class="lg:col-span-6 mt-8 lg:mt-0 relative">
+<div class="aspect-[4/3] rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A high-end editorial shot of a modern, bright logistics warehouse with minimal staff in sharp uniforms, bathed in soft, diffused natural light from large skylights. The aesthetic is clean, premium corporate, using a palette of crisp whites, subtle grays, and deep navy accents to convey absolute precision and luxury service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzJ9LFTKDKYQGqKWvt9QJ57MckE4CTvIlAm4O_hiyY-512JjGYkkoovNdaZk6hsY0tMEUyr-66odI7JgOHQ-4n4IEGILycPCpULM0k3ODsWQ4IpaBbjXHJ5-W_9TbxunYfid3xy6RLTcfH_8X0nP6SJDBMieGyxzE-urhtinQgTAie3Qrb2_RymfqnvbF2AwkhxWb3i39T8-K1zbEvN-KXI_7nDKUkfoC-EvCz_R1UUcBgDiP-tFT3"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Residential Services -->
+<section class="py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-t border-outline-variant">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="lg:col-span-5 order-2 lg:order-1 relative">
+<div class="aspect-square rounded overflow-hidden mt-4 lg:mt-0">
+<img class="w-full h-full object-cover" data-alt="A pristine, minimalist residential interior during a high-end move. A meticulously packed premium wardrobe box stands next to a carefully wrapped designer chair. Soft, ambient light fills the space, emphasizing clean whites, subtle shadows, and a feeling of calm, precise organization. The mood is sophisticated and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6BRPJfq8_-n6rW_8LKq_r3XvtLRBmua0eXMyq0ajbSSudoGAodw1tbohCarMvJPu9V4TsbxoX5zvHQ7ybgf-r6zwaMxUW3WoqnuM9EiBoeDqCRMnwmQGndj7uBqo0mpz6ptMXxKVJwi_IV9rFisUgMLjjM3-uP4WUa_bJal77w1VrCoh--8WLZF_8_5OnqQcvtX4lO8-kQ5YJOfTHGMMHLOKLRXU_UZuLwP_h2EMG2MQ5LlHo91Ca"/>
+</div>
+</div>
+<div class="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-center lg:pl-16 space-y-3">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background">
+                        Private Residential
+                    </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Our private residential service is designed for those who demand absolute discretion and flawless execution. We handle every detail, from white-glove packing of fine art and antiquities to complete home staging upon arrival.
+                    </p>
+<ul class="space-y-2 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-3">White-glove packing and crating</li>
+<li class="flex items-center gap-3">Dedicated relocation concierge</li>
+<li class="flex items-center gap-3">Secure, climate-controlled transit</li>
+</ul>
+<div class="pt-2">
+<button class="bg-primary-container text-on-primary font-label-md text-label-md px-8 py-3 rounded hover:opacity-90 transition-opacity">
+                            Explore Residential
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Corporate Logistics -->
+<section class="py-16 bg-surface-bright border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7 flex flex-col justify-center lg:pr-16 space-y-3">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background">
+                            Corporate Infrastructure
+                        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                            Minimize downtime with our precision-engineered corporate relocation protocols. We manage entire headquarters transitions and sensitive IT infrastructure migrations with zero operational compromise.
+                        </p>
+<ul class="space-y-2 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-3">Phased departmental moves</li>
+<li class="flex items-center gap-3">IT &amp; Data center migration specialists</li>
+<li class="flex items-center gap-3">Executive mobility programs</li>
+</ul>
+<div class="pt-2">
+<button class="bg-transparent border border-primary-container text-primary-container font-label-md text-label-md px-8 py-3 rounded hover:bg-surface-container-low transition-colors">
+                                Corporate Solutions
+                            </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative mt-4 lg:mt-0">
+<div class="aspect-[3/4] rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sophisticated, high-rise corporate office during a seamless transition. Sleek glass partitions reflect a clean, modern aesthetic. Movers in sharp, minimalist uniforms carefully transport a sleek server rack. The lighting is cool, professional white, emphasizing efficiency, security, and premium corporate infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADZ-CnkKgYYU-cPsIPYDtgTCMFnl2SVIUwtYrZi_vKo9qtU9toXISYjHnaFLNLHjKmGQIpYMcFG2Pv2iwnLSIoAZ1h9B1Z1Ryx4rfY4TAptK_rDAGLonR1_Y1vtCknEL8TDHB-xwtax_b08M_5F0kriA7TXiG56657LYheLPrOWSHREu6t6WlBYBPfbERzKrMbevmUgdEg1tc6fmB7Eb0v0Y1Og3m6Bb3pi06fIAZ9vJUCG0qETgKe"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Specialized CTA Section -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest border-t border-outline-variant">
+<div class="max-w-4xl mx-auto text-center space-y-6">
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-background">
+                    Require a specialized approach?
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    From fine art collections and antique vehicles to sensitive laboratory equipment, our specialized logistics division architects custom solutions for unique assets.
+                </p>
+<div class="pt-4 flex justify-center gap-4">
+<button class="bg-primary-container text-on-primary font-label-md text-label-md px-8 py-3 rounded hover:opacity-90 transition-opacity">
+                        Consult an Expert
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-high dark:bg-surface-container-high w-full">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter py-20 max-w-container-max mx-auto px-margin-desktop md:px-margin-desktop px-margin-mobile">
+<!-- Brand & Copyright -->
+<div class="md:col-span-1 space-y-4">
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background tracking-tight">
+                    ReloGlobal
+                </div>
+<p class="font-caption text-caption text-on-surface-variant opacity-80">
+                    © 2024 ReloGlobal Logistics. All rights reserved. Registered Global Forwarder.
+                </p>
+</div>
+<!-- Links Column 1 -->
+<div class="md:col-span-1 md:col-start-3 space-y-3 flex flex-col">
+<a class="font-body-md text-body-md text-on-surface-variant hover:underline decoration-1 opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:underline decoration-1 opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:underline decoration-1 opacity-80 hover:opacity-100 transition-opacity" href="#">Global Compliance</a>
+</div>
+<!-- Links Column 2 -->
+<div class="md:col-span-1 space-y-3 flex flex-col">
+<a class="font-body-md text-body-md text-on-surface-variant hover:underline decoration-1 opacity-80 hover:opacity-100 transition-opacity" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:underline decoration-1 opacity-80 hover:opacity-100 transition-opacity" href="#">Carrier Portal</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:underline decoration-1 opacity-80 hover:opacity-100 transition-opacity" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>

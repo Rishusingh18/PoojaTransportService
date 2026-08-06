@@ -1,45 +1,60 @@
 import React from 'react';
+import { Star } from 'lucide-react';
 
 export const Testimonials: React.FC = () => {
   const testimonials = [
     {
-      quote: "The precision with which they handled our grand piano was remarkable. Truly elite service.",
+      quote: "The precision with which they handled our household art and antique furniture was remarkable. Zero scratches and on-time delivery.",
       name: "Amit Sharma",
-      location: "Noida Sector 62"
+      role: "Homeowner, Noida Sector 62",
+      rating: 5
     },
     {
-      quote: "Zero hidden costs and absolute professionalism. The team arrived on time and finished early.",
+      quote: "Absolute professionalism for our corporate headquarters move. They completed the IT rack migration overnight without any downtime.",
       name: "Priya Verma",
-      location: "Ghaziabad"
+      role: "Operations Director, Ghaziabad Tech Park",
+      rating: 5
     },
     {
-      quote: "Our office relocation was seamless. Minimal downtime and everything arrived perfectly.",
+      quote: "Clean pricing with zero surprise charges. The crew was polite, efficient, and careful with every single piece of glassware.",
       name: "Rahul Singh",
-      location: "Greater Noida"
+      role: "Executive, Greater Noida West",
+      rating: 5
     }
   ];
 
   return (
-    <section className="section-padding" style={{ background: '#fcfcfd' }}>
-      <div className="container">
-        <div className="text-center" style={{ marginBottom: '5rem', textAlign: 'center' }}>
-          <h2 className="section-title">Client Voices</h2>
+    <section className="py-24 bg-surface border-b border-outline-variant/40">
+      <div className="max-w-container-max mx-auto px-4 md:px-margin-desktop">
+        <div className="mb-16 text-center max-w-2xl mx-auto">
+          <span className="text-xs font-semibold text-on-surface-variant uppercase tracking-widest block mb-2">
+            Client Testimonials
+          </span>
+          <h2 className="font-display text-3xl md:text-5xl text-on-background font-bold tracking-tight">
+            Trusted Across 50,000+ Moves
+          </h2>
         </div>
 
-        <div className="testimonials-grid-premium" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '3rem' }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((item, index) => (
-            <div key={index} className="testimonial-card-premium glass-card" style={{ padding: '3rem', position: 'relative' }}>
-              <div style={{ color: 'var(--secondary)', fontSize: '2rem', marginBottom: '1.5rem' }}>
-                <i className="fas fa-quote-left"></i>
+            <div key={index} className="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-8 flex flex-col justify-between hover:shadow-md transition-all">
+              <div>
+                <div className="flex items-center gap-1 text-amber-500 mb-4">
+                  {[...Array(item.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-sm text-on-background leading-relaxed italic mb-6">
+                  "{item.quote}"
+                </p>
               </div>
-              <p style={{ fontSize: '1.1rem', lineHeight: 1.7, fontStyle: 'italic', marginBottom: '2rem', color: 'var(--text-dark)' }}>
-                "{item.quote}"
-              </p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ width: '45px', height: '45px', background: '#e2e8f0', borderRadius: '50%' }}></div>
+              <div className="pt-4 border-t border-outline-variant/30 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-display font-bold text-on-background shrink-0">
+                  {item.name[0]}
+                </div>
                 <div>
-                  <h5 style={{ fontWeight: 700 }}>{item.name}</h5>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{item.location}</p>
+                  <h4 className="font-display font-bold text-sm text-on-background">{item.name}</h4>
+                  <p className="text-[11px] text-on-surface-variant">{item.role}</p>
                 </div>
               </div>
             </div>
@@ -49,3 +64,4 @@ export const Testimonials: React.FC = () => {
     </section>
   );
 };
+
