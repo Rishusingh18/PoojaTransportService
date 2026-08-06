@@ -36,6 +36,18 @@
   ],
   "quotes": [
     {
+      "id": "quote-1786037075180",
+      "name": "rishu",
+      "mobile": "910138154",
+      "from": "Delhi NCR",
+      "to": "Noida, Sector 18",
+      "serviceType": "Bespoke Warehousing",
+      "moveDate": "Aug 08, 2026",
+      "notes": "",
+      "status": "Pending",
+      "createdAt": "2026-08-06T17:24:35.18+00:00"
+    },
+    {
       "id": "quote-1786032908497",
       "name": "Vikram Malhotra",
       "mobile": "9810204916",
