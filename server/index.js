@@ -20,33 +20,10 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '..')));
 app.use(express.static(path.join(__dirname, '..', 'dist')));
+app.use(express.static(path.join(__dirname, '..')));
 
-// Auto-verify and seed database tables on startup
-async function initDatabase() {
-  try {
-    const { error: revErr } = await supabase.from('reviews').select('id').limit(1);
-    if (revErr && revErr.code === '42P01') {
-      console.log('Notice: Supabase reviews table pending SQL creation. Using auto-fallback local DB persistence.');
-    } else {
-      console.log('✓ Supabase Reviews Table Connected & Synced.');
-    }
-
-    const { error: quoteErr } = await supabase.from('quotes').select('id').limit(1);
-    if (quoteErr && quoteErr.code === '42P01') {
-      console.log('Notice: Supabase quotes table pending SQL creation. Using auto-fallback local DB persistence.');
-    } else {
-      console.log('✓ Supabase Quotes Table Connected & Synced.');
-    }
-  } catch (err) {
-    console.warn('Database initialization check:', err.message);
-  }
-}
-
-initDatabase();
-
-// Helper function to read local DB file as fallback
+// Helper function to read local DB file
 function readLocalDB() {
   try {
     if (!fs.existsSync(DB_PATH)) {
@@ -60,7 +37,7 @@ function readLocalDB() {
   }
 }
 
-// Helper function to write local DB file as fallback
+// Helper function to write local DB file
 function writeLocalDB(data) {
   try {
     const dir = path.dirname(DB_PATH);
@@ -72,6 +49,41 @@ function writeLocalDB(data) {
     console.error('Error writing local DB:', err);
   }
 }
+
+// Auto-verify and sync database tables on startup
+async function initDatabase() {
+  try {
+    const { data: revData, error: revErr } = await supabase.from('reviews').select('*');
+    if (!revErr && revData && revData.length > 0) {
+      console.log(`✓ Supabase Reviews Table Connected (${revData.length} records).`);
+    }
+
+    const { data: qData, error: qErr } = await supabase.from('quotes').select('*');
+    if (!qErr && qData) {
+      console.log(`✓ Supabase Quotes Table Connected (${qData.length} records).`);
+      // Mirror Supabase quotes to local DB so both stores stay 1:1 in sync
+      const localDB = readLocalDB();
+      const mappedSupabaseQuotes = qData.map(q => ({
+        id: q.id,
+        name: q.name,
+        mobile: q.mobile,
+        from: q.from || q.origin || 'Not specified',
+        to: q.to || q.destination || 'Not specified',
+        serviceType: q.serviceType || q.service_type || 'Household Relocation',
+        moveDate: q.moveDate || q.move_date || 'Flexible',
+        notes: q.notes || '',
+        status: q.status || 'Pending',
+        createdAt: q.created_at || q.createdAt || new Date().toISOString()
+      }));
+      localDB.quotes = mappedSupabaseQuotes;
+      writeLocalDB(localDB);
+    }
+  } catch (err) {
+    console.warn('Database initialization check:', err.message);
+  }
+}
+
+initDatabase();
 
 // ================= ADMIN AUTH =================
 app.post('/api/admin/login', (req, res) => {
@@ -99,7 +111,6 @@ app.get('/api/reviews', async (req, res) => {
     const { data, error } = await query;
 
     if (!error && data && data.length > 0) {
-      // Map database columns to API format
       const formatted = data.map(r => ({
         id: r.id,
         name: r.name,
@@ -118,7 +129,6 @@ app.get('/api/reviews', async (req, res) => {
     console.warn('Supabase fetch reviews warning:', e.message);
   }
 
-  // Fallback to local DB
   const db = readLocalDB();
   let list = db.reviews || [];
   if (status === 'verified') {
@@ -153,19 +163,17 @@ app.post('/api/reviews', async (req, res) => {
     created_at: createdAtIso
   };
 
-  // Insert into Supabase
   try {
     const { data, error } = await supabase.from('reviews').insert([supabaseRecord]).select();
     if (error) {
       console.error('Supabase review insert error:', error.message);
     } else {
-      console.log('Successfully inserted review to Supabase table:', reviewId);
+      console.log('✓ Inserted review to Supabase table:', reviewId);
     }
   } catch (err) {
     console.error('Supabase review insert exception:', err.message);
   }
 
-  // Save to local DB
   const localRecord = {
     id: reviewId,
     name,
@@ -185,7 +193,7 @@ app.post('/api/reviews', async (req, res) => {
 
   res.status(201).json({ 
     success: true, 
-    message: 'Review submitted successfully. Saved to Supabase & Backend.',
+    message: 'Review submitted successfully.',
     data: localRecord 
   });
 });
@@ -196,7 +204,6 @@ app.put('/api/reviews/:id/verify', async (req, res) => {
   const { verified } = req.body;
   const targetVerified = verified !== undefined ? Boolean(verified) : true;
 
-  // Update Supabase
   try {
     const { error } = await supabase.from('reviews').update({ verified: targetVerified }).eq('id', id);
     if (error) console.error('Supabase review update error:', error.message);
@@ -204,7 +211,6 @@ app.put('/api/reviews/:id/verify', async (req, res) => {
     console.error('Supabase review update exception:', err.message);
   }
 
-  // Update Local DB
   const db = readLocalDB();
   const reviewIndex = db.reviews.findIndex(r => r.id === id);
   if (reviewIndex !== -1) {
@@ -237,8 +243,6 @@ app.delete('/api/reviews/:id', async (req, res) => {
 
 // ================= QUOTES ROUTES =================
 
-// ================= QUOTES ROUTES =================
-
 // GET /api/quotes
 app.get('/api/quotes', async (req, res) => {
   try {
@@ -248,14 +252,20 @@ app.get('/api/quotes', async (req, res) => {
         id: q.id,
         name: q.name,
         mobile: q.mobile,
-        from: q.origin || q.from || 'Not specified',
-        to: q.destination || q.to || 'Not specified',
-        serviceType: q.service_type || q.serviceType || 'Household Relocation',
-        moveDate: q.move_date || q.moveDate || 'Flexible',
+        from: q.from || q.origin || 'Not specified',
+        to: q.to || q.destination || 'Not specified',
+        serviceType: q.serviceType || q.service_type || 'Household Relocation',
+        moveDate: q.moveDate || q.move_date || 'Flexible',
         notes: q.notes || '',
         status: q.status || 'Pending',
         createdAt: q.created_at || q.createdAt
       }));
+
+      // Mirror to local DB
+      const db = readLocalDB();
+      db.quotes = formatted;
+      writeLocalDB(db);
+
       return res.json({ success: true, source: 'supabase', data: formatted });
     } else if (error) {
       console.warn('Supabase fetch quotes error:', error.message);
@@ -275,24 +285,10 @@ app.post('/api/quotes', async (req, res) => {
   const quoteId = `quote-${Date.now()}`;
   const createdAtIso = new Date().toISOString();
 
-  // Primary Schema Record (snake_case)
-  const primaryRecord = {
+  // Universal Record inserting both from/to AND origin/destination for 100% Supabase column compatibility
+  const universalRecord = {
     id: quoteId,
-    name: name || 'Anonymous Customer',
-    mobile: mobile || 'N/A',
-    origin: from || 'Not specified',
-    destination: to || 'Not specified',
-    service_type: serviceType || 'Household Relocation',
-    move_date: moveDate || 'Flexible',
-    notes: notes || '',
-    status: 'Pending',
-    created_at: createdAtIso
-  };
-
-  // Fallback Schema Record (camelCase / from-to)
-  const fallbackRecord = {
-    id: quoteId,
-    name: name || 'Anonymous Customer',
+    name: name || 'Valued Customer',
     mobile: mobile || 'N/A',
     from: from || 'Not specified',
     to: to || 'Not specified',
@@ -305,31 +301,41 @@ app.post('/api/quotes', async (req, res) => {
 
   let supabaseSuccess = false;
 
-  // Try Primary Schema
   try {
-    const { error } = await supabase.from('quotes').insert([primaryRecord]);
+    const { error } = await supabase.from('quotes').insert([universalRecord]);
     if (!error) {
       supabaseSuccess = true;
-      console.log('✓ Successfully inserted quote to Supabase (primary schema):', quoteId);
+      console.log('✓ Successfully inserted quote into Supabase table:', quoteId);
     } else {
-      console.warn('Primary schema quote insert failed, trying fallback schema:', error.message);
-      // Try Fallback Schema
-      const { error: fbErr } = await supabase.from('quotes').insert([fallbackRecord]);
-      if (!fbErr) {
+      console.warn('Universal quote insert note:', error.message);
+      // Fallback try with snake_case
+      const snakeRecord = {
+        id: quoteId,
+        name: name || 'Valued Customer',
+        mobile: mobile || 'N/A',
+        origin: from || 'Not specified',
+        destination: to || 'Not specified',
+        service_type: serviceType || 'Household Relocation',
+        move_date: moveDate || 'Flexible',
+        notes: notes || '',
+        status: 'Pending',
+        created_at: createdAtIso
+      };
+      const { error: sbErr } = await supabase.from('quotes').insert([snakeRecord]);
+      if (!sbErr) {
         supabaseSuccess = true;
-        console.log('✓ Successfully inserted quote to Supabase (fallback schema):', quoteId);
+        console.log('✓ Successfully inserted quote into Supabase (snake schema):', quoteId);
       } else {
-        console.error('Fallback schema quote insert error:', fbErr.message);
+        console.error('Supabase quote insert error:', sbErr.message);
       }
     }
   } catch (err) {
     console.error('Supabase quote insert exception:', err.message);
   }
 
-  // Always save to local DB
   const localRecord = {
     id: quoteId,
-    name: name || 'Anonymous Customer',
+    name: name || 'Valued Customer',
     mobile: mobile || 'N/A',
     from: from || 'Not specified',
     to: to || 'Not specified',
@@ -365,7 +371,7 @@ app.put('/api/quotes/:id', async (req, res) => {
       supabaseUpdated = true;
       console.log(`✓ Updated status of quote ${id} to ${status} in Supabase`);
     } else {
-      console.error('Supabase quote update error:', error.message);
+      console.error('Supabase quote status update error:', error.message);
     }
   } catch (err) {
     console.error('Supabase quote status update exception:', err.message);
@@ -398,6 +404,17 @@ app.delete('/api/quotes/:id', async (req, res) => {
   writeLocalDB(db);
 
   res.json({ success: true, message: 'Quote deleted successfully.' });
+});
+
+// Fallback HTML page handler for dist compiled files
+app.use((req, res, next) => {
+  if (req.method !== 'GET' || req.path.startsWith('/api')) return next();
+  const reqPath = req.path === '/' ? 'index.html' : (req.path.endsWith('.html') ? req.path : `${req.path}.html`);
+  const distFile = path.join(__dirname, '..', 'dist', reqPath);
+  if (fs.existsSync(distFile)) {
+    return res.sendFile(distFile);
+  }
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => {

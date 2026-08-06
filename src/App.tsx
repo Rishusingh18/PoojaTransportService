@@ -7,7 +7,6 @@ import { FloatingStats } from './components/FloatingStats';
 import { Services } from './components/Services';
 import { About } from './components/About';
 import { Process } from './components/Process';
-import { Portfolio } from './components/Portfolio';
 import { Testimonials } from './components/Testimonials';
 import { FAQ } from './components/FAQ';
 import { Footer } from './components/Footer';
@@ -31,7 +30,6 @@ export const App: React.FC = () => {
         <Services />
         <About />
         <Process />
-        <Portfolio />
         <Testimonials />
         <FAQ />
       </main>

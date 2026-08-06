@@ -301,6 +301,9 @@
     }
 
     async function fetchQuotes() {
+      // Clear legacy local cache to prevent phantom duplicate rows
+      localStorage.removeItem('pooja_local_quotes');
+
       try {
         const res = await fetch(`${API_BASE}/quotes`);
         const result = await res.json();
@@ -308,7 +311,7 @@
         document.getElementById('quotes-count-badge').innerText = quotes.length;
         renderQuotes(quotes);
       } catch (err) {
-        console.error(err);
+        console.error('API quotes fetch error:', err);
       }
     }
 

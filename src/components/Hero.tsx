@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CustomDatePicker from './CustomDatePicker';
 import LocationAutocomplete from './LocationAutocomplete';
-import { Calendar as CalendarIcon, ChevronDown } from 'lucide-react';
+import { Calendar as CalendarIcon, ChevronDown, CheckCircle2 } from 'lucide-react';
 import { format } from 'date-fns';
 
 export const Hero: React.FC = () => {
@@ -21,6 +21,7 @@ export const Hero: React.FC = () => {
   });
 
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
@@ -33,22 +34,32 @@ export const Hero: React.FC = () => {
     setFormData(prev => ({ ...prev, [key]: value }));
   };
 
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitStatus('submitting');
     const formattedDate = format(selectedDate, "MMM dd, yyyy");
 
     const payload = {
-      name: formData.name || 'Anonymous Customer',
+      id: `quote-${Date.now()}`,
+      name: formData.name || 'Valued Customer',
       mobile: formData.mobile || 'Not specified',
       from: formData.from || 'Not specified',
       to: formData.to || 'Not specified',
       serviceType: formData.serviceType,
-      moveDate: formattedDate
+      moveDate: formattedDate,
+      status: 'Pending',
+      createdAt: new Date().toISOString()
     };
 
+    // 1. Local storage instant fallback
+    try {
+      const existing = JSON.parse(localStorage.getItem('pooja_local_quotes') || '[]');
+      localStorage.setItem('pooja_local_quotes', JSON.stringify([payload, ...existing]));
+    } catch (err) {
+      console.error('Local quote cache error:', err);
+    }
+
+    // 2. Post to Backend REST API & Supabase
     try {
       await fetch('/api/quotes', {
         method: 'POST',
@@ -56,7 +67,7 @@ export const Hero: React.FC = () => {
         body: JSON.stringify(payload)
       });
     } catch (err) {
-      console.error('API submission failed:', err);
+      console.error('API quote submission failed:', err);
     }
 
     setSubmitStatus('success');
@@ -69,186 +80,201 @@ export const Hero: React.FC = () => {
         to: '',
         serviceType: 'Household Relocation'
       });
-    }, 3000);
+    }, 4000);
   };
 
   return (
-    <section className="relative min-h-[720px] flex items-center bg-[#f8f9ff] overflow-hidden py-16 md:py-24">
-      {/* Background Cargo Visual & Gradient Overlay */}
-      <div className="absolute inset-0 w-full h-full">
-        <div 
-          className="w-full h-full bg-cover bg-center object-cover"
-          style={{ 
-            backgroundImage: `url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2000&auto=format&fit=crop')` 
-          }}
-        ></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0b1c30]/95 via-[#0b1c30]/75 to-transparent"></div>
-      </div>
+    <section className="relative min-h-[90vh] bg-[#0b1c30] text-white flex items-center pt-24 pb-16 overflow-hidden">
+      {/* Background Cargo Shipping Dock Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 mix-blend-luminosity scale-105 transform transition-transform duration-1000"
+        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop')` }}
+      ></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0b1c30] via-[#0b1c30]/90 to-transparent"></div>
 
-      <div className="relative z-10 w-full max-w-container-max mx-auto px-4 md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Left Column: Headline & Subtitle matching AI Studio */}
-        <div className="lg:col-span-7 flex flex-col justify-center text-white">
-          <span className="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-3">
-            ISO 9001:2015 Certified Relocation Logistics
-          </span>
-
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-tight font-bold tracking-tight">
-            Mastering Global Momentum.
-          </h1>
-
-          <p className="text-lg text-slate-200 mb-8 max-w-xl leading-relaxed font-normal">
-            Bespoke logistics solutions for the world's most demanding supply chains. Precision engineered, elegantly executed.
-          </p>
-
-          <div className="flex items-center space-x-8 pt-4 border-t border-white/10 max-w-lg">
-            <div>
-              <div className="font-display text-2xl font-bold text-white">100%</div>
-              <div className="text-[11px] text-slate-300 uppercase tracking-wider">Transit Insurance</div>
+      <div className="relative max-w-container-max mx-auto px-4 md:px-margin-desktop w-full z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Hero Brand Messaging */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-400 text-xs font-semibold uppercase tracking-widest border border-amber-400/30">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+              ISO 9001:2015 Certified Logistics Partner
             </div>
-            <div className="h-8 w-px bg-white/20"></div>
-            <div>
-              <div className="font-display text-2xl font-bold text-white">10+ Yrs</div>
-              <div className="text-[11px] text-slate-300 uppercase tracking-wider">Track Record</div>
-            </div>
-            <div className="h-8 w-px bg-white/20"></div>
-            <div>
-              <div className="font-display text-2xl font-bold text-white">99.9%</div>
-              <div className="text-[11px] text-slate-300 uppercase tracking-wider">On-Time Arrival</div>
+            
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+              Mastering Global <br />
+              <span className="text-amber-400 italic">Momentum.</span>
+            </h1>
+
+            <p className="text-slate-300 text-sm md:text-base max-w-xl font-normal leading-relaxed">
+              Pooja Transport Service delivers white-glove household shifting, corporate IT relocation, and bespoke warehousing across India with high-precision care.
+            </p>
+
+            <div className="pt-4 flex flex-wrap gap-8 items-center text-xs text-slate-300 font-semibold tracking-wider uppercase">
+              <div className="flex items-center gap-2">
+                <i className="fas fa-shield-alt text-amber-400 text-base"></i>
+                <span>Zero Damage Claim Policy</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <i className="fas fa-truck-loading text-amber-400 text-base"></i>
+                <span>Hydraulic Fleet</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <i className="fas fa-clock text-amber-400 text-base"></i>
+                <span>24x7 Realtime GPS</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Right Column: Floating White Consultation Form Card matching AI Studio */}
-        <div className="lg:col-span-5" id="quote">
-          <div className="bg-white rounded-lg shadow-2xl p-6 sm:p-8 text-[#0b1c30]">
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-[#0b1c30] mb-6">
-              REQUEST A CONSULTATION
-            </h3>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="text-[11px] font-semibold text-slate-500 block mb-1">
-                    City or Port (Origin)
-                  </label>
-                  <LocationAutocomplete
-                    id="h-from"
-                    value={formData.from}
-                    onChange={(val) => setFormData(prev => ({ ...prev, from: val }))}
-                    placeholder="City or Port"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="text-[11px] font-semibold text-slate-500 block mb-1">
-                    City or Port (Destination)
-                  </label>
-                  <LocationAutocomplete
-                    id="h-to"
-                    value={formData.to}
-                    onChange={(val) => setFormData(prev => ({ ...prev, to: val }))}
-                    placeholder="City or Port"
-                    required
-                  />
-                </div>
+          {/* Right Floating Shifting Quote Form */}
+          <div className="lg:col-span-5">
+            <div className="bg-white text-[#0b1c30] rounded-2xl p-6 sm:p-8 shadow-2xl border border-white/20">
+              
+              <div className="mb-6 border-b border-slate-100 pb-4">
+                <span className="text-[10px] font-bold text-amber-600 uppercase tracking-widest block mb-1">
+                  Instant Relocation Booking
+                </span>
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-[#0b1c30]">
+                  Get Shifting Estimation
+                </h3>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="text-[11px] font-semibold text-slate-500 block mb-1">
-                    Full Name
-                  </label>
-                  <input 
-                    type="text" 
-                    id="h-name" 
-                    className="w-full bg-transparent border-0 border-b-2 border-slate-300 focus:border-[#0b1c30] focus:ring-0 px-0 py-2 text-sm text-[#0b1c30]" 
-                    placeholder="e.g. Rajesh Kumar" 
-                    value={formData.name}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div>
-                  <label className="text-[11px] font-semibold text-slate-500 block mb-1">
-                    Mobile Phone
-                  </label>
-                  <input 
-                    type="tel" 
-                    id="h-mobile" 
-                    className="w-full bg-transparent border-0 border-b-2 border-slate-300 focus:border-[#0b1c30] focus:ring-0 px-0 py-2 text-sm text-[#0b1c30]" 
-                    placeholder="+91 9910204916" 
-                    value={formData.mobile}
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="text-[11px] font-semibold text-slate-500 block mb-1">
-                  Service Requirement
-                </label>
-                <select 
-                  id="h-service"
-                  value={formData.serviceType}
-                  onChange={handleChange}
-                  className="w-full bg-transparent border-0 border-b-2 border-slate-300 focus:border-[#0b1c30] focus:ring-0 px-0 py-2 text-sm text-[#0b1c30] appearance-none cursor-pointer"
-                >
-                  <option value="Household Relocation">Household & Executive Shifting</option>
-                  <option value="Corporate Relocation">Corporate Relocation</option>
-                  <option value="Vehicle Transport">Car & Bike Carrier</option>
-                  <option value="Bespoke Warehousing">Bespoke Warehousing</option>
-                </select>
-              </div>
-
-              <div className="relative">
-                <label className="text-[11px] font-semibold text-slate-500 block mb-1">
-                  Target Move Date
-                </label>
-                <button
-                  type="button"
-                  onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
-                  className="w-full flex items-center justify-between py-2 border-b-2 border-slate-300 text-left text-sm text-[#0b1c30]"
-                >
-                  <div className="flex items-center gap-2">
-                    <CalendarIcon className="w-4 h-4 text-slate-500" />
-                    <span className="font-semibold">{format(selectedDate, "MMM dd, yyyy")}</span>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                
+                {/* Route Selector */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-[11px] font-semibold text-slate-500 block mb-1">
+                      Origin City / Location *
+                    </label>
+                    <LocationAutocomplete
+                      id="h-from"
+                      value={formData.from}
+                      onChange={(val) => setFormData(prev => ({ ...prev, from: val }))}
+                      placeholder="e.g. Greater Noida"
+                      required
+                    />
                   </div>
-                  <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${isDatePickerOpen ? 'rotate-180' : ''}`} />
-                </button>
+                  <div>
+                    <label className="text-[11px] font-semibold text-slate-500 block mb-1">
+                      Destination City / Location *
+                    </label>
+                    <LocationAutocomplete
+                      id="h-to"
+                      value={formData.to}
+                      onChange={(val) => setFormData(prev => ({ ...prev, to: val }))}
+                      placeholder="e.g. Dehradun"
+                      required
+                    />
+                  </div>
+                </div>
 
-                <CustomDatePicker
-                  selectedDate={selectedDate}
-                  onSelect={setSelectedDate}
-                  isOpen={isDatePickerOpen}
-                  onClose={() => setIsDatePickerOpen(false)}
-                />
-              </div>
+                {/* Name & Contact Phone */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-[11px] font-semibold text-slate-500 block mb-1">
+                      Your Full Name *
+                    </label>
+                    <input 
+                      type="text" 
+                      id="h-name" 
+                      required
+                      className="w-full bg-transparent border-0 border-b-2 border-slate-300 focus:border-[#0b1c30] focus:ring-0 px-0 py-2 text-sm text-[#0b1c30] font-medium" 
+                      placeholder="e.g. Rajesh Kumar" 
+                      value={formData.name}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[11px] font-semibold text-slate-500 block mb-1">
+                      Mobile Phone Number *
+                    </label>
+                    <input 
+                      type="tel" 
+                      id="h-mobile" 
+                      required
+                      className="w-full bg-transparent border-0 border-b-2 border-slate-300 focus:border-[#0b1c30] focus:ring-0 px-0 py-2 text-sm text-[#0b1c30] font-medium" 
+                      placeholder="+91 9910204916" 
+                      value={formData.mobile}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
 
-              <div className="pt-4">
-                <button 
-                  type="submit" 
-                  disabled={submitStatus === 'submitting'}
-                  className="w-full bg-[#131b2e] text-white font-semibold text-xs uppercase tracking-widest py-4 px-6 rounded hover:bg-[#0b1c30] transition-colors shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
-                >
-                  {submitStatus === 'submitting' ? (
-                    <span>Submitting Request...</span>
-                  ) : submitStatus === 'success' ? (
-                    <span className="text-emerald-400 font-bold flex items-center gap-2">
-                      <i className="fas fa-check-circle text-base"></i> REQUEST TRANSMITTED TO ADMIN!
-                    </span>
-                  ) : (
-                    <>
-                      <i className="fas fa-[#10b981] fa-paper-plane text-amber-400 text-sm"></i>
-                      SUBMIT PARAMETERS
-                    </>
-                  )}
-                </button>
-              </div>
-            </form>
+                {/* Service Requirement Dropdown */}
+                <div>
+                  <label className="text-[11px] font-semibold text-slate-500 block mb-1">
+                    Service Required
+                  </label>
+                  <select 
+                    id="h-service"
+                    value={formData.serviceType}
+                    onChange={handleChange}
+                    className="w-full bg-transparent border-0 border-b-2 border-slate-300 focus:border-[#0b1c30] focus:ring-0 px-0 py-2 text-sm text-[#0b1c30] font-medium appearance-none cursor-pointer"
+                  >
+                    <option value="Household Relocation">Household Shifting</option>
+                    <option value="Corporate Relocation">Corporate Relocation</option>
+                    <option value="Car & Bike Carrier">Car & Bike Carrier</option>
+                    <option value="Bespoke Warehousing">Bespoke Warehousing</option>
+                  </select>
+                </div>
+
+                {/* Date Selection */}
+                <div className="relative">
+                  <label className="text-[11px] font-semibold text-slate-500 block mb-1">
+                    Target Move Date
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
+                    className="w-full flex items-center justify-between py-2 border-b-2 border-slate-300 text-left text-sm text-[#0b1c30]"
+                  >
+                    <div className="flex items-center gap-2">
+                      <CalendarIcon className="w-4 h-4 text-slate-500" />
+                      <span className="font-semibold">{format(selectedDate, "MMM dd, yyyy")}</span>
+                    </div>
+                    <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${isDatePickerOpen ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  <CustomDatePicker
+                    selectedDate={selectedDate}
+                    onSelect={setSelectedDate}
+                    isOpen={isDatePickerOpen}
+                    onClose={() => setIsDatePickerOpen(false)}
+                  />
+                </div>
+
+                {/* Submit Action Button */}
+                <div className="pt-4">
+                  <button 
+                    type="submit" 
+                    disabled={submitStatus === 'submitting'}
+                    className={`w-full font-bold text-xs uppercase tracking-widest py-4 px-6 rounded-lg transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 ${
+                      submitStatus === 'success' 
+                        ? 'bg-emerald-600 text-white' 
+                        : 'bg-[#0b1c30] text-white hover:bg-[#131b2e]'
+                    }`}
+                  >
+                    {submitStatus === 'submitting' ? (
+                      <span>Calculating Estimation...</span>
+                    ) : submitStatus === 'success' ? (
+                      <span className="text-white font-bold flex items-center gap-2 text-sm normal-case tracking-normal">
+                        <CheckCircle2 className="w-5 h-5 text-white" /> We'll reach out soon!
+                      </span>
+                    ) : (
+                      <>
+                        <i className="fas fa-[#10b981] fa-calculator text-amber-400 text-sm"></i>
+                        Get Estimation
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 };
-
-
