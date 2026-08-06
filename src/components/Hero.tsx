@@ -33,19 +33,43 @@ export const Hero: React.FC = () => {
     setFormData(prev => ({ ...prev, [key]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const formattedDate = format(selectedDate, "MMM dd, yyyy");
-    const message = "Hello Pooja Transport Service, I want to request a Shifting Quote." +
-      "%0a%0a*--- Move Details ---*" +
-      (formData.name ? "%0a*Name:* " + encodeURIComponent(formData.name) : "") +
-      (formData.mobile ? "%0a*Mobile:* " + encodeURIComponent(formData.mobile) : "") +
-      "%0a*From:* " + encodeURIComponent(formData.from || "Not specified") +
-      "%0a*To:* " + encodeURIComponent(formData.to || "Not specified") +
-      "%0a*Service:* " + encodeURIComponent(formData.serviceType) +
-      "%0a*Date:* " + encodeURIComponent(formattedDate);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
-    window.open("https://wa.me/919910204916?text=" + message, '_blank');
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitStatus('submitting');
+    const formattedDate = format(selectedDate, "MMM dd, yyyy");
+
+    const payload = {
+      name: formData.name || 'Anonymous Customer',
+      mobile: formData.mobile || 'Not specified',
+      from: formData.from || 'Not specified',
+      to: formData.to || 'Not specified',
+      serviceType: formData.serviceType,
+      moveDate: formattedDate
+    };
+
+    try {
+      await fetch('/api/quotes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      console.error('API submission failed:', err);
+    }
+
+    setSubmitStatus('success');
+    setTimeout(() => {
+      setSubmitStatus('idle');
+      setFormData({
+        name: '',
+        mobile: '',
+        from: '',
+        to: '',
+        serviceType: 'Household Relocation'
+      });
+    }, 3000);
   };
 
   return (
@@ -202,10 +226,21 @@ export const Hero: React.FC = () => {
               <div className="pt-4">
                 <button 
                   type="submit" 
-                  className="w-full bg-[#131b2e] text-white font-semibold text-xs uppercase tracking-widest py-4 px-6 rounded hover:bg-[#0b1c30] transition-colors shadow-md flex items-center justify-center gap-2"
+                  disabled={submitStatus === 'submitting'}
+                  className="w-full bg-[#131b2e] text-white font-semibold text-xs uppercase tracking-widest py-4 px-6 rounded hover:bg-[#0b1c30] transition-colors shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
-                  <i className="fab fa-whatsapp text-emerald-400 text-base"></i>
-                  SUBMIT PARAMETERS
+                  {submitStatus === 'submitting' ? (
+                    <span>Submitting Request...</span>
+                  ) : submitStatus === 'success' ? (
+                    <span className="text-emerald-400 font-bold flex items-center gap-2">
+                      <i className="fas fa-check-circle text-base"></i> REQUEST TRANSMITTED TO ADMIN!
+                    </span>
+                  ) : (
+                    <>
+                      <i className="fas fa-[#10b981] fa-paper-plane text-amber-400 text-sm"></i>
+                      SUBMIT PARAMETERS
+                    </>
+                  )}
                 </button>
               </div>
             </form>

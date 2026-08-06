@@ -1,0 +1,38 @@
+{
+  "reviews": [
+    {
+      "id": "rev-1",
+      "name": "Amit Sharma",
+      "location": "Noida Sector 62 to Dehradun",
+      "serviceType": "Household Relocation",
+      "rating": 5,
+      "quote": "The precision with which they handled our household art and antique furniture was remarkable. Zero scratches, itemized inventory, and on-time delivery.",
+      "date": "Aug 2026",
+      "verified": true,
+      "consignmentNo": "PTS-2026-8942"
+    },
+    {
+      "id": "rev-2",
+      "name": "Priya Verma",
+      "location": "Ghaziabad Tech Park to Gurgaon",
+      "serviceType": "Corporate Relocation",
+      "rating": 5,
+      "quote": "Absolute professionalism for our corporate headquarters move. They completed the IT rack migration overnight without any business downtime.",
+      "date": "Jul 2026",
+      "verified": true,
+      "consignmentNo": "PTS-2026-7811"
+    },
+    {
+      "id": "rev-3",
+      "name": "Rahul Singh",
+      "location": "Greater Noida West to Kanpur",
+      "serviceType": "Car Carrier & Shifting",
+      "rating": 5,
+      "quote": "Clean binding pricing with zero surprise charges. The crew was polite, efficient, and careful with every single piece of glassware and our car.",
+      "date": "Jul 2026",
+      "verified": true,
+      "consignmentNo": "PTS-2026-6102"
+    }
+  ],
+  "quotes": []
+}

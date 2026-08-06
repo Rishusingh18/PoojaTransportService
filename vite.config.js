@@ -12,7 +12,22 @@ export default defineConfig({
   root: '.',
   server: {
     port: 3000,
-    open: false
+    open: false,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true
+      }
+    }
+  },
+  preview: {
+    port: 3000,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true
+      }
+    }
   },
   build: {
     outDir: 'dist',
@@ -22,6 +37,7 @@ export default defineConfig({
         about: resolve(__dirname, 'about.html'),
         service: resolve(__dirname, 'service.html'),
         contact: resolve(__dirname, 'contact.html'),
+        admin: resolve(__dirname, 'admin.html'),
         dehradun: resolve(__dirname, 'cities/packers-movers-dehradun.html'),
         greaterNoida: resolve(__dirname, 'cities/packers-movers-greater-noida.html'),
         kanpur: resolve(__dirname, 'cities/packers-movers-kanpur.html'),

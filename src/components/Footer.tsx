@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
           </p>
         </div>
 
-        {/* Navigation Column 1 */}
+        {/* Navigation Column 1: Services */}
         <div className="flex flex-col space-y-3">
           <h4 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Services</h4>
           <a href="service.html#household" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Household Shifting</a>
@@ -34,9 +34,9 @@ export const Footer: React.FC = () => {
           <a href="service.html#warehousing" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Bespoke Warehousing</a>
         </div>
 
-        {/* Navigation Column 2 */}
+        {/* Navigation Column 2: Service Hubs */}
         <div className="flex flex-col space-y-3">
-          <h4 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Popular Hubs</h4>
+          <h4 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Service Hubs</h4>
           <a href="cities/packers-movers-dehradun.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Packers & Movers Dehradun</a>
           <a href="cities/packers-movers-greater-noida.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Packers & Movers Greater Noida</a>
           <a href="cities/packers-movers-kanpur.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Packers & Movers Kanpur</a>
