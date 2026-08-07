@@ -84,13 +84,15 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] bg-[#0b1c30] text-white flex items-center pt-24 pb-16 overflow-hidden">
-      {/* Background Cargo Shipping Dock Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 mix-blend-luminosity scale-105 transform transition-transform duration-1000"
-        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop')` }}
-      ></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0b1c30] via-[#0b1c30]/90 to-transparent"></div>
+    <section className="relative min-h-[90vh] bg-[#0b1c30] text-white flex items-center pt-24 pb-16" style={{ zIndex: 20 }}>
+      {/* Background Cargo Shipping Dock Overlay — wrapped in own overflow-hidden container */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 mix-blend-luminosity scale-105 transform transition-transform duration-1000"
+          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop')` }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0b1c30] via-[#0b1c30]/90 to-transparent"></div>
+      </div>
 
       <div className="relative max-w-container-max mx-auto px-4 md:px-margin-desktop w-full z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -221,7 +223,7 @@ export const Hero: React.FC = () => {
                 </div>
 
                 {/* Date Selection */}
-                <div className="relative">
+                <div className="relative" style={{ overflow: 'visible' }}>
                   <label className="text-[11px] font-semibold text-slate-500 block mb-1">
                     Target Move Date
                   </label>

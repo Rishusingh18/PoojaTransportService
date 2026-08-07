@@ -88,22 +88,33 @@ export const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
 
   return (
     <div ref={containerRef} style={{ position: 'relative' }}>
+      {/* Mobile backdrop */}
+      {isOpen && isMobile && (
+        <div
+          onClick={onClose}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0,0,0,0.45)',
+            zIndex: 9998,
+          }}
+        />
+      )}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={isMobile ? { opacity: 0, y: 10, scale: 0.95 } : { opacity: 0, x: 15, scale: 0.95 }}
-            animate={isMobile ? { opacity: 1, y: 0, scale: 1 } : { opacity: 1, x: 0, scale: 1 }}
-            exit={isMobile ? { opacity: 0, y: 10, scale: 0.95 } : { opacity: 0, x: 15, scale: 0.95 }}
+            initial={isMobile ? { opacity: 0 } : { opacity: 0, x: 15, scale: 0.95 }}
+            animate={isMobile ? { opacity: 1 } : { opacity: 1, x: 0, scale: 1 }}
+            exit={isMobile ? { opacity: 0 } : { opacity: 0, x: 15, scale: 0.95 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
             style={
               isMobile
                 ? {
-                    position: 'absolute',
-                    top: '100%',
-                    left: 0,
-                    right: 0,
-                    zIndex: 2000,
-                    marginTop: '8px',
+                    position: 'fixed',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    zIndex: 9999,
                     padding: '1.5rem',
                     background: isDark ? '#0a1329' : '#ffffff',
                     color: isDark ? '#ffffff' : '#0f172a',
@@ -112,14 +123,15 @@ export const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
                       ? '0 25px 50px -12px rgba(0, 0, 0, 0.85)' 
                       : '0 20px 40px -10px rgba(15, 23, 42, 0.2)',
                     border: isDark ? '1px solid rgba(255, 255, 255, 0.12)' : '1px solid #e2e8f0',
-                    width: '100%'
+                    width: 'calc(100vw - 48px)',
+                    maxWidth: '340px'
                   }
                 : {
                     position: 'absolute',
                     top: '-175px',
                     right: 'calc(100% + 20px)',
                     left: 'auto',
-                    zIndex: 2000,
+                    zIndex: 9999,
                     padding: '1.5rem',
                     background: isDark ? '#0a1329' : '#ffffff',
                     color: isDark ? '#ffffff' : '#0f172a',
