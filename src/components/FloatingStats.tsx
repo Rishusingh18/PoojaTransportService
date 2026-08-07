@@ -2,9 +2,9 @@ import React from 'react';
 
 export const FloatingStats: React.FC = () => {
   return (
-    <section className="floating-stats" style={{ position: 'relative', zIndex: 30 }}>
+    <section className="floating-stats" style={{ position: 'relative', zIndex: 20 }}>
       <div className="container">
-        <div className="stats-wrapper glass-card" style={{ background: '#ffffff', position: 'relative', zIndex: 30 }}>
+        <div className="stats-wrapper glass-card" style={{ background: '#ffffff', position: 'relative', zIndex: 20 }}>
           <div className="stat-item">
             <span className="stat-num">12+</span>
             <span className="stat-txt">Years Excellence</span>

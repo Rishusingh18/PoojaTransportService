@@ -84,7 +84,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] bg-[#0b1c30] text-white flex items-center pt-24 pb-16" style={{ zIndex: 20 }}>
+    <section className="relative min-h-[90vh] bg-[#0b1c30] text-white flex items-center pt-24 pb-16">
       {/* Background Cargo Shipping Dock Overlay — wrapped in own overflow-hidden container */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
@@ -94,7 +94,7 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0b1c30] via-[#0b1c30]/90 to-transparent"></div>
       </div>
 
-      <div className="relative max-w-container-max mx-auto px-4 md:px-margin-desktop w-full z-10">
+      <div className="relative max-w-container-max mx-auto px-4 md:px-margin-desktop w-full z-30">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Hero Brand Messaging */}
