@@ -81,9 +81,9 @@
 
 <body class="bg-surface text-on-background font-sans antialiased">
 
-  <!-- TOP BAR -->
-  <div class="bg-primary-container text-on-primary py-2.5 px-4 text-xs font-medium border-b border-outline-variant/20">
-    <div class="max-w-container-max mx-auto flex justify-between items-center">
+  <!-- ================= TOP BAR ================= -->
+  <div class="bg-[#0b1c30] text-white py-2.5 px-4 text-xs font-medium border-b border-white/10">
+    <div class="max-w-[1280px] mx-auto flex justify-between items-center">
       <div class="flex items-center space-x-6">
         <a href="tel:+919910204916" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
           <i class="fas fa-phone-alt text-[10px]"></i> +91 9910204916
@@ -96,48 +96,122 @@
         <span class="hidden md:inline-flex items-center gap-1 opacity-80">
           <i class="fas fa-certificate text-[10px] text-amber-400"></i> ISO 9001:2015 Certified
         </span>
+        <span class="inline-flex items-center gap-1 opacity-80">
+          <i class="fas fa-clock text-[10px]"></i> 24/7 Operations Command
+        </span>
       </div>
     </div>
   </div>
 
-  <!-- HEADER WITH PRESERVED LOGO -->
+  <!-- ================= HEADER ================= -->
   <header class="w-full top-0 sticky bg-[#0b1c30] text-white border-b border-white/10 z-50 transition-shadow duration-300 shadow-md">
-    <div class="flex justify-between items-center h-20 max-w-container-max mx-auto px-4 md:px-margin-desktop">
-      <a href="index.html" class="flex items-center gap-3 group">
-        <img src="/image/logo.png" alt="Pooja Transport Service Logo" class="h-12 w-auto object-contain" />
+    <div class="flex justify-between items-center h-20 max-w-[1280px] mx-auto px-4 md:px-16">
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-2 sm:gap-3 group shrink" title="Pooja Transport Service Homepage">
+        <img src="/image/logo.png" alt="Pooja Transport Service Logo" class="h-9 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
         <span class="flex flex-col">
-          <span class="font-display font-bold text-xl tracking-tight text-white leading-tight">
+          <span class="font-bold text-sm sm:text-xl tracking-tight text-white leading-tight whitespace-nowrap" style="font-family:'Playfair Display',serif">
             POOJA <span class="text-amber-400">TRANSPORT</span>
           </span>
-          <span class="text-[10px] font-semibold tracking-widest text-slate-300 uppercase">
+          <span class="hidden sm:block text-[10px] font-semibold tracking-widest text-slate-300 uppercase whitespace-nowrap">
             Relocation Excellence
           </span>
         </span>
       </a>
 
+      <!-- Desktop Navigation -->
       <nav class="hidden lg:flex space-x-8 items-center">
         <a href="index.html" class="text-slate-300 text-sm font-medium hover:text-white transition-colors">Home</a>
         <a href="about.html" class="text-slate-300 text-sm font-medium hover:text-white transition-colors">About Us</a>
-        <a href="service.html" class="text-white font-semibold border-b-2 border-amber-400 pb-1 text-sm hover:text-amber-300 transition-colors">Services</a>
+
+        <!-- Services Dropdown -->
+        <div class="relative group">
+          <a href="service.html" class="text-white font-semibold border-b-2 border-amber-400 pb-1 text-sm hover:text-amber-300 transition-colors flex items-center gap-1 py-6">
+            Services <i class="fas fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform"></i>
+          </a>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 w-[560px] bg-[#131b2e] border border-white/10 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-5 grid grid-cols-2 gap-3 z-50">
+            <a href="service.html#household" class="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
+              <div class="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-amber-400 shrink-0"><i class="fas fa-home text-sm"></i></div>
+              <div><div class="font-semibold text-sm text-white">Household Relocation</div><p class="text-xs text-slate-300 mt-0.5">White-glove packing & safe transit for homes.</p></div>
+            </a>
+            <a href="service.html#office" class="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
+              <div class="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-amber-400 shrink-0"><i class="fas fa-building text-sm"></i></div>
+              <div><div class="font-semibold text-sm text-white">Corporate Infrastructure</div><p class="text-xs text-slate-300 mt-0.5">Headquarters & office move execution.</p></div>
+            </a>
+            <a href="service.html#vehicle" class="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
+              <div class="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-amber-400 shrink-0"><i class="fas fa-car text-sm"></i></div>
+              <div><div class="font-semibold text-sm text-white">Car & Bike Carrier</div><p class="text-xs text-slate-300 mt-0.5">Enclosed vehicle transport with live tracking.</p></div>
+            </a>
+            <a href="service.html#warehousing" class="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
+              <div class="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-amber-400 shrink-0"><i class="fas fa-warehouse text-sm"></i></div>
+              <div><div class="font-semibold text-sm text-white">Bespoke Warehousing</div><p class="text-xs text-slate-300 mt-0.5">Climate-controlled short & long term storage.</p></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Cities Dropdown -->
+        <div class="relative group">
+          <a href="#" class="text-slate-300 text-sm font-medium hover:text-white transition-colors flex items-center gap-1 py-6">
+            Cities <i class="fas fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform"></i>
+          </a>
+          <div class="absolute top-full left-0 w-52 bg-[#131b2e] border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
+            <a href="cities/packers-movers-dehradun.html" class="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Dehradun</a>
+            <a href="cities/packers-movers-greater-noida.html" class="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Greater Noida</a>
+            <a href="cities/packers-movers-kanpur.html" class="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Kanpur</a>
+            <a href="cities/packers-movers-lucknow.html" class="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Lucknow</a>
+            <a href="cities/packers-movers-varanasi.html" class="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Varanasi</a>
+          </div>
+        </div>
+
         <a href="contact.html" class="text-slate-300 text-sm font-medium hover:text-white transition-colors">Contact</a>
       </nav>
 
-      <div class="hidden lg:flex items-center space-x-4">
+      <!-- Right Action Container (Call + Get Consultation + Mobile Hamburger) -->
+      <div class="flex items-center gap-1.5 sm:gap-3">
+        <!-- Call Button -->
+        <a href="tel:+919910204916" class="flex items-center gap-1 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 px-2 sm:px-3 py-1.5 rounded transition-colors shrink-0" title="Call Us Now">
+          <i class="fas fa-phone-alt text-[10px] text-amber-300"></i>
+          <span class="hidden md:inline">+91 9910204916</span>
+          <span class="inline md:hidden">Call</span>
+        </a>
 
-      <button class="lg:hidden text-on-background p-2 focus:outline-none" onclick="toggleMenu()">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
+        <!-- Get Consultation Button -->
+        <a href="index.html#quote" class="bg-amber-400 text-[#0b1c30] text-[10px] sm:text-xs font-bold uppercase tracking-wider px-2.5 sm:px-4 py-1.5 sm:py-2 rounded hover:bg-amber-300 transition-all shadow-sm shrink-0 whitespace-nowrap">
+          Get Consultation
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="lg:hidden p-1.5 text-white focus:outline-none shrink-0 ml-0.5" onclick="toggleMenu()" aria-label="Toggle Navigation Menu">
+          <i class="fas fa-bars text-lg sm:text-xl"></i>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- MOBILE DRAWER -->
+  <!-- ================= MOBILE DRAWER ================= -->
   <div class="mobile-drawer hidden" id="mobileDrawer">
-    <div class="drawer-header flex items-center justify-between p-4 border-b">
+    <div class="drawer-header flex items-center justify-between p-4 border-b border-white/10" style="background:#0b1c30">
       <div class="flex items-center gap-2">
-        <img src="image/logo.png" alt="Pooja Transport Service" class="h-10 w-auto">
-        <span class="font-display font-bold text-sm text-on-background">POOJA <span class="text-[#6e5e00]">TRANSPORT</span></span>
+        <img src="/image/logo.png" alt="Pooja Transport Service" class="h-10 w-auto">
+        <span class="font-bold text-sm text-white" style="font-family:'Playfair Display',serif">POOJA <span class="text-amber-400">TRANSPORT</span></span>
       </div>
-      <div class="drawer-close cursor-pointer" onclick="toggleMenu()"><i class="fas fa-times"></i></div>
+      <div class="drawer-close cursor-pointer text-white" onclick="toggleMenu()"><i class="fas fa-times text-xl"></i></div>
+    </div>
+    <nav class="drawer-nav flex flex-col p-4 space-y-3">
+      <a href="index.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Home</a>
+      <a href="about.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">About Us</a>
+      <a href="service.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Services</a>
+      <a href="cities/packers-movers-dehradun.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Dehradun</a>
+      <a href="cities/packers-movers-greater-noida.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Greater Noida</a>
+      <a href="cities/packers-movers-kanpur.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Kanpur</a>
+      <a href="cities/packers-movers-lucknow.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Lucknow</a>
+      <a href="cities/packers-movers-varanasi.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Varanasi</a>
+      <a href="contact.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Contact</a>
+      <a href="tel:+919910204916" class="mt-2 bg-amber-400 text-[#0b1c30] text-sm font-bold text-center py-2.5 rounded">Call Now: +91 9910204916</a>
+    </nav>
+  </div>
+
+<div class="drawer-close cursor-pointer" onclick="toggleMenu()"><i class="fas fa-times"></i></div>
     </div>
     <nav class="drawer-nav flex flex-col p-4 space-y-3">
       <a href="index.html" onclick="toggleMenu()" class="py-2 border-b text-sm font-semibold">Home</a>

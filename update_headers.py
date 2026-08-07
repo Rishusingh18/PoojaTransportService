@@ -56,13 +56,13 @@ def build_header(logo_src, prefix, active):
   <header class="w-full top-0 sticky bg-[#0b1c30] text-white border-b border-white/10 z-50 transition-shadow duration-300 shadow-md">
     <div class="flex justify-between items-center h-20 max-w-[1280px] mx-auto px-4 md:px-16">
       <!-- Brand Logo -->
-      <a href="{prefix}index.html" class="flex items-center gap-3 group" title="Pooja Transport Service Homepage">
-        <img src="{logo_src}" alt="Pooja Transport Service Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+      <a href="{prefix}index.html" class="flex items-center gap-2 sm:gap-3 group shrink" title="Pooja Transport Service Homepage">
+        <img src="{logo_src}" alt="Pooja Transport Service Logo" class="h-9 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
         <span class="flex flex-col">
-          <span class="font-bold text-xl tracking-tight text-white leading-tight" style="font-family:'Playfair Display',serif">
+          <span class="font-bold text-sm sm:text-xl tracking-tight text-white leading-tight whitespace-nowrap" style="font-family:'Playfair Display',serif">
             POOJA <span class="text-amber-400">TRANSPORT</span>
           </span>
-          <span class="text-[10px] font-semibold tracking-widest text-slate-300 uppercase">
+          <span class="hidden sm:block text-[10px] font-semibold tracking-widest text-slate-300 uppercase whitespace-nowrap">
             Relocation Excellence
           </span>
         </span>
@@ -115,20 +115,25 @@ def build_header(logo_src, prefix, active):
         <a href="{prefix}contact.html" class="{contact_cls}">Contact</a>
       </nav>
 
-      <!-- CTA Actions -->
-      <div class="hidden lg:flex items-center space-x-4">
-        <a href="tel:+919910204916" class="flex items-center gap-2 text-sm font-semibold text-white hover:text-amber-400 transition-colors px-3 py-2">
-          <i class="fas fa-phone-alt text-xs text-amber-400"></i> +91 9910204916
+      <!-- Right Action Container (Call + Get Consultation + Mobile Hamburger) -->
+      <div class="flex items-center gap-1.5 sm:gap-3">
+        <!-- Call Button -->
+        <a href="tel:+919910204916" class="flex items-center gap-1 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 px-2 sm:px-3 py-1.5 rounded transition-colors shrink-0" title="Call Us Now">
+          <i class="fas fa-phone-alt text-[10px] text-amber-300"></i>
+          <span class="hidden md:inline">+91 9910204916</span>
+          <span class="inline md:hidden">Call</span>
         </a>
-        <a href="{prefix}index.html#quote" class="bg-amber-400 text-[#0b1c30] text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded hover:bg-amber-300 transition-all shadow-sm">
+
+        <!-- Get Consultation Button -->
+        <a href="{prefix}index.html#quote" class="bg-amber-400 text-[#0b1c30] text-[10px] sm:text-xs font-bold uppercase tracking-wider px-2.5 sm:px-4 py-1.5 sm:py-2 rounded hover:bg-amber-300 transition-all shadow-sm shrink-0 whitespace-nowrap">
           Get Consultation
         </a>
-      </div>
 
-      <!-- Mobile Hamburger -->
-      <button class="lg:hidden p-2 text-white focus:outline-none" onclick="toggleMenu()" aria-label="Toggle Navigation Menu">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
+        <!-- Mobile Hamburger Toggle -->
+        <button class="lg:hidden p-1.5 text-white focus:outline-none shrink-0 ml-0.5" onclick="toggleMenu()" aria-label="Toggle Navigation Menu">
+          <i class="fas fa-bars text-lg sm:text-xl"></i>
+        </button>
+      </div>
     </div>
   </header>
 

@@ -7,19 +7,19 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
   return (
     <header className="w-full top-0 sticky bg-[#0b1c30] text-white border-b border-white/10 z-50 transition-shadow duration-300 shadow-md">
-      <div className="flex justify-between items-center h-20 max-w-container-max mx-auto px-4 md:px-margin-desktop">
+      <div className="flex justify-between items-center h-20 max-w-container-max mx-auto px-3 sm:px-4 md:px-margin-desktop">
         {/* Preserved Brand Logo */}
-        <a href="index.html" className="flex items-center gap-3 group" title="Pooja Transport Service Homepage">
+        <a href="index.html" className="flex items-center gap-2 sm:gap-3 group shrink" title="Pooja Transport Service Homepage">
           <img 
             src="/image/logo.png" 
             alt="Pooja Transport Service Logo" 
-            className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+            className="h-9 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
           />
           <span className="flex flex-col">
-            <span className="font-display font-bold text-xl tracking-tight text-white leading-tight">
+            <span className="font-display font-bold text-sm sm:text-xl tracking-tight text-white leading-tight whitespace-nowrap">
               POOJA <span className="text-amber-400">TRANSPORT</span>
             </span>
-            <span className="text-[10px] font-semibold tracking-widest text-slate-300 uppercase">
+            <span className="hidden sm:block text-[10px] font-semibold tracking-widest text-slate-300 uppercase whitespace-nowrap">
               Relocation Excellence
             </span>
           </span>
@@ -102,30 +102,36 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
           </a>
         </nav>
 
-        {/* CTA Actions */}
-        <div className="hidden lg:flex items-center space-x-4">
+        {/* Right Action Container (Call + Get Consultation + Mobile Hamburger) */}
+        <div className="flex items-center gap-1.5 sm:gap-3">
+          {/* Call Button */}
           <a 
             href="tel:+919910204916" 
-            className="flex items-center gap-2 text-sm font-semibold text-white hover:text-amber-400 transition-colors px-3 py-2"
+            className="flex items-center gap-1 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 px-2 sm:px-3 py-1.5 rounded transition-colors shrink-0"
+            title="Call Us Now"
           >
-            <i className="fas fa-phone-alt text-xs text-amber-400"></i> +91 9910204916
+            <i className="fas fa-phone-alt text-[10px] text-amber-300"></i>
+            <span className="hidden md:inline">+91 9910204916</span>
+            <span className="inline md:hidden">Call</span>
           </a>
+
+          {/* Get Consultation Button */}
           <a 
             href="#quote" 
-            className="bg-amber-400 text-[#0b1c30] text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded hover:bg-amber-300 transition-all shadow-sm"
+            className="bg-amber-400 text-[#0b1c30] text-[10px] sm:text-xs font-bold uppercase tracking-wider px-2.5 sm:px-4 py-1.5 sm:py-2 rounded hover:bg-amber-300 transition-all shadow-sm shrink-0 whitespace-nowrap"
           >
             Get Consultation
           </a>
-        </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <button 
-          className="lg:hidden p-2 text-white focus:outline-none" 
-          onClick={onToggleMenu}
-          aria-label="Toggle Navigation Menu"
-        >
-          <i className="fas fa-bars text-xl"></i>
-        </button>
+          {/* Mobile Hamburger Toggle */}
+          <button 
+            className="lg:hidden p-1.5 text-white focus:outline-none shrink-0 ml-0.5" 
+            onClick={onToggleMenu}
+            aria-label="Toggle Navigation Menu"
+          >
+            <i className="fas fa-bars text-lg sm:text-xl"></i>
+          </button>
+        </div>
       </div>
     </header>
   );
