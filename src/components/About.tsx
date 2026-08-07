@@ -123,60 +123,7 @@ export const About: React.FC = () => {
           </div>
         </div>
 
-        {/* Executive Team / Operational Leadership */}
-        <div className="border-t border-outline-variant/40 pt-16">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
-            <div>
-              <span className="text-xs font-semibold text-on-surface-variant uppercase tracking-widest block mb-2">
-                Command & Operations
-              </span>
-              <h3 className="font-display text-2xl md:text-3xl text-on-background font-bold">
-                Operational Leadership
-              </h3>
-            </div>
-            <p className="text-xs text-on-surface-variant max-w-md">
-              Guided by relocation veterans committed to safety, punctuality, and client satisfaction across every route.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            <div className="group">
-              <div className="w-full aspect-[4/5] rounded overflow-hidden bg-surface-container border border-outline-variant/60 mb-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop" 
-                  alt="Relocation Director - Pooja Transport Service" 
-                  className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-                />
-              </div>
-              <h4 className="font-display text-lg font-bold text-on-background">Rajesh Singh</h4>
-              <p className="text-xs text-on-surface-variant font-semibold uppercase tracking-wider mt-0.5">Founder & Managing Director</p>
-            </div>
-
-            <div className="group">
-              <div className="w-full aspect-[4/5] rounded overflow-hidden bg-surface-container border border-outline-variant/60 mb-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" 
-                  alt="Head of Logistics - Pooja Transport Service" 
-                  className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-                />
-              </div>
-              <h4 className="font-display text-lg font-bold text-on-background">Sunita Sharma</h4>
-              <p className="text-xs text-on-surface-variant font-semibold uppercase tracking-wider mt-0.5">Head of Client Experience</p>
-            </div>
-
-            <div className="group">
-              <div className="w-full aspect-[4/5] rounded overflow-hidden bg-surface-container border border-outline-variant/60 mb-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop" 
-                  alt="VP Fleet Operations - Pooja Transport Service" 
-                  className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-                />
-              </div>
-              <h4 className="font-display text-lg font-bold text-on-background">Amit Vikram</h4>
-              <p className="text-xs text-on-surface-variant font-semibold uppercase tracking-wider mt-0.5">VP, Fleet & Security</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
