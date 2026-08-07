@@ -186,13 +186,14 @@ export const Hero: React.FC = () => {
                 {/* Name & Contact Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-[11px] font-semibold text-slate-500 block mb-1">
+                    <label htmlFor="h-name" className="text-[11px] font-semibold text-slate-500 block mb-1">
                       Your Full Name *
                     </label>
                     <input 
                       type="text" 
                       id="h-name" 
                       required
+                      autoComplete="name"
                       className="w-full bg-transparent border-0 border-b-2 border-slate-300 focus:border-[#0b1c30] focus:ring-0 px-0 py-2 text-sm text-[#0b1c30] font-medium" 
                       placeholder="e.g. Rajesh Kumar" 
                       value={formData.name}
@@ -200,13 +201,16 @@ export const Hero: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] font-semibold text-slate-500 block mb-1">
+                    <label htmlFor="h-mobile" className="text-[11px] font-semibold text-slate-500 block mb-1">
                       Mobile Phone Number *
                     </label>
                     <input 
                       type="tel" 
                       id="h-mobile" 
                       required
+                      inputMode="tel"
+                      autoComplete="tel"
+                      maxLength={15}
                       aria-invalid={Boolean(phoneError)}
                       aria-describedby={phoneError ? "h-mobile-error" : undefined}
                       className={`w-full bg-transparent border-0 border-b-2 ${phoneError ? 'border-red-500' : 'border-slate-300'} focus:border-[#0b1c30] focus:ring-0 px-0 py-2 text-sm text-[#0b1c30] font-medium`} 
