@@ -207,13 +207,15 @@ export const Hero: React.FC = () => {
                       type="tel" 
                       id="h-mobile" 
                       required
+                      aria-invalid={Boolean(phoneError)}
+                      aria-describedby={phoneError ? "h-mobile-error" : undefined}
                       className={`w-full bg-transparent border-0 border-b-2 ${phoneError ? 'border-red-500' : 'border-slate-300'} focus:border-[#0b1c30] focus:ring-0 px-0 py-2 text-sm text-[#0b1c30] font-medium`} 
                       placeholder="+91 9910204916" 
                       value={formData.mobile}
                       onChange={handleChange}
                     />
                     {phoneError && (
-                      <p className="text-[11px] text-red-600 font-semibold mt-1 flex items-center gap-1">
+                      <p id="h-mobile-error" role="alert" className="text-[11px] text-red-600 font-semibold mt-1 flex items-center gap-1">
                         <AlertCircle className="w-3 h-3 text-red-600 shrink-0" /> {phoneError}
                       </p>
                     )}

@@ -6,7 +6,7 @@
  * - Valid prefixes: Must start with 6, 7, 8, or 9 (0-5 are strictly invalid).
  * - Optional prefix handling: Removes leading +91, 091, 91 (when 12 digits), or leading trunk prefix 0.
  * - Normalization: E.164 standard format (+91XXXXXXXXXX).
- * - Throws explicit validation error if non-compliant.
+ * - Returns a structured MobileValidationResult error rather than throwing an exception if non-compliant.
  */
 
 export interface MobileValidationResult {
