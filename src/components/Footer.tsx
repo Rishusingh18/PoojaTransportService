@@ -51,7 +51,12 @@ export const Footer: React.FC = () => {
             <i className="fas fa-phone-alt text-amber-400"></i> +91 9910204916
           </p>
           <p className="text-xs text-slate-300 flex items-center gap-2">
-            <i className="fas fa-envelope text-amber-400"></i> poojatransportservice3@gmail.com
+            <i className="fas fa-envelope text-amber-400"></i>
+            <a href="mailto:contact@poojatransportservice.com" className="hover:text-white transition-colors">contact@poojatransportservice.com</a>
+          </p>
+          <p className="text-xs text-slate-300 flex items-center gap-2">
+            <i className="fas fa-envelope text-amber-400"></i>
+            <a href="mailto:poojatransportservice3@gmail.com" className="hover:text-white transition-colors">poojatransportservice3@gmail.com</a>
           </p>
           <p className="text-xs text-slate-300 flex items-start gap-2">
             <i className="fas fa-map-marker-alt text-amber-400 mt-0.5"></i> Gaur City Center, Greater Noida, UP, India

@@ -278,9 +278,37 @@ app.get('/api/quotes', async (req, res) => {
   res.json({ success: true, source: 'local', data: db.quotes || [] });
 });
 
+function validateIndianMobileServer(rawInput) {
+  if (!rawInput || typeof rawInput !== 'string' || !rawInput.trim()) {
+    return { isValid: false, error: 'Invalid mobile number. Please enter a valid 10-digit mobile number.' };
+  }
+  let cleaned = rawInput.trim().replace(/[\s\-\(\)\.]/g, '');
+  if (cleaned.startsWith('+91')) cleaned = cleaned.slice(3);
+  else if (cleaned.startsWith('091')) cleaned = cleaned.slice(3);
+  else if (cleaned.startsWith('91') && cleaned.length === 12) cleaned = cleaned.slice(2);
+  else if (cleaned.startsWith('0')) cleaned = cleaned.replace(/^0+/, '');
+
+  if (!/^\d+$/.test(cleaned)) {
+    return { isValid: false, error: 'Invalid mobile number. Number must contain digits only.' };
+  }
+  if (cleaned.length !== 10) {
+    return { isValid: false, error: `Invalid mobile number. Must be a 10-digit mobile number (entered ${cleaned.length} digits).` };
+  }
+  const first = cleaned.charAt(0);
+  if (!['6', '7', '8', '9'].includes(first)) {
+    return { isValid: false, error: `Invalid mobile number. Indian mobile numbers must start with 6, 7, 8, or 9 (starts with '${first}').` };
+  }
+  return { isValid: true, normalized: '+91' + cleaned, error: '' };
+}
+
 // POST /api/quotes - Creates new booking/quote
 app.post('/api/quotes', async (req, res) => {
   const { name, mobile, from, to, serviceType, moveDate, notes } = req.body;
+
+  const mobileCheck = validateIndianMobileServer(mobile);
+  if (!mobileCheck.isValid) {
+    return res.status(400).json({ success: false, message: mobileCheck.error });
+  }
 
   const quoteId = `quote-${Date.now()}`;
   const createdAtIso = new Date().toISOString();
@@ -289,7 +317,7 @@ app.post('/api/quotes', async (req, res) => {
   const universalRecord = {
     id: quoteId,
     name: name || 'Valued Customer',
-    mobile: mobile || 'N/A',
+    mobile: mobileCheck.normalized,
     from: from || 'Not specified',
     to: to || 'Not specified',
     serviceType: serviceType || 'Household Relocation',
@@ -312,7 +340,7 @@ app.post('/api/quotes', async (req, res) => {
       const snakeRecord = {
         id: quoteId,
         name: name || 'Valued Customer',
-        mobile: mobile || 'N/A',
+        mobile: mobileCheck.normalized,
         origin: from || 'Not specified',
         destination: to || 'Not specified',
         service_type: serviceType || 'Household Relocation',
@@ -336,7 +364,7 @@ app.post('/api/quotes', async (req, res) => {
   const localRecord = {
     id: quoteId,
     name: name || 'Valued Customer',
-    mobile: mobile || 'N/A',
+    mobile: mobileCheck.normalized,
     from: from || 'Not specified',
     to: to || 'Not specified',
     serviceType: serviceType || 'Household Relocation',

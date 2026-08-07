@@ -37,7 +37,10 @@ def build_header(logo_src, prefix, active):
         <a href="tel:+919910204916" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
           <i class="fas fa-phone-alt text-[10px]"></i> +91 9910204916
         </a>
-        <a href="mailto:poojatransportservice3@gmail.com" class="hidden sm:flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
+        <a href="mailto:contact@poojatransportservice.com" class="hidden sm:flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
+          <i class="fas fa-envelope text-[10px]"></i> contact@poojatransportservice.com
+        </a>
+        <a href="mailto:poojatransportservice3@gmail.com" class="hidden md:flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
           <i class="fas fa-envelope text-[10px]"></i> poojatransportservice3@gmail.com
         </a>
       </div>
@@ -167,31 +170,21 @@ def build_header(logo_src, prefix, active):
 def replace_header_section(content, new_header):
     """
     Remove old top bar + header + mobile drawer and replace with new unified header.
-    Uses regex to match from the first top-bar/header comment to just before the first <section or <main or first content div after header.
+    Finds start of top bar comment and replaces everything up to the first <main> or <section> tag.
     """
-    # Match everything from start of body children up to (but not including) the first main content landmark
-    # Strategy: find <body...> tag, then replace everything before first <section or <main or first <div id= that is content
-    
-    # Pattern: match from start of topbar block through end of mobile drawer or end of header
-    patterns = [
-        # Cities pages: new-topbar + viamaster-header
-        (r'(?s)([ \t]*<!-- ={5,} TOPBAR ={5,} -->.*?</div>\s*)([ \t]*<!-- ={5,} HEADER ={5,} -->.*?<!-- ={5,} MOBILE.*?</div>\s*)', None),
-        # about/service/contact: TOP BAR + HEADER + MOBILE MENU DRAWER  
-        (r'(?s)([ \t]*<!-- ={5,} TOP BAR ={5,} -->.*?</div>\s*\n\n?)([ \t]*<!-- ={5,} HEADER.*?</header>\s*\n\n?)([ \t]*<!-- ={5,} MOBILE.*?</div>\s*\n?)', None),
-        # contact: TOP BAR + HEADER + MOBILE
-        (r'(?s)([ \t]*<!-- TOP BAR -->.*?</div>\s*\n\n?)([ \t]*<!-- HEADER.*?</header>\s*\n\n?)([ \t]*<!-- MOBILE.*?</div>\s*\n?)', None),
-        # Fallback: match just the header block
-        (r'(?s)([ \t]*<!-- .*?TOP.*?BAR.*?-->.*?</div>\s*\n?\n?)([ \t]*<!-- .*?HEADER.*?-->.*?</header>\s*\n?\n?)', None),
-    ]
-    
-    for pat, _ in patterns:
-        m = re.search(pat, content)
-        if m:
-            start = m.start()
-            end = m.end()
-            return content[:start] + new_header + "\n\n" + content[end:]
-    
-    return None
+    m_start = re.search(r'(?i)[ \t]*<!--\s*=*?\s*TOP\s*BAR.*', content)
+    if not m_start:
+        m_start = re.search(r'(?i)[ \t]*<!--\s*=*?\s*HEADER.*', content)
+    if not m_start:
+        return None
+    start_idx = m_start.start()
+
+    m_end = re.search(r'(?i)<(main|section)', content[start_idx:])
+    if not m_end:
+        return None
+    end_idx = start_idx + m_end.start()
+
+    return content[:start_idx] + new_header + "\n\n" + content[end_idx:]
 
 
 def process_file(rel_path, logo_src, prefix, active):

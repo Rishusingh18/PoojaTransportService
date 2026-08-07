@@ -8,6 +8,79 @@
     content="Contact Pooja Transport Service for reliable house shifting and office relocation across India. Instant quote via WhatsApp or phone.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS & Kinetic Enterprise Theme Config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#f8f9ff",
+            "surface-dim": "#cbdbf5",
+            "surface-bright": "#f8f9ff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#eff4ff",
+            "surface-container": "#e5eeff",
+            "surface-container-high": "#dce9ff",
+            "surface-container-highest": "#d3e4fe",
+            "surface-variant": "#d3e4fe",
+            "on-background": "#0b1c30",
+            "on-surface": "#0b1c30",
+            "on-surface-variant": "#45464d",
+            "outline": "#76777d",
+            "outline-variant": "#c6c6cd",
+            "primary": "#0b1c30",
+            "on-primary": "#ffffff",
+            "primary-container": "#131b2e",
+            "on-primary-container": "#7c839b",
+            "secondary": "#6e5e00",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#f8df71",
+            "on-secondary-container": "#736200",
+            "tertiary-container": "#00174b",
+            "on-tertiary-container": "#497cff"
+          },
+          fontFamily: {
+            display: ["Playfair Display", "serif"],
+            sans: ["Inter", "sans-serif"],
+            body: ["Inter", "sans-serif"]
+          },
+          maxWidth: {
+            "container-max": "1280px"
+          },
+          spacing: {
+            "margin-desktop": "64px",
+            "margin-mobile": "24px",
+            "gutter": "32px"
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="Css/redesign.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script src="main.js" defer></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18154472207"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18154472207');
+</script>
+</head>
+
+<body class="bg-surface text-on-background font-sans antialiased">
+
   <!-- ================= TOP BAR ================= -->
   <div class="bg-[#0b1c30] text-white py-2.5 px-4 text-xs font-medium border-b border-white/10">
     <div class="max-w-[1280px] mx-auto flex justify-between items-center">
@@ -15,7 +88,10 @@
         <a href="tel:+919910204916" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
           <i class="fas fa-phone-alt text-[10px]"></i> +91 9910204916
         </a>
-        <a href="mailto:poojatransportservice3@gmail.com" class="hidden sm:flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
+        <a href="mailto:contact@poojatransportservice.com" class="hidden sm:flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
+          <i class="fas fa-envelope text-[10px]"></i> contact@poojatransportservice.com
+        </a>
+        <a href="mailto:poojatransportservice3@gmail.com" class="hidden md:flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
           <i class="fas fa-envelope text-[10px]"></i> poojatransportservice3@gmail.com
         </a>
       </div>
@@ -139,54 +215,6 @@
     </nav>
   </div>
 
-<div class="drawer-close cursor-pointer text-white" onclick="toggleMenu()"><i class="fas fa-times text-xl"></i></div>
-    </div>
-    <nav class="drawer-nav flex flex-col p-4 space-y-3">
-      <a href="index.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Home</a>
-      <a href="about.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">About Us</a>
-      <a href="service.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Services</a>
-      <a href="cities/packers-movers-dehradun.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Dehradun</a>
-      <a href="cities/packers-movers-greater-noida.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Greater Noida</a>
-      <a href="cities/packers-movers-kanpur.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Kanpur</a>
-      <a href="cities/packers-movers-lucknow.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Lucknow</a>
-      <a href="cities/packers-movers-varanasi.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Varanasi</a>
-      <a href="contact.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Contact</a>
-      <a href="tel:+919910204916" class="mt-2 bg-amber-400 text-[#0b1c30] text-sm font-bold text-center py-2.5 rounded">Call Now: +91 9910204916</a>
-    </nav>
-  </div>
-
-<div class="drawer-close cursor-pointer text-white" onclick="toggleMenu()"><i class="fas fa-times text-xl"></i></div>
-    </div>
-    <nav class="drawer-nav flex flex-col p-4 space-y-3">
-      <a href="index.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Home</a>
-      <a href="about.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">About Us</a>
-      <a href="service.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Services</a>
-      <a href="cities/packers-movers-dehradun.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Dehradun</a>
-      <a href="cities/packers-movers-greater-noida.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Greater Noida</a>
-      <a href="cities/packers-movers-kanpur.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Kanpur</a>
-      <a href="cities/packers-movers-lucknow.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Lucknow</a>
-      <a href="cities/packers-movers-varanasi.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Varanasi</a>
-      <a href="contact.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Contact</a>
-      <a href="tel:+919910204916" class="mt-2 bg-amber-400 text-[#0b1c30] text-sm font-bold text-center py-2.5 rounded">Call Now: +91 9910204916</a>
-    </nav>
-  </div>
-
-<div class="drawer-close cursor-pointer text-white" onclick="toggleMenu()"><i class="fas fa-times text-xl"></i></div>
-    </div>
-    <nav class="drawer-nav flex flex-col p-4 space-y-3">
-      <a href="index.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Home</a>
-      <a href="about.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">About Us</a>
-      <a href="service.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Services</a>
-      <a href="cities/packers-movers-dehradun.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Dehradun</a>
-      <a href="cities/packers-movers-greater-noida.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Greater Noida</a>
-      <a href="cities/packers-movers-kanpur.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Kanpur</a>
-      <a href="cities/packers-movers-lucknow.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Lucknow</a>
-      <a href="cities/packers-movers-varanasi.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Varanasi</a>
-      <a href="contact.html" class="text-sm font-medium text-slate-700 hover:text-[#0b1c30] py-2 border-b border-slate-100">Contact</a>
-      <a href="tel:+919910204916" class="mt-2 bg-amber-400 text-[#0b1c30] text-sm font-bold text-center py-2.5 rounded">Call Now: +91 9910204916</a>
-    </nav>
-  </div>
-
 <main>
     <!-- Contact Consultation Section -->
     <section class="py-20 max-w-container-max mx-auto px-4 md:px-margin-desktop">
@@ -203,7 +231,8 @@
               </div>
               <div>
                 <label class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant block mb-2">Mobile Phone</label>
-                <input type="tel" id="c-phone" class="w-full input-minimal text-sm text-on-background" placeholder="+91 9910204916" required>
+                <input type="tel" id="c-phone" class="w-full input-minimal text-sm text-on-background" placeholder="+91 9910204916" required oninput="document.getElementById('c-phone-error').classList.add('hidden')">
+                <div id="c-phone-error" class="hidden text-xs text-red-600 font-semibold mt-1"></div>
               </div>
             </div>
 
@@ -234,7 +263,7 @@
             </div>
 
             <button type="submit" class="bg-primary-container text-on-primary text-xs font-semibold uppercase tracking-widest py-4 px-8 rounded w-full sm:w-auto hover:bg-opacity-90 transition-all">
-              <i class="fab fa-whatsapp text-emerald-400 mr-2 text-base"></i> Transmit Request via WhatsApp
+              <i class="fas fa-paper-plane text-amber-400 mr-2 text-base"></i> Contact Us
             </button>
           </form>
         </div>
@@ -250,7 +279,10 @@
               </div>
               <div>
                 <p class="uppercase tracking-widest font-semibold text-on-background mb-1">General Enquiries</p>
-                <a href="mailto:poojatransportservice3@gmail.com" class="text-sm font-bold text-on-background hover:text-primary">poojatransportservice3@gmail.com</a>
+                <div class="flex flex-col space-y-1">
+                  <a href="mailto:contact@poojatransportservice.com" class="text-sm font-bold text-on-background hover:text-primary">contact@poojatransportservice.com</a>
+                  <a href="mailto:poojatransportservice3@gmail.com" class="text-sm font-bold text-on-background hover:text-primary">poojatransportservice3@gmail.com</a>
+                </div>
               </div>
               <div>
                 <p class="uppercase tracking-widest font-semibold text-on-background mb-1">Headquarters Address</p>
@@ -303,17 +335,53 @@
       <div class="flex flex-col space-y-3">
         <h4 class="text-xs font-semibold text-white uppercase tracking-widest mb-1">Direct Contact</h4>
         <p class="text-xs text-slate-300"><i class="fas fa-phone-alt text-amber-400 mr-2"></i>+91 9910204916</p>
-        <p class="text-xs text-slate-300"><i class="fas fa-envelope text-amber-400 mr-2"></i>poojatransportservice3@gmail.com</p>
+        <p class="text-xs text-slate-300 flex items-center gap-2"><i class="fas fa-envelope text-amber-400"></i><a href="mailto:contact@poojatransportservice.com" class="hover:text-white transition-colors">contact@poojatransportservice.com</a></p>
+        <p class="text-xs text-slate-300 flex items-center gap-2"><i class="fas fa-envelope text-amber-400"></i><a href="mailto:poojatransportservice3@gmail.com" class="hover:text-white transition-colors">poojatransportservice3@gmail.com</a></p>
         <p class="text-xs text-slate-300"><i class="fas fa-map-marker-alt text-amber-400 mr-2"></i>Gaur City Center, Greater Noida, UP, India</p>
       </div>
     </div>
   </footer>
 
   <script>
+    function validateIndianMobile(rawInput) {
+      if (!rawInput || typeof rawInput !== 'string' || !rawInput.trim()) {
+        return { isValid: false, error: 'Invalid mobile number. Please enter a valid 10-digit mobile number.' };
+      }
+      let cleaned = rawInput.trim().replace(/[\s\-\(\)\.]/g, '');
+      if (cleaned.startsWith('+91')) cleaned = cleaned.slice(3);
+      else if (cleaned.startsWith('091')) cleaned = cleaned.slice(3);
+      else if (cleaned.startsWith('91') && cleaned.length === 12) cleaned = cleaned.slice(2);
+      else if (cleaned.startsWith('0')) cleaned = cleaned.replace(/^0+/, '');
+
+      if (!/^\d+$/.test(cleaned)) {
+        return { isValid: false, error: 'Invalid mobile number. Number must contain digits only.' };
+      }
+      if (cleaned.length !== 10) {
+        return { isValid: false, error: `Invalid mobile number. Must be a 10-digit mobile number (entered ${cleaned.length} digits).` };
+      }
+      const first = cleaned.charAt(0);
+      if (!['6', '7', '8', '9'].includes(first)) {
+        return { isValid: false, error: `Invalid mobile number. Indian mobile numbers must start with 6, 7, 8, or 9 (starts with '${first}').` };
+      }
+      return { isValid: true, normalized: '+91' + cleaned, error: '' };
+    }
+
     async function handleContactSubmit(e) {
       e.preventDefault();
+      const phoneInput = document.getElementById('c-phone');
+      const errorDiv = document.getElementById('c-phone-error');
+      
+      const check = validateIndianMobile(phoneInput.value);
+      if (!check.isValid) {
+        errorDiv.innerText = check.error;
+        errorDiv.classList.remove('hidden');
+        phoneInput.focus();
+        return;
+      }
+      errorDiv.classList.add('hidden');
+
       const name = document.getElementById('c-name').value;
-      const phone = document.getElementById('c-phone').value;
+      const phone = check.normalized;
       const from = document.getElementById('c-from').value;
       const to = document.getElementById('c-to').value;
       const service = document.getElementById('c-service').value;
@@ -321,7 +389,7 @@
 
       const payload = {
         name: name || 'Anonymous Customer',
-        mobile: phone || 'Not specified',
+        mobile: phone,
         from: from || 'Not specified',
         to: to || 'Not specified',
         serviceType: service || 'General Inquiry',
