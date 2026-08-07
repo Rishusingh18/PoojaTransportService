@@ -36,28 +36,16 @@
   ],
   "quotes": [
     {
-      "id": "quote-1786037075180",
-      "name": "rishu",
-      "mobile": "910138154",
-      "from": "Delhi NCR",
-      "to": "Noida, Sector 18",
-      "serviceType": "Bespoke Warehousing",
-      "moveDate": "Aug 08, 2026",
-      "notes": "",
-      "status": "Pending",
-      "createdAt": "2026-08-06T17:24:35.18+00:00"
-    },
-    {
-      "id": "quote-1786032908497",
+      "id": "quote-1786032566614",
       "name": "Vikram Malhotra",
       "mobile": "9810204916",
-      "from": "Noida, Sector 18",
-      "to": "Noida, Sector 62",
-      "serviceType": "Corporate Relocation",
-      "moveDate": "Aug 22, 2026",
+      "from": "Delhi",
+      "to": "Dehradun",
+      "serviceType": "Household Relocation",
+      "moveDate": "Aug 07, 2026",
       "notes": "",
-      "status": "Completed",
-      "createdAt": "2026-08-06T16:15:08.497+00:00"
+      "status": "Pending",
+      "createdAt": "2026-08-06T16:09:26.614+00:00"
     },
     {
       "id": "quote-1786032650438",
@@ -72,16 +60,28 @@
       "createdAt": "2026-08-06T16:10:50.438+00:00"
     },
     {
-      "id": "quote-1786032566614",
+      "id": "quote-1786032908497",
       "name": "Vikram Malhotra",
       "mobile": "9810204916",
-      "from": "Delhi",
-      "to": "Dehradun",
-      "serviceType": "Household Relocation",
-      "moveDate": "Aug 07, 2026",
+      "from": "Noida, Sector 18",
+      "to": "Noida, Sector 62",
+      "serviceType": "Corporate Relocation",
+      "moveDate": "Aug 22, 2026",
+      "notes": "",
+      "status": "Completed",
+      "createdAt": "2026-08-06T16:15:08.497+00:00"
+    },
+    {
+      "id": "quote-1786037075180",
+      "name": "rishu",
+      "mobile": "910138154",
+      "from": "Delhi NCR",
+      "to": "Noida, Sector 18",
+      "serviceType": "Bespoke Warehousing",
+      "moveDate": "Aug 08, 2026",
       "notes": "",
       "status": "Pending",
-      "createdAt": "2026-08-06T16:09:26.614+00:00"
+      "createdAt": "2026-08-06T17:24:35.18+00:00"
     }
   ]
 }
