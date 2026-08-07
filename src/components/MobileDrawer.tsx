@@ -21,7 +21,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
         <div>
           {/* Drawer Header with Preserved Logo */}
           <div className="flex items-center justify-between pb-6 border-b border-outline-variant/60">
-            <a href="index.html" className="flex items-center gap-2" onClick={onClose}>
+            <a href="/index.html" className="flex items-center gap-2" onClick={onClose}>
               <img 
                 src="/image/logo.png" 
                 onError={(e) => { (e.target as HTMLImageElement).src = 'image/logo.png'; }} 
@@ -44,7 +44,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
           {/* Navigation Links */}
           <nav className="py-6 flex flex-col space-y-4">
             <a 
-              href="index.html" 
+              href="/index.html" 
               onClick={onClose} 
               className="text-sm font-semibold text-on-background hover:text-primary transition-colors py-2 border-b border-outline-variant/30 flex items-center justify-between"
             >
@@ -52,7 +52,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
               <i className="fas fa-chevron-right text-xs opacity-50"></i>
             </a>
             <a 
-              href="about.html" 
+              href="/about.html" 
               onClick={onClose} 
               className="text-sm font-semibold text-on-background hover:text-primary transition-colors py-2 border-b border-outline-variant/30 flex items-center justify-between"
             >
@@ -60,7 +60,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
               <i className="fas fa-chevron-right text-xs opacity-50"></i>
             </a>
             <a 
-              href="service.html" 
+              href="/service.html" 
               onClick={onClose} 
               className="text-sm font-semibold text-on-background hover:text-primary transition-colors py-2 border-b border-outline-variant/30 flex items-center justify-between"
             >
@@ -68,7 +68,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
               <i className="fas fa-chevron-right text-xs opacity-50"></i>
             </a>
             <a 
-              href="contact.html" 
+              href="/contact.html" 
               onClick={onClose} 
               className="text-sm font-semibold text-on-background hover:text-primary transition-colors py-2 border-b border-outline-variant/30 flex items-center justify-between"
             >

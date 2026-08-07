@@ -9,7 +9,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
     <header className="w-full top-0 sticky bg-[#0b1c30] text-white border-b border-white/10 z-50 transition-shadow duration-300 shadow-md">
       <div className="flex justify-between items-center h-16 sm:h-20 max-w-container-max mx-auto px-2.5 sm:px-4 md:px-margin-desktop min-w-0">
         {/* Preserved Brand Logo & Name */}
-        <a href="index.html" className="flex items-center gap-1.5 sm:gap-3 group shrink min-w-0 mr-1" title="Pooja Transport Service Homepage">
+        <a href="/index.html" className="flex items-center gap-1.5 sm:gap-3 group shrink min-w-0 mr-1" title="Pooja Transport Service Homepage">
           <img 
             src="/image/logo.png" 
             alt="Pooja Transport Service Logo" 
@@ -27,21 +27,21 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-8 items-center">
-          <a href="index.html" className="text-white font-semibold border-b-2 border-amber-400 pb-1 text-sm hover:text-amber-300 transition-colors">
+          <a href="/index.html" className="text-white font-semibold border-b-2 border-amber-400 pb-1 text-sm hover:text-amber-300 transition-colors">
             Home
           </a>
-          <a href="about.html" className="text-slate-300 text-sm font-medium hover:text-white transition-colors">
+          <a href="/about.html" className="text-slate-300 text-sm font-medium hover:text-white transition-colors">
             About Us
           </a>
           
           {/* Services Mega Dropdown */}
           <div className="relative group">
-            <a href="service.html" className="text-slate-300 text-sm font-medium hover:text-white transition-colors flex items-center gap-1 py-6">
+            <a href="/service.html" className="text-slate-300 text-sm font-medium hover:text-white transition-colors flex items-center gap-1 py-6">
               Services <i className="fas fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform"></i>
             </a>
             
             <div className="absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-[#131b2e] border border-white/10 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-6 grid grid-cols-2 gap-4 z-50 text-white">
-              <a href="service.html#household" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
+              <a href="/service.html#household" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
                 <div className="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-amber-400 font-bold shrink-0">
                   <i className="fas fa-home text-sm"></i>
                 </div>
@@ -51,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
                 </div>
               </a>
 
-              <a href="service.html#office" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
+              <a href="/service.html#office" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
                 <div className="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-amber-400 font-bold shrink-0">
                   <i className="fas fa-building text-sm"></i>
                 </div>
@@ -61,7 +61,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
                 </div>
               </a>
 
-              <a href="service.html#vehicle" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
+              <a href="/service.html#vehicle" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
                 <div className="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-amber-400 font-bold shrink-0">
                   <i className="fas fa-car text-sm"></i>
                 </div>
@@ -71,7 +71,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
                 </div>
               </a>
 
-              <a href="service.html#warehousing" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
+              <a href="/service.html#warehousing" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
                 <div className="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-amber-400 font-bold shrink-0">
                   <i className="fas fa-warehouse text-sm"></i>
                 </div>
@@ -89,15 +89,15 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
               Cities <i className="fas fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform"></i>
             </a>
             <div className="absolute top-full left-0 w-52 bg-[#131b2e] border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
-              <a href="cities/packers-movers-dehradun.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Dehradun</a>
-              <a href="cities/packers-movers-greater-noida.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Greater Noida</a>
-              <a href="cities/packers-movers-kanpur.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Kanpur</a>
-              <a href="cities/packers-movers-lucknow.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Lucknow</a>
-              <a href="cities/packers-movers-varanasi.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Varanasi</a>
+              <a href="/cities/packers-movers-dehradun.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Dehradun</a>
+              <a href="/cities/packers-movers-greater-noida.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Greater Noida</a>
+              <a href="/cities/packers-movers-kanpur.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Kanpur</a>
+              <a href="/cities/packers-movers-lucknow.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Lucknow</a>
+              <a href="/cities/packers-movers-varanasi.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Varanasi</a>
             </div>
           </div>
 
-          <a href="contact.html" className="text-slate-300 text-sm font-medium hover:text-white transition-colors">
+          <a href="/contact.html" className="text-slate-300 text-sm font-medium hover:text-white transition-colors">
             Contact
           </a>
         </nav>
@@ -117,7 +117,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
 
           {/* Get Consultation Button */}
           <a 
-            href="#quote" 
+            href="/index.html#quote" 
             className="bg-amber-400 text-[#0b1c30] text-[10px] sm:text-xs font-bold uppercase tracking-wider px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-md hover:bg-amber-300 transition-all shadow-sm shrink-0 whitespace-nowrap"
           >
             <span className="sm:hidden">Consult</span>
