@@ -1432,10 +1432,7 @@ img {
   }
 
   .mobile-only-bar { 
-    display: flex;
-    gap: 0.75rem;
-    padding: 0.85rem 1.25rem;
-    border-radius: 20px 20px 0 0;
+    display: none !important;
   }
   
   .mobile-only-bar .btn { 
