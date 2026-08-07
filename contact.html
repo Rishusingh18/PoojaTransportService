@@ -226,13 +226,13 @@
           <form onsubmit="handleContactSubmit(event)" class="space-y-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <label class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant block mb-2">Full Name</label>
-                <input type="text" id="c-name" class="w-full input-minimal text-sm text-on-background" placeholder="Rajesh Kumar" required>
+                <label for="c-name" class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant block mb-2">Full Name</label>
+                <input type="text" id="c-name" autocomplete="name" class="w-full input-minimal text-sm text-on-background" placeholder="Rajesh Kumar" required>
               </div>
               <div>
-                <label class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant block mb-2">Mobile Phone</label>
-                <input type="tel" id="c-phone" class="w-full input-minimal text-sm text-on-background" placeholder="+91 9910204916" required oninput="document.getElementById('c-phone-error').classList.add('hidden')">
-                <div id="c-phone-error" class="hidden text-xs text-red-600 font-semibold mt-1"></div>
+                <label for="c-phone" class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant block mb-2">Mobile Phone</label>
+                <input type="tel" id="c-phone" inputmode="tel" autocomplete="tel" maxlength="15" aria-invalid="false" aria-describedby="c-phone-error" class="w-full input-minimal text-sm text-on-background" placeholder="+91 9910204916" required oninput="const err = document.getElementById('c-phone-error'); err.classList.add('hidden'); this.setAttribute('aria-invalid', 'false');">
+                <div id="c-phone-error" role="alert" aria-live="polite" class="hidden text-xs text-red-600 font-semibold mt-1"></div>
               </div>
             </div>
 
@@ -375,10 +375,12 @@
       if (!check.isValid) {
         errorDiv.innerText = check.error;
         errorDiv.classList.remove('hidden');
+        phoneInput.setAttribute('aria-invalid', 'true');
         phoneInput.focus();
         return;
       }
       errorDiv.classList.add('hidden');
+      phoneInput.setAttribute('aria-invalid', 'false');
 
       const name = document.getElementById('c-name').value;
       const phone = check.normalized;

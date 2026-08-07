@@ -153,12 +153,12 @@ export const Hero: React.FC = () => {
                 </h3>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form id="hero-quote-form" aria-label="Instant Relocation Estimation Form" onSubmit={handleSubmit} className="space-y-4">
                 
                 {/* Route Selector */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-[11px] font-semibold text-slate-500 block mb-1">
+                    <label htmlFor="h-from" className="text-[11px] font-semibold text-slate-500 block mb-1">
                       Origin City / Location *
                     </label>
                     <LocationAutocomplete
@@ -170,7 +170,7 @@ export const Hero: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] font-semibold text-slate-500 block mb-1">
+                    <label htmlFor="h-to" className="text-[11px] font-semibold text-slate-500 block mb-1">
                       Destination City / Location *
                     </label>
                     <LocationAutocomplete
@@ -219,7 +219,7 @@ export const Hero: React.FC = () => {
                       onChange={handleChange}
                     />
                     {phoneError && (
-                      <p id="h-mobile-error" role="alert" className="text-[11px] text-red-600 font-semibold mt-1 flex items-center gap-1">
+                      <p id="h-mobile-error" role="alert" aria-live="polite" className="text-[11px] text-red-600 font-semibold mt-1 flex items-center gap-1">
                         <AlertCircle className="w-3 h-3 text-red-600 shrink-0" /> {phoneError}
                       </p>
                     )}
@@ -228,7 +228,7 @@ export const Hero: React.FC = () => {
 
                 {/* Service Requirement Dropdown */}
                 <div>
-                  <label className="text-[11px] font-semibold text-slate-500 block mb-1">
+                  <label htmlFor="h-service" className="text-[11px] font-semibold text-slate-500 block mb-1">
                     Service Required
                   </label>
                   <select 
@@ -246,11 +246,15 @@ export const Hero: React.FC = () => {
 
                 {/* Date Selection */}
                 <div className="relative" style={{ overflow: 'visible' }}>
-                  <label className="text-[11px] font-semibold text-slate-500 block mb-1">
+                  <label id="h-date-label" htmlFor="h-date-btn" className="text-[11px] font-semibold text-slate-500 block mb-1">
                     Target Move Date
                   </label>
                   <button
+                    id="h-date-btn"
                     type="button"
+                    aria-haspopup="dialog"
+                    aria-expanded={isDatePickerOpen}
+                    aria-labelledby="h-date-label"
                     onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
                     className="w-full flex items-center justify-between py-2 border-b-2 border-slate-300 text-left text-sm text-[#0b1c30]"
                   >
