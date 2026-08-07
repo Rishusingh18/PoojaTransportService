@@ -22,7 +22,12 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
           {/* Drawer Header with Preserved Logo */}
           <div className="flex items-center justify-between pb-6 border-b border-outline-variant/60">
             <a href="index.html" className="flex items-center gap-2" onClick={onClose}>
-              <img src="/image/logo.png" alt="Pooja Transport Service Logo" className="h-10 w-auto object-contain" />
+              <img 
+                src="/image/logo.png" 
+                onError={(e) => { (e.target as HTMLImageElement).src = 'image/logo.png'; }} 
+                alt="Pooja Transport Service Logo" 
+                className="h-10 w-auto object-contain" 
+              />
               <span className="font-display font-bold text-sm tracking-tight text-on-background">
                 POOJA <span className="text-[#6e5e00]">TRANSPORT</span>
               </span>

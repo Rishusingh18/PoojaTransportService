@@ -9,14 +9,14 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Pages and their config: (file_path, logo_src, link_prefix, active_page)
 PAGES = [
-    ("about.html",    "/image/logo.png",   "",     "about"),
-    ("service.html",  "/image/logo.png",   "",     "services"),
-    ("contact.html",  "/image/logo.png",   "",     "contact"),
-    ("cities/packers-movers-dehradun.html",      "/image/logo.png", "../", "home"),
-    ("cities/packers-movers-greater-noida.html", "/image/logo.png", "../", "home"),
-    ("cities/packers-movers-kanpur.html",        "/image/logo.png", "../", "home"),
-    ("cities/packers-movers-lucknow.html",       "/image/logo.png", "../", "home"),
-    ("cities/packers-movers-varanasi.html",      "/image/logo.png", "../", "home"),
+    ("about.html",    "image/logo.png",   "",     "about"),
+    ("service.html",  "image/logo.png",   "",     "services"),
+    ("contact.html",  "image/logo.png",   "",     "contact"),
+    ("cities/packers-movers-dehradun.html",      "../image/logo.png", "../", "home"),
+    ("cities/packers-movers-greater-noida.html", "../image/logo.png", "../", "home"),
+    ("cities/packers-movers-kanpur.html",        "../image/logo.png", "../", "home"),
+    ("cities/packers-movers-lucknow.html",       "../image/logo.png", "../", "home"),
+    ("cities/packers-movers-varanasi.html",      "../image/logo.png", "../", "home"),
 ]
 
 def nav_link(href, label, active, page_key):
