@@ -445,6 +445,11 @@ app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Pooja Transport Backend Server running on http://localhost:${PORT} with Supabase integration`);
-});
+if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Pooja Transport Backend Server running on http://localhost:${PORT} with Supabase integration`);
+  });
+}
+
+export default app;
+

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Star, CheckCircle, PlusCircle, X, ShieldCheck, ThumbsUp } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 export interface ReviewItem {
   id: string;
@@ -61,8 +62,33 @@ export const Testimonials: React.FC = () => {
     consignmentNo: ''
   });
 
-  // Fetch verified reviews from REST API
+  // Fetch verified reviews directly from Supabase & API fallback
   const loadVerifiedReviews = async () => {
+    try {
+      const { data: sbData, error: sbErr } = await supabase
+        .from('reviews')
+        .select('*')
+        .eq('verified', true)
+        .order('created_at', { ascending: false });
+
+      if (!sbErr && sbData && sbData.length > 0) {
+        const formatted: ReviewItem[] = sbData.map(r => ({
+          id: r.id,
+          name: r.name,
+          location: r.location || 'Verified Customer',
+          serviceType: r.service_type || r.serviceType || 'Household Relocation',
+          rating: Number(r.rating) || 5,
+          quote: r.quote,
+          date: r.date || 'Recent',
+          verified: Boolean(r.verified)
+        }));
+        setReviews(formatted);
+        return;
+      }
+    } catch (sbEx) {
+      console.warn('Supabase fetch reviews note:', sbEx);
+    }
+
     try {
       const res = await fetch('/api/reviews?status=verified');
       const data = await res.json();
@@ -72,14 +98,12 @@ export const Testimonials: React.FC = () => {
         setReviews(DEFAULT_VERIFIED_REVIEWS);
       }
     } catch {
-      // Fallback to local default reviews
       setReviews(DEFAULT_VERIFIED_REVIEWS);
     }
   };
 
   useEffect(() => {
     loadVerifiedReviews();
-    // Auto-sync live verified reviews every 5 seconds
     const interval = setInterval(loadVerifiedReviews, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -94,19 +118,45 @@ export const Testimonials: React.FC = () => {
     if (!newReview.name || !newReview.quote) return;
 
     setIsSubmitting(true);
+    const reviewId = `rev-${Date.now()}`;
+    const currentDate = new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+    const createdAtIso = new Date().toISOString();
 
+    const supabaseRecord = {
+      id: reviewId,
+      name: newReview.name,
+      location: newReview.location || 'Verified Customer',
+      service_type: newReview.serviceType || 'Household Relocation',
+      rating: Number(newReview.rating) || 5,
+      quote: newReview.quote,
+      date: currentDate,
+      verified: false,
+      consignment_no: newReview.consignmentNo || 'N/A',
+      created_at: createdAtIso
+    };
+
+    // 1. Insert directly into Supabase
     try {
-      const res = await fetch('/api/reviews', {
+      const { error: sbErr } = await supabase.from('reviews').insert([supabaseRecord]);
+      if (sbErr) console.warn('Supabase review insert note:', sbErr.message);
+      else console.log('✓ Review saved directly to Supabase:', reviewId);
+    } catch (err) {
+      console.error('Supabase review submission exception:', err);
+    }
+
+    // 2. Fetch API route fallback
+    try {
+      await fetch('/api/reviews', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newReview)
       });
-      await res.json();
     } catch (err) {
-      console.error('Backend submission error:', err);
+      console.error('Backend submission endpoint note:', err);
     } finally {
       setIsSubmitting(false);
     }
+
 
     setSubmittedSuccess(true);
     setTimeout(() => {

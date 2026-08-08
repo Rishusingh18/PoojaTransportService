@@ -48,7 +48,12 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col space-y-3">
           <h4 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Direct Contact</h4>
           <p className="text-xs text-slate-300 flex items-center gap-2">
-            <i className="fas fa-phone-alt text-amber-400"></i> +91 9910204916
+            <i className="fas fa-phone-alt text-amber-400"></i>
+            <a href="tel:+919910204916" className="hover:text-white transition-colors">+91 9910204916</a>
+          </p>
+          <p className="text-xs text-slate-300 flex items-center gap-2">
+            <i className="fas fa-phone-alt text-amber-400"></i>
+            <a href="tel:+919528808820" className="hover:text-white transition-colors">API No: +91 9528808820</a>
           </p>
           <p className="text-xs text-slate-300 flex items-center gap-2">
             <i className="fas fa-envelope text-amber-400"></i>

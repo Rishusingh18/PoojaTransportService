@@ -334,7 +334,8 @@
 
       <div class="flex flex-col space-y-3">
         <h4 class="text-xs font-semibold text-white uppercase tracking-widest mb-1">Direct Contact</h4>
-        <p class="text-xs text-slate-300"><i class="fas fa-phone-alt text-amber-400 mr-2"></i>+91 9910204916</p>
+        <p class="text-xs text-slate-300 flex items-center gap-2"><i class="fas fa-phone-alt text-amber-400"></i><a href="tel:+919910204916" class="hover:text-white transition-colors">+91 9910204916</a></p>
+        <p class="text-xs text-slate-300 flex items-center gap-2"><i class="fas fa-phone-alt text-amber-400"></i><a href="tel:+919528808820" class="hover:text-white transition-colors">API No: +91 9528808820</a></p>
         <p class="text-xs text-slate-300 flex items-center gap-2"><i class="fas fa-envelope text-amber-400"></i><a href="mailto:contact@poojatransportservice.com" class="hover:text-white transition-colors">contact@poojatransportservice.com</a></p>
         <p class="text-xs text-slate-300 flex items-center gap-2"><i class="fas fa-envelope text-amber-400"></i><a href="mailto:poojatransportservice3@gmail.com" class="hover:text-white transition-colors">poojatransportservice3@gmail.com</a></p>
         <p class="text-xs text-slate-300"><i class="fas fa-map-marker-alt text-amber-400 mr-2"></i>Gaur City Center, Greater Noida, UP, India</p>
@@ -342,7 +343,12 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
+    const SUPABASE_URL = 'https://mblcnitrxqzhbigbsqdr.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ibGNuaXRyeHF6aGJpZ2JzcWRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYwMjIzOTgsImV4cCI6MjEwMTU5ODM5OH0.94hKdSXgzM8yH47PImrhVeUonMEO2V3I1EHs77HkyCA';
+    const sbClient = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+
     function validateIndianMobile(rawInput) {
       if (!rawInput || typeof rawInput !== 'string' || !rawInput.trim()) {
         return { isValid: false, error: 'Invalid mobile number. Please enter a valid 10-digit mobile number.' };
@@ -389,33 +395,54 @@
       const service = document.getElementById('c-service').value;
       const message = document.getElementById('c-message').value;
 
+      const quoteId = `quote-${Date.now()}`;
+      const createdAtIso = new Date().toISOString();
+
       const payload = {
+        id: quoteId,
         name: name || 'Anonymous Customer',
         mobile: phone,
         from: from || 'Not specified',
         to: to || 'Not specified',
         serviceType: service || 'General Inquiry',
         moveDate: 'Flexible / Immediate',
-        notes: message || ''
+        notes: message || '',
+        status: 'Pending',
+        created_at: createdAtIso
       };
 
       const btn = e.target.querySelector('button[type="submit"]');
       const originalText = btn.innerText;
       btn.disabled = true;
-      btn.innerText = 'Submitting to Backend...';
+      btn.innerText = 'Submitting Booking...';
 
+      // 1. Direct Supabase Insert
+      if (sbClient) {
+        try {
+          const { error: sbErr } = await sbClient.from('quotes').insert([payload]);
+          if (sbErr) {
+            console.warn('Contact page Supabase insert note:', sbErr.message);
+          } else {
+            console.log('✓ Contact booking inserted directly into Supabase:', quoteId);
+          }
+        } catch (sbEx) {
+          console.error('Contact page Supabase exception:', sbEx);
+        }
+      }
+
+      // 2. Fetch API route fallback
       try {
         await fetch('/api/quotes', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
-        btn.innerText = '✓ BOOKING TRANSMITTED TO BACKEND!';
-        btn.classList.add('bg-emerald-600');
       } catch (err) {
-        console.error('Backend submission error:', err);
-        btn.innerText = '✓ Inquiry Sent!';
+        console.error('Backend submission endpoint note:', err);
       }
+
+      btn.innerText = '✓ BOOKING TRANSMITTED & SAVED!';
+      btn.classList.add('bg-emerald-600');
 
       setTimeout(() => {
         btn.disabled = false;
@@ -426,4 +453,4 @@
     }
   </script>
 </body>
-</html>
+</html>

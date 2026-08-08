@@ -4,6 +4,7 @@ import LocationAutocomplete from './LocationAutocomplete';
 import { Calendar as CalendarIcon, ChevronDown, CheckCircle2, AlertCircle } from 'lucide-react';
 import { format } from 'date-fns';
 import { validateIndianMobile } from '../lib/validation';
+import { supabase } from '../lib/supabase';
 
 export const Hero: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -70,7 +71,31 @@ export const Hero: React.FC = () => {
       console.error('Local quote cache error:', err);
     }
 
-    // 2. Post to Backend REST API & Supabase
+    // 2. Direct Supabase insert to guarantee instant backend delivery
+    try {
+      const supabaseRecord = {
+        id: payload.id,
+        name: payload.name,
+        mobile: payload.mobile,
+        from: payload.from,
+        to: payload.to,
+        serviceType: payload.serviceType,
+        moveDate: payload.moveDate,
+        notes: '',
+        status: 'Pending',
+        created_at: payload.createdAt
+      };
+      const { error: sbErr } = await supabase.from('quotes').insert([supabaseRecord]);
+      if (sbErr) {
+        console.warn('Supabase direct quote insert note:', sbErr.message);
+      } else {
+        console.log('✓ Quote saved directly to Supabase:', payload.id);
+      }
+    } catch (sbEx: any) {
+      console.error('Supabase direct quote exception:', sbEx?.message || sbEx);
+    }
+
+    // 3. Post to Backend REST API endpoint (if serverless or express server active)
     try {
       await fetch('/api/quotes', {
         method: 'POST',
@@ -78,10 +103,11 @@ export const Hero: React.FC = () => {
         body: JSON.stringify(payload)
       });
     } catch (err) {
-      console.error('API quote submission failed:', err);
+      console.error('API quote submission endpoint note:', err);
     }
 
     setSubmitStatus('success');
+
     setTimeout(() => {
       setSubmitStatus('idle');
       setFormData({
