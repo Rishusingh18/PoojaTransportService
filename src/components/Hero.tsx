@@ -142,8 +142,8 @@ export const Hero: React.FC = () => {
             </div>
             
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-              Mastering Global <br />
-              <span className="text-amber-400 italic">Momentum.</span>
+              Trusted Packers <br />
+              &amp; Movers <span className="text-amber-400 italic">in India.</span>
             </h1>
 
             <p className="text-slate-300 text-sm md:text-base max-w-xl font-normal leading-relaxed">

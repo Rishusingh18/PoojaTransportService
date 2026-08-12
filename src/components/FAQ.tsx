@@ -21,8 +21,25 @@ export const FAQ: React.FC = () => {
     }
   ];
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
+
   return (
     <section className="py-24 bg-surface-container-lowest border-b border-outline-variant/40">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-4 md:px-margin-desktop">
         <div className="mb-16 text-center">
           <span className="text-xs font-semibold text-on-surface-variant uppercase tracking-widest block mb-2">
