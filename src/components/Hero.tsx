@@ -167,7 +167,7 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Right Floating Shifting Quote Form */}
-          <div className="lg:col-span-5">
+          <div id="quote" className="lg:col-span-5 scroll-mt-24">
             <div className="bg-white text-[#0b1c30] rounded-2xl p-6 sm:p-8 shadow-2xl border border-white/20">
               
               <div className="mb-6 border-b border-slate-100 pb-4">

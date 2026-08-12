@@ -128,7 +128,7 @@ def build_header(logo_src, prefix, active):
         </a>
 
         <!-- Get Consultation Button -->
-        <a href="{prefix}index.html#quote" class="bg-amber-400 text-[#0b1c30] text-[10px] sm:text-xs font-bold uppercase tracking-wider px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-md hover:bg-amber-300 transition-all shadow-sm shrink-0 whitespace-nowrap">
+        <a href="{prefix}index.html#quote" onclick="openConsultationModal(event)" class="bg-amber-400 text-[#0b1c30] text-[10px] sm:text-xs font-bold uppercase tracking-wider px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-md hover:bg-amber-300 transition-all shadow-sm shrink-0 whitespace-nowrap cursor-pointer">
           <span class="sm:hidden">Consult</span>
           <span class="hidden sm:inline">Get Consultation</span>
         </a>
