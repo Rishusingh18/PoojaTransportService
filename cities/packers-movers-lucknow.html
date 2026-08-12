@@ -145,7 +145,8 @@
 </head>
 
 <body class="bg-surface text-on-background font-sans antialiased">
-<!-- ================= TOP BAR ================= -->
+
+  <!-- ================= TOP BAR ================= -->
   <div class="bg-[#0b1c30] text-white py-2.5 px-4 text-xs font-medium border-b border-white/10">
     <div class="max-w-[1280px] mx-auto flex justify-between items-center">
       <div class="flex items-center space-x-6">
@@ -188,7 +189,7 @@
 
       <!-- Desktop Navigation -->
       <nav class="hidden lg:flex space-x-8 items-center">
-        <a href="/index.html" class="text-white font-semibold border-b-2 border-amber-400 pb-1 text-sm hover:text-amber-300 transition-colors">Home</a>
+        <a href="/index.html" class="text-slate-300 text-sm font-medium hover:text-white transition-colors">Home</a>
         <a href="/about.html" class="text-slate-300 text-sm font-medium hover:text-white transition-colors">About Us</a>
 
         <!-- Services Dropdown -->
@@ -218,7 +219,7 @@
 
         <!-- Cities Dropdown -->
         <div class="relative group">
-          <a href="#" class="text-slate-300 text-sm font-medium hover:text-white transition-colors flex items-center gap-1 py-6">
+          <a href="#" class="text-white font-semibold border-b-2 border-amber-400 pb-1 text-sm hover:text-amber-300 transition-colors flex items-center gap-1 py-6">
             Cities <i class="fas fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform"></i>
           </a>
           <div class="absolute top-full left-0 w-52 bg-[#131b2e] border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
@@ -279,69 +280,100 @@
     </nav>
   </div>
 
-<section class="page-hero">
-    <div class="container">
-      <h1 style="font-size: 3rem; margin-bottom: 1rem;">Packers and Movers in Lucknow</h1>
-      <p style="font-size: 1.25rem; opacity: 0.9;">Professional & Safe Relocation Services for Lucknow Families & Businesses</p>
-      <a href="/contact.html" class="btn btn-secondary" style="margin-top: 2rem;">Get Free Quote</a>
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative bg-[#0b1c30] text-white py-16 md:py-24 border-b border-white/10">
+    <div class="max-w-[1280px] mx-auto px-4 md:px-16 text-center md:text-left">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-400 text-xs font-semibold uppercase tracking-widest border border-amber-400/30 mb-6">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        ISO 9001:2015 Certified Logistics Partner
+      </div>
+      <h1 class="font-bold text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-tight mb-4" style="font-family:'Playfair Display',serif">
+        Packers and Movers in <span class="text-amber-400 italic">Lucknow</span>
+      </h1>
+      <p class="text-slate-300 text-base md:text-lg max-w-2xl font-normal leading-relaxed mb-8">
+        Professional & Safe Relocation Services for Lucknow Families & Businesses
+      </p>
+      <a href="/contact.html" onclick="openConsultationModal(event)" class="inline-block bg-amber-400 hover:bg-amber-300 text-[#0b1c30] font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3.5 rounded-md shadow-md transition-all cursor-pointer">
+        Get Free Quote
+      </a>
     </div>
   </section>
 
   <!-- ================= CONTENT ================= -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="text-center" style="margin-bottom: 3rem;">
-        <h2 style="font-size: 2.5rem; color: var(--primary);">Expert Shifting in Lucknow</h2>
-        <p style="color: var(--text-muted); max-width: 800px; margin: 1.5rem auto 0; font-size: 1.1rem; line-height: 1.8;">
-          Moving to or from the "City of Nawabs" requires local expertise and care. Pooja Transport Service is proud to be one of the most reliable shifting partners in Lucknow. We specialize in hassle-free household shifting, office relocation, and secure vehicle transport using our trained staff and premium packing materials.
+  <section class="py-20 bg-[#ffffff] border-b border-slate-200">
+    <div class="max-w-[1280px] mx-auto px-4 md:px-16">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="font-bold text-3xl md:text-4xl text-[#0b1c30] tracking-tight mb-4" style="font-family:'Playfair Display',serif">
+          Expert Shifting in Lucknow
+        </h2>
+        <p class="text-slate-600 text-base md:text-lg leading-relaxed">
+          Moving to or from the 'City of Nawabs' requires local expertise and care. Pooja Transport Service is proud to be one of the most reliable shifting partners in Lucknow. We specialize in hassle-free household shifting, office relocation, and secure vehicle transport using our trained staff and premium packing materials.
         </p>
       </div>
 
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-home"></i></div>
-          <h4>House Shifting</h4>
-          <p>Relocating your home in Gomti Nagar, Alambagh, or Indira Nagar? We handle every item with utmost safety and care.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-[#f8f9ff] border border-slate-200 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-lg bg-[#0b1c30] text-amber-400 flex items-center justify-center text-xl mb-6">
+            <i class="fas fa-home"></i>
+          </div>
+          <h3 class="font-bold text-xl text-[#0b1c30] mb-3" style="font-family:'Playfair Display',serif">House Shifting</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Relocating your home in Gomti Nagar, Alambagh, or Indira Nagar? We handle every item with utmost safety and care.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-building"></i></div>
-          <h4>Office Shifting</h4>
-          <p>Professional corporate moves in Lucknow with minimal business interruption and maximum safety for your IT assets.</p>
+
+        <div class="bg-[#f8f9ff] border border-slate-200 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-lg bg-[#0b1c30] text-amber-400 flex items-center justify-center text-xl mb-6">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3 class="font-bold text-xl text-[#0b1c30] mb-3" style="font-family:'Playfair Display',serif">Office Relocation</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Professional corporate moves in Lucknow with minimal business interruption and maximum safety for your IT assets.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-car"></i></div>
-          <h4>Vehicle Transport</h4>
-          <p>Safe car and bike carriers to transport your vehicles from Lucknow to any corner of India.</p>
+
+        <div class="bg-[#f8f9ff] border border-slate-200 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-lg bg-[#0b1c30] text-amber-400 flex items-center justify-center text-xl mb-6">
+            <i class="fas fa-car"></i>
+          </div>
+          <h3 class="font-bold text-xl text-[#0b1c30] mb-3" style="font-family:'Playfair Display',serif">Vehicle Transport</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Safe car and bike carriers to transport your vehicles from Lucknow to any corner of India.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ================= WHY CHOOSE US ================= -->
-  <section class="section-padding bg-light">
-    <div class="container">
-      <div class="text-center" style="margin-bottom: 3rem;">
-        <h2 style="font-size: 2.5rem; color: var(--primary);">Why Choose Us in Lucknow?</h2>
+  <section class="py-20 bg-[#f8f9ff] border-b border-slate-200">
+    <div class="max-w-[1280px] mx-auto px-4 md:px-16">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="font-bold text-3xl md:text-4xl text-[#0b1c30] tracking-tight" style="font-family:'Playfair Display',serif">
+          Why Choose Us in Lucknow?
+        </h2>
       </div>
 
-      <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-        <div style="display: flex; gap: 15px; background: white; padding: 1.5rem; border-radius: var(--radius); align-items: center;">
-          <i class="fas fa-star" style="color: var(--secondary); font-size: 1.5rem;"></i>
-          <span style="font-weight: 600;">10+ Years of Local Shifting Experience</span>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="flex items-center gap-4 bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
+          <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-lg shrink-0">
+            <i class="fas fa-star"></i>
+          </div>
+          <span class="font-bold text-sm text-[#0b1c30]">10+ Years of Local Shifting Experience</span>
         </div>
-        <div style="display: flex; gap: 15px; background: white; padding: 1.5rem; border-radius: var(--radius); align-items: center;">
-          <i class="fas fa-shield-alt" style="color: var(--secondary); font-size: 1.5rem;"></i>
-          <span style="font-weight: 600;">Verified Team & Damage-Free Guarantee</span>
+
+        <div class="flex items-center gap-4 bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
+          <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-lg shrink-0">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <span class="font-bold text-sm text-[#0b1c30]">Verified Team & Damage-Free Guarantee</span>
         </div>
-        <div style="display: flex; gap: 15px; background: white; padding: 1.5rem; border-radius: var(--radius); align-items: center;">
-          <i class="fas fa-wallet" style="color: var(--secondary); font-size: 1.5rem;"></i>
-          <span style="font-weight: 600;">Transparent & Competitive Lucknow Pricing</span>
+
+        <div class="flex items-center gap-4 bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
+          <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-lg shrink-0">
+            <i class="fas fa-wallet"></i>
+          </div>
+          <span class="font-bold text-sm text-[#0b1c30]">Transparent & Competitive Lucknow Pricing</span>
         </div>
       </div>
     </div>
   </section>
 
-    <!-- ================= FOOTER ================= -->
+  <!-- ================= FOOTER ================= -->
   <footer class="w-full bg-[#0b1c30] text-white border-t border-white/10 py-16">
     <div class="max-w-[1280px] mx-auto px-4 md:px-16 grid grid-cols-1 md:grid-cols-4 gap-8">
       <div class="md:col-span-1 space-y-4">

@@ -1025,10 +1025,23 @@ img {
   margin-bottom: 1.5rem;
 }
 
+.page-hero {
+  background-color: #0b1c30;
+  color: #ffffff;
+  padding: 5rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .page-hero h1 {
-  font-size: 4rem;
-  color: white;
+  font-size: 3.5rem;
+  color: #ffffff !important;
   margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.page-hero p {
+  color: #cbd5e1 !important;
 }
 
 
