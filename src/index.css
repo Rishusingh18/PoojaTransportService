@@ -33,6 +33,11 @@ body {
   font-family: 'Playfair Display', serif;
 }
 
+.editorial-spacing {
+  padding-top: max(80px, 10vh);
+  padding-bottom: max(80px, 10vh);
+}
+
 .editorial-image-overlay {
   position: absolute;
   inset: 0;
