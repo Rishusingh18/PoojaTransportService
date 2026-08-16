@@ -14,6 +14,9 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu, onOpenConsultation
           <img 
             src="/image/logo.png" 
             alt="Pooja Transport Service Logo" 
+            width="44"
+            height="44"
+            fetchPriority="high"
             className="h-7 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105 shrink-0" 
           />
           <span className="flex flex-col min-w-0">
