@@ -1,0 +1,89 @@
+/* Font Awesome 6.4.0 - Minimal Self-Hosted (Only icons used by Pooja Transport Service) */
+/* Original: 73 KB (all.min.css) → This file: ~3 KB */
+
+/* Core font-face declarations with font-display: swap */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-regular-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2") format("woff2");
+}
+
+/* Base styles */
+.fas, .far, .fab,
+.fa-solid, .fa-regular, .fa-brands {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+
+.fas, .fa-solid {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.far, .fa-regular {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 400;
+}
+
+.fab, .fa-brands {
+  font-family: 'Font Awesome 6 Brands';
+  font-weight: 400;
+}
+
+/* Sizing utilities */
+.fa-xs { font-size: .75em; }
+.fa-sm { font-size: .875em; }
+.fa-lg { font-size: 1.25em; }
+.fa-xl { font-size: 1.5em; }
+.fa-2x { font-size: 2em; }
+.fa-3x { font-size: 3em; }
+
+/* Only the icons used on the site */
+/* Solid icons (fas) */
+.fa-bars::before { content: "\f0c9"; }
+.fa-building::before { content: "\f1ad"; }
+.fa-calculator::before { content: "\f1ec"; }
+.fa-car::before { content: "\f1b9"; }
+.fa-certificate::before { content: "\f0a3"; }
+.fa-check-circle::before, .fa-circle-check::before { content: "\f058"; }
+.fa-chevron-down::before { content: "\f078"; }
+.fa-chevron-right::before { content: "\f054"; }
+.fa-clock::before { content: "\f017"; }
+.fa-envelope::before { content: "\f0e0"; }
+.fa-home::before, .fa-house::before { content: "\f015"; }
+.fa-map-marker-alt::before, .fa-location-dot::before { content: "\f3c5"; }
+.fa-paper-plane::before { content: "\f1d8"; }
+.fa-phone::before { content: "\f095"; }
+.fa-phone-alt::before, .fa-phone-flip::before { content: "\f879"; }
+.fa-shield-alt::before, .fa-shield-halved::before { content: "\f3ed"; }
+.fa-star::before { content: "\f005"; }
+.fa-times::before, .fa-xmark::before { content: "\f00d"; }
+.fa-truck-loading::before, .fa-truck-ramp-box::before { content: "\f4de"; }
+.fa-wallet::before { content: "\f555"; }
+.fa-warehouse::before { content: "\f494"; }
+
+/* Brand icons (fab) */
+.fa-whatsapp::before { content: "\f232"; }
