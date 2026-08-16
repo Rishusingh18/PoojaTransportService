@@ -29,26 +29,26 @@ export const Footer: React.FC = () => {
 
         {/* Navigation Column 1: Services */}
         <div className="flex flex-col space-y-3">
-          <h4 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Services</h4>
-          <a href="service.html#household" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Household Shifting</a>
-          <a href="service.html#office" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Corporate Relocation</a>
-          <a href="service.html#vehicle" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Car & Bike Carriers</a>
-          <a href="service.html#warehousing" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Bespoke Warehousing</a>
+          <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Services</h3>
+          <a href="service.html#household" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Household Shifting</a>
+          <a href="service.html#office" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Corporate Relocation</a>
+          <a href="service.html#vehicle" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Car & Bike Carriers</a>
+          <a href="service.html#warehousing" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Bespoke Warehousing</a>
         </div>
 
         {/* Navigation Column 2: Service Hubs */}
         <div className="flex flex-col space-y-3">
-          <h4 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Service Hubs</h4>
-          <a href="cities/packers-movers-dehradun.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Packers & Movers Dehradun</a>
-          <a href="cities/packers-movers-greater-noida.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Packers & Movers Greater Noida</a>
-          <a href="cities/packers-movers-kanpur.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Packers & Movers Kanpur</a>
-          <a href="cities/packers-movers-lucknow.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Packers & Movers Lucknow</a>
-          <a href="cities/packers-movers-varanasi.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors">Packers & Movers Varanasi</a>
+          <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Service Hubs</h3>
+          <a href="cities/packers-movers-dehradun.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Dehradun</a>
+          <a href="cities/packers-movers-greater-noida.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Greater Noida</a>
+          <a href="cities/packers-movers-kanpur.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Kanpur</a>
+          <a href="cities/packers-movers-lucknow.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Lucknow</a>
+          <a href="cities/packers-movers-varanasi.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Varanasi</a>
         </div>
 
         {/* Contact Info Column */}
         <div className="flex flex-col space-y-3">
-          <h4 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Direct Contact</h4>
+          <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Direct Contact</h3>
           <p className="text-xs text-slate-300 flex items-center gap-2">
             <i className="fas fa-phone-alt text-amber-400"></i>
             <a href="tel:+919528808820" className="hover:text-white transition-colors">+91 9528808820</a>

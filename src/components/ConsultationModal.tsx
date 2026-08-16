@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { X, CheckCircle2, AlertCircle, Phone, MapPin, Calendar as CalendarIcon, Send } from 'lucide-react';
 import { validateIndianMobile } from '../lib/validation';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 import CustomDatePicker from './CustomDatePicker';
 import LocationAutocomplete from './LocationAutocomplete';
-import { format } from 'date-fns';
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -58,7 +57,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
     setPhoneError('');
 
     setSubmitStatus('submitting');
-    const formattedDate = format(selectedDate, "MMM dd, yyyy");
+    const formattedDate = selectedDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
 
     const payload = {
       id: `quote-${Date.now()}`,
@@ -83,6 +82,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
 
     // 2. Direct Supabase insert
     try {
+      const supabase = await getSupabase();
       const supabaseRecord = {
         id: payload.id,
         name: payload.name,
@@ -95,7 +95,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
         status: 'Pending',
         created_at: payload.createdAt
       };
-      await supabase.from('quotes').insert([supabaseRecord]);
+      const { error: sbErr } = await supabase.from('quotes').insert([supabaseRecord]);
     } catch (sbEx: any) {
       console.error('Supabase direct quote exception:', sbEx?.message || sbEx);
     }

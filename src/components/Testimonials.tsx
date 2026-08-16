@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Star, CheckCircle, PlusCircle, X, ShieldCheck, ThumbsUp } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 
 export interface ReviewItem {
   id: string;
@@ -65,6 +65,7 @@ export const Testimonials: React.FC = () => {
   // Fetch verified reviews directly from Supabase & API fallback
   const loadVerifiedReviews = async () => {
     try {
+      const supabase = await getSupabase();
       const { data: sbData, error: sbErr } = await supabase
         .from('reviews')
         .select('*')
@@ -239,7 +240,7 @@ export const Testimonials: React.FC = () => {
                     {item.name ? item.name[0].toUpperCase() : 'U'}
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-sm text-[#0b1c30]">{item.name}</h4>
+                    <p className="font-display font-bold text-sm text-[#0b1c30]">{item.name}</p>
                     <p className="text-[11px] text-slate-500 font-medium">{item.location}</p>
                   </div>
                 </div>

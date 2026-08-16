@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import CustomDatePicker from './CustomDatePicker';
 import LocationAutocomplete from './LocationAutocomplete';
 import { Calendar as CalendarIcon, ChevronDown, CheckCircle2, AlertCircle } from 'lucide-react';
-import { format } from 'date-fns';
 import { validateIndianMobile } from '../lib/validation';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 
 export const Hero: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -49,7 +48,7 @@ export const Hero: React.FC = () => {
     setPhoneError('');
 
     setSubmitStatus('submitting');
-    const formattedDate = format(selectedDate, "MMM dd, yyyy");
+    const formattedDate = selectedDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
 
     const payload = {
       id: `quote-${Date.now()}`,
@@ -73,6 +72,7 @@ export const Hero: React.FC = () => {
 
     // 2. Direct Supabase insert to guarantee instant backend delivery
     try {
+      const supabase = await getSupabase();
       const supabaseRecord = {
         id: payload.id,
         name: payload.name,
@@ -182,9 +182,9 @@ export const Hero: React.FC = () => {
                 <span className="text-[10px] font-bold text-amber-600 uppercase tracking-widest block mb-1">
                   Instant Relocation Booking
                 </span>
-                <h3 className="font-display text-xl sm:text-2xl font-bold text-[#0b1c30]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0b1c30]">
                   Get Shifting Estimation
-                </h3>
+                </h2>
               </div>
 
               <form id="hero-quote-form" aria-label="Instant Relocation Estimation Form" onSubmit={handleSubmit} className="space-y-4">
