@@ -54,15 +54,28 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/favicon.png">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18154472207"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) - Deferred until idle to avoid main-thread & network blocking during LCP -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'AW-18154472207');
-</script>
+    function loadGtag() {
+      if (window._gtagLoaded) return;
+      window._gtagLoaded = true;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18154472207';
+      document.head.appendChild(s);
+      gtag('config', 'AW-18154472207');
+    }
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => setTimeout(loadGtag, 1200));
+    } else {
+      window.addEventListener('load', () => setTimeout(loadGtag, 1500));
+    }
+  </script>
 
   <!-- Structured Data: LocalBusiness + Organization -->
   <script type="application/ld+json">
@@ -192,30 +205,32 @@
 <body>
   <div id="root">
     <!-- Initial HTML Shell for instant <1s FCP and LCP Paint -->
-    <section style="position:relative;min-height:90vh;background-color:#0b1c30;color:#ffffff;display:flex;align-items:center;padding-top:6rem;padding-bottom:4rem;">
-      <div style="position:absolute;inset:0;overflow:hidden;">
-        <picture style="position:absolute;inset:0;display:block;width:100%;height:100%;">
-          <source media="(max-width: 640px)" srcset="/image/hero-bg-mobile.webp" type="image/webp">
-          <source media="(max-width: 1024px)" srcset="/image/hero-bg-tablet.webp" type="image/webp">
-          <img src="/image/hero-bg-desktop.webp" alt="Pooja Transport Service Hero" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.25;mix-blend-mode:luminosity;" loading="eager" fetchpriority="high" decoding="sync" />
-        </picture>
-        <div style="position:absolute;inset:0;background:linear-gradient(to right, #0b1c30, rgba(11, 28, 48, 0.9), transparent);"></div>
-      </div>
-      <div style="position:relative;max-width:1280px;margin:0 auto;padding-left:1rem;padding-right:1rem;width:100%;z-index:30;">
-        <div style="max-width:42rem;">
-          <div style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.25rem 0.75rem;border-radius:9999px;background-color:rgba(255,255,255,0.1);color:#fbbf24;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;border:1px solid rgba(251,191,36,0.3);margin-bottom:1.5rem;">
-            ISO 9001:2015 Certified Logistics Partner
-          </div>
-          <h1 style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;letter-spacing:-0.025em;color:#ffffff;line-height:1.1;margin-bottom:1.5rem;">
-            Trusted Packers <br />
-            &amp; Movers <span style="color:#fbbf24;font-style:italic;">in India.</span>
-          </h1>
-          <p style="color:#cbd5e1;font-size:1rem;line-height:1.625;">
-            Pooja Transport Service delivers white-glove household shifting, corporate IT relocation, and bespoke warehousing across India with high-precision care.
-          </p>
+    <main id="main-content">
+      <section style="position:relative;min-height:90vh;background-color:#0b1c30;color:#ffffff;display:flex;align-items:center;padding-top:6rem;padding-bottom:4rem;">
+        <div style="position:absolute;inset:0;overflow:hidden;">
+          <picture style="position:absolute;inset:0;display:block;width:100%;height:100%;">
+            <source media="(max-width: 640px)" srcset="/image/hero-bg-mobile.webp" type="image/webp">
+            <source media="(max-width: 1024px)" srcset="/image/hero-bg-tablet.webp" type="image/webp">
+            <img src="/image/hero-bg-desktop.webp" alt="Pooja Transport Service Hero" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.25;mix-blend-mode:luminosity;" loading="eager" fetchpriority="high" decoding="sync" />
+          </picture>
+          <div style="position:absolute;inset:0;background:linear-gradient(to right, #0b1c30, rgba(11, 28, 48, 0.9), transparent);"></div>
         </div>
-      </div>
-    </section>
+        <div style="position:relative;max-width:1280px;margin:0 auto;padding-left:1rem;padding-right:1rem;width:100%;z-index:30;">
+          <div style="max-width:42rem;">
+            <div style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.25rem 0.75rem;border-radius:9999px;background-color:rgba(255,255,255,0.1);color:#fbbf24;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;border:1px solid rgba(251,191,36,0.3);margin-bottom:1.5rem;">
+              ISO 9001:2015 Certified Logistics Partner
+            </div>
+            <h1 style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;letter-spacing:-0.025em;color:#ffffff;line-height:1.1;margin-bottom:1.5rem;">
+              Trusted Packers <br />
+              &amp; Movers <span style="color:#fbbf24;font-style:italic;">in India.</span>
+            </h1>
+            <p style="color:#cbd5e1;font-size:1rem;line-height:1.625;">
+              Pooja Transport Service delivers white-glove household shifting, corporate IT relocation, and bespoke warehousing across India with high-precision care.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
   <script type="module" src="/src/main.tsx"></script>
 

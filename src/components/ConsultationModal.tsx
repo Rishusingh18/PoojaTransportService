@@ -275,7 +275,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                   >
                     <div className="flex items-center gap-2">
                       <CalendarIcon className="w-4 h-4 text-slate-500" />
-                      <span className="font-medium">{format(selectedDate, "MMM dd, yyyy")}</span>
+                      <span className="font-medium">{selectedDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</span>
                     </div>
                   </button>
 

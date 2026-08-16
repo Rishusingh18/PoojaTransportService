@@ -294,7 +294,7 @@ export const Hero: React.FC = () => {
                   >
                     <div className="flex items-center gap-2">
                       <CalendarIcon className="w-4 h-4 text-slate-500" />
-                      <span className="font-semibold">{format(selectedDate, "MMM dd, yyyy")}</span>
+                      <span className="font-semibold">{selectedDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</span>
                     </div>
                     <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${isDatePickerOpen ? 'rotate-180' : ''}`} />
                   </button>
