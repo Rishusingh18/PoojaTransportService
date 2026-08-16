@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Navigation, MapPin, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 interface LocationItem {
   title: string;
@@ -159,114 +158,108 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
       </div>
 
       {/* Autocomplete Dropdown List */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 6, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 6, scale: 0.98 }}
-            transition={{ duration: 0.18, ease: 'easeOut' }}
-            style={{
-              position: 'absolute',
-              top: '100%',
-              left: 0,
-              right: 0,
-              marginTop: '6px',
-              background: '#ffffff',
-              border: '1px solid #e2e8f0',
-              borderRadius: '16px',
-              boxShadow: '0 20px 35px -5px rgba(15, 23, 42, 0.15), 0 8px 16px -6px rgba(15, 23, 42, 0.08)',
-              overflow: 'hidden',
-              zIndex: 2500
-            }}
-          >
-            <div style={{ maxHeight: '240px', overflowY: 'auto', padding: '6px' }}>
-              {suggestions.map((loc, idx) => (
-                <div
-                  key={idx}
-                  onClick={() => handleSelect(loc.title)}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '12px',
-                    padding: '10px 12px',
-                    borderRadius: '10px',
-                    cursor: 'pointer',
-                    transition: 'background 0.15s ease'
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = '#f8fafc')}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
-                >
-                  <div style={{
-                    width: '34px',
-                    height: '34px',
-                    borderRadius: '50%',
-                    background: 'rgba(210, 43, 43, 0.08)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                    color: 'var(--secondary)'
-                  }}>
-                    <Navigation size={16} style={{ transform: 'rotate(45deg)' }} />
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0f172a', lineHeight: 1.2 }}>
-                      {loc.title}
-                    </span>
-                    <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 500, marginTop: '2px' }}>
-                      {loc.subtitle}
-                    </span>
-                  </div>
+      {isOpen && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '100%',
+            left: 0,
+            right: 0,
+            marginTop: '6px',
+            background: '#ffffff',
+            border: '1px solid #e2e8f0',
+            borderRadius: '16px',
+            boxShadow: '0 20px 35px -5px rgba(15, 23, 42, 0.15), 0 8px 16px -6px rgba(15, 23, 42, 0.08)',
+            overflow: 'hidden',
+            zIndex: 2500
+          }}
+        >
+          <div style={{ maxHeight: '240px', overflowY: 'auto', padding: '6px' }}>
+            {suggestions.map((loc, idx) => (
+              <div
+                key={idx}
+                onClick={() => handleSelect(loc.title)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  padding: '10px 12px',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
+                  transition: 'background 0.15s ease'
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = '#f8fafc')}
+                onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+              >
+                <div style={{
+                  width: '34px',
+                  height: '34px',
+                  borderRadius: '50%',
+                  background: 'rgba(210, 43, 43, 0.08)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  color: 'var(--secondary)'
+                }}>
+                  <Navigation size={16} style={{ transform: 'rotate(45deg)' }} />
                 </div>
-              ))}
-            </div>
-
-            {/* Bottom "Custom Location" Option when user is typing */}
-            {value.trim().length > 0 && (
-              <div style={{ borderTop: '1px solid #f1f5f9', padding: '6px' }}>
-                <div
-                  onClick={() => handleSelect(value)}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '12px',
-                    padding: '10px 12px',
-                    borderRadius: '10px',
-                    cursor: 'pointer',
-                    background: 'rgba(15, 23, 42, 0.02)',
-                    transition: 'background 0.15s ease'
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = '#f8fafc')}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(15, 23, 42, 0.02)')}
-                >
-                  <div style={{
-                    width: '34px',
-                    height: '34px',
-                    borderRadius: '50%',
-                    background: 'rgba(15, 23, 42, 0.06)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                    color: '#0f172a'
-                  }}>
-                    <MapPin size={16} />
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#0f172a' }}>
-                      Not seeing your location?
-                    </span>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--secondary)', fontWeight: 600, marginTop: '2px' }}>
-                      Use "{value}" as custom location
-                    </span>
-                  </div>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0f172a', lineHeight: 1.2 }}>
+                    {loc.title}
+                  </span>
+                  <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 500, marginTop: '2px' }}>
+                    {loc.subtitle}
+                  </span>
                 </div>
               </div>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
+            ))}
+          </div>
+
+          {/* Bottom "Custom Location" Option when user is typing */}
+          {value.trim().length > 0 && (
+            <div style={{ borderTop: '1px solid #f1f5f9', padding: '6px' }}>
+              <div
+                onClick={() => handleSelect(value)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  padding: '10px 12px',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
+                  background: 'rgba(15, 23, 42, 0.02)',
+                  transition: 'background 0.15s ease'
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = '#f8fafc')}
+                onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(15, 23, 42, 0.02)')}
+              >
+                <div style={{
+                  width: '34px',
+                  height: '34px',
+                  borderRadius: '50%',
+                  background: 'rgba(15, 23, 42, 0.06)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  color: '#0f172a'
+                }}>
+                  <MapPin size={16} />
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#0f172a' }}>
+                    Not seeing your location?
+                  </span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--secondary)', fontWeight: 600, marginTop: '2px' }}>
+                    Use "{value}" as custom location
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
