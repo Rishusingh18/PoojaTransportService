@@ -11,14 +11,18 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu, onOpenConsultation
       <div className="flex justify-between items-center h-16 sm:h-20 max-w-container-max mx-auto px-2.5 sm:px-4 md:px-margin-desktop min-w-0">
         {/* Preserved Brand Logo & Name */}
         <a href="/index.html" className="flex items-center gap-1.5 sm:gap-3 group shrink min-w-0 mr-1" title="Pooja Transport Service Homepage">
-          <img 
-            src="/image/logo.png" 
-            alt="Pooja Transport Service Logo" 
-            width="44"
-            height="44"
-            fetchPriority="high"
-            className="h-7 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105 shrink-0" 
-          />
+          <picture className="shrink-0">
+            <source media="(max-width: 640px)" srcSet="/image/logo-sm.webp" type="image/webp" />
+            <source media="(max-width: 1024px)" srcSet="/image/logo-md.webp" type="image/webp" />
+            <img 
+              src="/image/logo-lg.webp" 
+              alt="Pooja Transport Service Logo" 
+              width="44"
+              height="44"
+              fetchPriority="high"
+              className="h-7 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+            />
+          </picture>
           <span className="flex flex-col min-w-0">
             <span className="font-display font-bold text-[11px] xs:text-xs sm:text-lg md:text-xl tracking-tight text-white leading-tight truncate">
               POOJA <span className="text-amber-400">TRANSPORT</span>

@@ -124,10 +124,17 @@ export const Hero: React.FC = () => {
     <section className="relative min-h-[90vh] bg-[#0b1c30] text-white flex items-center pt-24 pb-16">
       {/* Background Cargo Shipping Dock Overlay — wrapped in own overflow-hidden container */}
       <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 mix-blend-luminosity scale-105 transform transition-transform duration-1000"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?fm=webp&q=60&w=800&fit=crop')` }}
-        ></div>
+        <picture className="absolute inset-0 block w-full h-full">
+          <source media="(max-width: 640px)" srcSet="/image/hero-bg-mobile.webp" type="image/webp" />
+          <source media="(max-width: 1024px)" srcSet="/image/hero-bg-tablet.webp" type="image/webp" />
+          <img 
+            src="/image/hero-bg-desktop.webp" 
+            alt="Hero Relocation & Transport Background" 
+            className="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity scale-105 transform transition-transform duration-1000"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-[#0b1c30] via-[#0b1c30]/90 to-transparent"></div>
       </div>
 
