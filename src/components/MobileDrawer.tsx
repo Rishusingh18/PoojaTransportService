@@ -23,9 +23,11 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
           <div className="flex items-center justify-between pb-6 border-b border-outline-variant/60">
             <a href="/index.html" className="flex items-center gap-2" onClick={onClose}>
               <img 
-                src="/image/logo.png" 
-                onError={(e) => { (e.target as HTMLImageElement).src = 'image/logo.png'; }} 
+                src="/image/logo-md.webp" 
+                onError={(e) => { (e.target as HTMLImageElement).src = '/image/logo-md.webp'; }} 
                 alt="Pooja Transport Service Logo" 
+                width="40"
+                height="40"
                 className="h-10 w-auto object-contain" 
               />
               <span className="font-display font-bold text-sm tracking-tight text-on-background">

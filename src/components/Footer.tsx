@@ -9,8 +9,10 @@ export const Footer: React.FC = () => {
         <div className="md:col-span-1 space-y-4">
           <a href="index.html" className="flex items-center gap-3 group">
             <img 
-              src="/image/logo.png" 
+              src="/image/logo-md.webp" 
               alt="Pooja Transport Service Logo" 
+              width="40"
+              height="40"
               className="h-10 w-auto object-contain" 
             />
             <span className="font-display font-bold text-lg tracking-tight text-white">
