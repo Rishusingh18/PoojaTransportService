@@ -31,6 +31,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
@@ -43,6 +44,21 @@ export default defineConfig({
         kanpur: resolve(__dirname, 'cities/packers-movers-kanpur.html'),
         lucknow: resolve(__dirname, 'cities/packers-movers-lucknow.html'),
         varanasi: resolve(__dirname, 'cities/packers-movers-varanasi.html')
+      },
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
+              return 'vendor-react';
+            }
+            if (id.includes('@supabase') || id.includes('date-fns')) {
+              return 'vendor-data';
+            }
+            if (id.includes('lucide-react')) {
+              return 'vendor-icons';
+            }
+          }
+        }
       }
     }
   }

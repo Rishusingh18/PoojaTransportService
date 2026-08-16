@@ -131,8 +131,9 @@ export const Hero: React.FC = () => {
             src="/image/hero-bg-desktop.webp" 
             alt="Hero Relocation & Transport Background" 
             className="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity scale-105 transform transition-transform duration-1000"
+            loading="eager"
             fetchPriority="high"
-            decoding="async"
+            decoding="sync"
           />
         </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-[#0b1c30] via-[#0b1c30]/90 to-transparent"></div>

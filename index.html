@@ -22,17 +22,19 @@
   <meta name="twitter:description" content="ISO 9001:2015 certified packers and movers in Greater Noida & Delhi NCR. Premium house shifting, office relocation & car transport. Get a free quote today!">
   <meta name="twitter:image" content="https://www.poojatransportservice.com/image/logo.png">
 
-  <!-- Fonts & Icons (Non-Blocking) & Preload LCP Hero Image -->
+  <!-- Preconnect Critical Origins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://mblcnitrxqzhbigbsqdr.supabase.co" crossorigin>
   <link rel="preload" as="image" href="/image/hero-bg-mobile.webp" media="(max-width: 640px)" fetchpriority="high">
   <link rel="preload" as="image" href="/image/hero-bg-tablet.webp" media="(min-width: 641px) and (max-width: 1024px)" fetchpriority="high">
   <link rel="preload" as="image" href="/image/hero-bg-desktop.webp" media="(min-width: 1025px)" fetchpriority="high">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"></noscript>
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="font" type="font/woff2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   
   <!-- Tailwind CSS & Kinetic Enterprise Theme Config (Deferred) -->
@@ -228,6 +230,12 @@
 </head>
 
 <body>
+  <!-- LCP Discovery Optimization: Early static HTML discoverable Hero image element -->
+  <picture style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0.01;pointer-events:none;" aria-hidden="true">
+    <source media="(max-width: 640px)" srcset="/image/hero-bg-mobile.webp" type="image/webp">
+    <source media="(max-width: 1024px)" srcset="/image/hero-bg-tablet.webp" type="image/webp">
+    <img src="/image/hero-bg-desktop.webp" alt="Hero Background" loading="eager" fetchpriority="high" decoding="sync">
+  </picture>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 

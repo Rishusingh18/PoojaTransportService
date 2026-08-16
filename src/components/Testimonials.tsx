@@ -103,9 +103,20 @@ export const Testimonials: React.FC = () => {
   };
 
   useEffect(() => {
-    loadVerifiedReviews();
-    const interval = setInterval(loadVerifiedReviews, 5000);
-    return () => clearInterval(interval);
+    let timer: NodeJS.Timeout;
+    const scheduleFetch = () => {
+      if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(() => loadVerifiedReviews());
+      } else {
+        timer = setTimeout(loadVerifiedReviews, 1500);
+      }
+    };
+    scheduleFetch();
+    const interval = setInterval(loadVerifiedReviews, 15000);
+    return () => {
+      if (timer) clearTimeout(timer);
+      clearInterval(interval);
+    };
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
