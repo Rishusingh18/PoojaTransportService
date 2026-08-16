@@ -30,8 +30,8 @@
   <link rel="preload" as="image" href="/image/hero-bg-mobile.webp" media="(max-width: 640px)" fetchpriority="high">
   <link rel="preload" as="image" href="/image/hero-bg-tablet.webp" media="(min-width: 641px) and (max-width: 1024px)" fetchpriority="high">
   <link rel="preload" as="image" href="/image/hero-bg-desktop.webp" media="(min-width: 1025px)" fetchpriority="high">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"></noscript>
   <link rel="stylesheet" href="/Css/fa-minimal.css">
   
   <!-- Tailwind CSS & Kinetic Enterprise Theme Config (Deferred) -->
@@ -83,14 +83,11 @@
         }
       }
     }
-  </script>
-  <link rel="preload" as="style" href="/Css/redesign.css" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/Css/redesign.css"></noscript>
+  <link rel="stylesheet" href="/Css/redesign.css">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/favicon.png">
-  <script src="/main.js" defer></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18154472207"></script>
 <script>
@@ -227,13 +224,33 @@
 </head>
 
 <body>
-  <!-- LCP Discovery Optimization: Early static HTML discoverable Hero image element -->
-  <picture style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0.01;pointer-events:none;" aria-hidden="true">
-    <source media="(max-width: 640px)" srcset="/image/hero-bg-mobile.webp" type="image/webp">
-    <source media="(max-width: 1024px)" srcset="/image/hero-bg-tablet.webp" type="image/webp">
-    <img src="/image/hero-bg-desktop.webp" alt="Hero Background" loading="eager" fetchpriority="high" decoding="sync">
-  </picture>
-  <div id="root"></div>
+  <div id="root">
+    <!-- Initial HTML Shell for instant <1s FCP and LCP Paint -->
+    <section style="position:relative;min-height:90vh;background-color:#0b1c30;color:#ffffff;display:flex;align-items:center;padding-top:6rem;padding-bottom:4rem;">
+      <div style="position:absolute;inset:0;overflow:hidden;">
+        <picture style="position:absolute;inset:0;display:block;width:100%;height:100%;">
+          <source media="(max-width: 640px)" srcset="/image/hero-bg-mobile.webp" type="image/webp">
+          <source media="(max-width: 1024px)" srcset="/image/hero-bg-tablet.webp" type="image/webp">
+          <img src="/image/hero-bg-desktop.webp" alt="Pooja Transport Service Hero" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.25;mix-blend-mode:luminosity;" loading="eager" fetchpriority="high" decoding="sync" />
+        </picture>
+        <div style="position:absolute;inset:0;background:linear-gradient(to right, #0b1c30, rgba(11, 28, 48, 0.9), transparent);"></div>
+      </div>
+      <div style="position:relative;max-width:1280px;margin:0 auto;padding-left:1rem;padding-right:1rem;width:100%;z-index:30;">
+        <div style="max-width:42rem;">
+          <div style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.25rem 0.75rem;border-radius:9999px;background-color:rgba(255,255,255,0.1);color:#fbbf24;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;border:1px solid rgba(251,191,36,0.3);margin-bottom:1.5rem;">
+            ISO 9001:2015 Certified Logistics Partner
+          </div>
+          <h1 style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;letter-spacing:-0.025em;color:#ffffff;line-height:1.1;margin-bottom:1.5rem;">
+            Trusted Packers <br />
+            &amp; Movers <span style="color:#fbbf24;font-style:italic;">in India.</span>
+          </h1>
+          <p style="color:#cbd5e1;font-size:1rem;line-height:1.625;">
+            Pooja Transport Service delivers white-glove household shifting, corporate IT relocation, and bespoke warehousing across India with high-precision care.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
   <script type="module" src="/src/main.tsx"></script>
 
   <!-- SEO: Noscript fallback for search engine crawlers that don't execute JavaScript -->
