@@ -91,7 +91,7 @@
     <div class="flex justify-between items-center h-16 sm:h-20 max-w-[1280px] mx-auto px-2.5 sm:px-4 md:px-16 min-w-0">
       <!-- Brand Logo -->
       <a href="/index.html" class="flex items-center gap-1.5 sm:gap-3 group shrink min-w-0 mr-1" title="Pooja Transport Service Homepage">
-        <img src="/image/logo.png" alt="Pooja Transport Service Logo" class="h-7 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105 shrink-0" />
+        <img src="/image/logo.png" alt="Pooja Transport Service Logo" width="44" height="44" class="h-7 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105 shrink-0" />
         <span class="flex flex-col min-w-0">
           <span class="font-bold text-[11px] xs:text-xs sm:text-lg md:text-xl tracking-tight text-white leading-tight truncate" style="font-family:'Playfair Display',serif">
             POOJA <span class="text-amber-400">TRANSPORT</span>
@@ -288,7 +288,7 @@
     <div class="max-w-container-max mx-auto px-4 md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-8">
       <div class="md:col-span-1 space-y-4">
         <a href="index.html" class="flex items-center gap-3">
-          <img src="/image/logo.png" alt="Pooja Transport Service Logo" class="h-10 w-auto object-contain" />
+          <img src="/image/logo.png" alt="Pooja Transport Service Logo" width="40" height="40" class="h-10 w-auto object-contain" />
           <span class="font-display font-bold text-lg text-white">POOJA <span class="text-amber-400">TRANSPORT</span></span>
         </a>
         <p class="text-xs text-slate-300 leading-relaxed">ISO 9001:2015 Certified Relocation Forwarder. Delivering stress-free home, corporate, and vehicle shifting across India.</p>
@@ -323,11 +323,17 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script>
     const SUPABASE_URL = 'https://mblcnitrxqzhbigbsqdr.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ibGNuaXRyeHF6aGJpZ2JzcWRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYwMjIzOTgsImV4cCI6MjEwMTU5ODM5OH0.94hKdSXgzM8yH47PImrhVeUonMEO2V3I1EHs77HkyCA';
-    const sbClient = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+    let sbClient = null;
+    function getSbClient() {
+      if (!sbClient && window.supabase) {
+        sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      }
+      return sbClient;
+    }
 
     function validateIndianMobile(rawInput) {
       if (!rawInput || typeof rawInput !== 'string' || !rawInput.trim()) {
@@ -397,9 +403,10 @@
       btn.innerText = 'Submitting Booking...';
 
       // 1. Direct Supabase Insert
-      if (sbClient) {
+      const client = getSbClient();
+      if (client) {
         try {
-          const { error: sbErr } = await sbClient.from('quotes').insert([payload]);
+          const { error: sbErr } = await client.from('quotes').insert([payload]);
           if (sbErr) {
             console.warn('Contact page Supabase insert note:', sbErr.message);
           } else {
