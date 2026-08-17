@@ -137,3 +137,35 @@ body {
   text-transform: uppercase;
   color: #6e5e00;
 }
+
+/* WhatsApp Floating Bubble Styles & Keyframes */
+@keyframes wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.wa-pulse-effect {
+  animation: wa-pulse 2s infinite ease-in-out;
+}
+
+.whatsapp-float-btn {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.whatsapp-float-btn:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 12px 28px -4px rgba(37, 211, 102, 0.5), 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.whatsapp-float-btn:active {
+  transform: scale(0.95);
+}
+
