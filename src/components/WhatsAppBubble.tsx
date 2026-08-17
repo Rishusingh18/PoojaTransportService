@@ -37,7 +37,7 @@ export const WhatsAppBubble: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
 
-  // Show a welcome tooltip after 3 seconds if not interacted
+  // Show a welcome tooltip after 3 seconds if not interacted, auto-hide after 9 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       if (!hasInteracted) {
@@ -45,7 +45,14 @@ export const WhatsAppBubble: React.FC = () => {
       }
     }, 3000);
 
-    return () => clearTimeout(timer);
+    const hideTimer = setTimeout(() => {
+      setShowTooltip(false);
+    }, 9500);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(hideTimer);
+    };
   }, [hasInteracted]);
 
   const handleOpenWhatsApp = (customMessage?: string) => {

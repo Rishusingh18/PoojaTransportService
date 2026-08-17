@@ -25,6 +25,11 @@ export const Footer: React.FC = () => {
           <p className="text-[11px] text-slate-400 opacity-80 pt-2">
             © {new Date().getFullYear()} Pooja Transport Service. All rights reserved.
           </p>
+          <div className="text-[11px] text-slate-400 pt-1 space-x-2">
+            <a href="/privacy-policy.html" className="text-amber-400 hover:text-amber-300 hover:underline transition-colors">Privacy Policy</a>
+            <span className="opacity-40">•</span>
+            <a href="/contact.html" className="text-slate-300 hover:text-white hover:underline transition-colors">Contact Us</a>
+          </div>
         </div>
 
         {/* Navigation Column 1: Services */}

@@ -201,10 +201,10 @@ function initWhatsAppBubble() {
 
     widget.innerHTML = `
         <div style="display: flex; align-items: center; gap: 8px;">
-            <div id="poojaWaTooltip" class="pooja-wa-tooltip" onclick="window.open('https://wa.me/919910204916?text=${defaultMsg}', '_blank', 'noopener,noreferrer')">
+            <div id="poojaWaTooltip" class="pooja-wa-tooltip" onclick="window.open('https://wa.me/919910204916?text=${defaultMsg}', '_blank', 'noopener,noreferrer')" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
                 <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #10b981; display: inline-block;"></span>
-                <span>Need a Shifting Quote? <b>Chat with us!</b></span>
-                <span onclick="event.stopPropagation(); document.getElementById('poojaWaTooltip').style.display='none';" style="cursor: pointer; color: #94a3b8; font-size: 14px; margin-left: 4px;">&times;</span>
+                <span>Need Shifting Quote? <b>Chat on WhatsApp</b></span>
+                <span onclick="event.stopPropagation(); document.getElementById('poojaWaTooltip').style.display='none';" style="cursor: pointer; color: #94a3b8; font-size: 14px; margin-left: 6px; padding: 0 2px;">&times;</span>
             </div>
             <a 
                 href="https://wa.me/919910204916?text=${defaultMsg}" 
@@ -223,5 +223,18 @@ function initWhatsAppBubble() {
     `;
 
     document.body.appendChild(widget);
+
+    // Auto-dismiss tooltip after 8 seconds so it doesn't obstruct reading
+    setTimeout(() => {
+        const tt = document.getElementById('poojaWaTooltip');
+        if (tt) {
+            tt.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            tt.style.opacity = '0';
+            tt.style.transform = 'translateX(10px)';
+            setTimeout(() => { tt.style.display = 'none'; }, 400);
+        }
+    }, 8000);
+}
+
 }
 

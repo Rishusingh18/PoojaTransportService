@@ -46,6 +46,8 @@ export default defineConfig({
         about: resolve(__dirname, 'about.html'),
         service: resolve(__dirname, 'service.html'),
         contact: resolve(__dirname, 'contact.html'),
+        privacyPolicy: resolve(__dirname, 'privacy-policy.html'),
+        privacy: resolve(__dirname, 'privacy.html'),
         admin: resolve(__dirname, 'admin.html'),
         dehradun: resolve(__dirname, 'cities/packers-movers-dehradun.html'),
         greaterNoida: resolve(__dirname, 'cities/packers-movers-greater-noida.html'),
