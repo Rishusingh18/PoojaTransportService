@@ -1,6 +1,33 @@
+# ==============================================================================
+# Robots.txt for Pooja Transport Service (https://www.poojatransportservice.com)
+# ==============================================================================
+
 User-agent: *
 Allow: /
+Allow: /image/
+Allow: /Css/
+Allow: /assets/
+Allow: /cities/
 Disallow: /admin.html
+Disallow: /admin/
 Disallow: /admin
+Disallow: /scratch/
+Disallow: /.git/
 
+# Major Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /image/
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.webp$
+Allow: /*.svg$
+
+User-agent: Bingbot
+Allow: /
+
+# Canonical XML Sitemap & Host
 Sitemap: https://www.poojatransportservice.com/sitemap.xml
+Host: https://www.poojatransportservice.com

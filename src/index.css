@@ -31,8 +31,21 @@
 .far,.fa-regular{font-family:'Font Awesome 6 Free';font-weight:400;}
 .fab,.fa-brands{font-family:'Font Awesome 6 Brands';font-weight:400;}
 .fa-xs{font-size:.75em;}.fa-sm{font-size:.875em;}.fa-lg{font-size:1.25em;}.fa-xl{font-size:1.5em;}.fa-2x{font-size:2em;}.fa-3x{font-size:3em;}
-.fa-bars::before{content:"\f0c9";}.fa-building::before{content:"\f1ad";}.fa-calculator::before{content:"\f1ec";}.fa-car::before{content:"\f1b9";}.fa-certificate::before{content:"\f0a3";}.fa-check-circle::before,.fa-circle-check::before{content:"\f058";}.fa-chevron-down::before{content:"\f078";}.fa-chevron-right::before{content:"\f054";}.fa-clock::before{content:"\f017";}.fa-envelope::before{content:"\f0e0";}.fa-home::before,.fa-house::before{content:"\f015";}.fa-map-marker-alt::before,.fa-location-dot::before{content:"\f3c5";}.fa-paper-plane::before{content:"\f1d8";}.fa-phone::before{content:"\f095";}.fa-phone-alt::before,.fa-phone-flip::before{content:"\f879";}.fa-shield-alt::before,.fa-shield-halved::before{content:"\f3ed";}.fa-star::before{content:"\f005";}.fa-times::before,.fa-xmark::before{content:"\f00d";}.fa-truck-loading::before,.fa-truck-ramp-box::before{content:"\f4de";}.fa-wallet::before{content:"\f555";}.fa-warehouse::before{content:"\f494";}.fa-whatsapp::before{content:"\f232";}
-
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
 
 :root {
   --color-surface: #f8f9ff;
