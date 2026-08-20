@@ -39,13 +39,13 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* City Landing Pages Column */}
-        <div className="flex flex-col space-y-2">
-          <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Key Cities</h3>
-          <a href="cities/packers-movers-dehradun.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Dehradun</a>
-          <a href="cities/packers-movers-greater-noida.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Greater Noida</a>
-          <a href="cities/packers-movers-kanpur.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Kanpur</a>
-          <a href="cities/packers-movers-lucknow.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Lucknow</a>
-          <a href="cities/packers-movers-varanasi.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Varanasi</a>
+        <div className="flex flex-col space-y-3">
+          <h4 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Service Hubs</h4>
+          <a href="/cities/packers-movers-dehradun.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Dehradun</a>
+          <a href="/cities/packers-movers-greater-noida.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Greater Noida</a>
+          <a href="/cities/packers-movers-kanpur.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Kanpur</a>
+          <a href="/cities/packers-movers-lucknow.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Lucknow</a>
+          <a href="/cities/packers-movers-varanasi.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Varanasi</a>
         </div>
 
         {/* Contact Info Column */}
