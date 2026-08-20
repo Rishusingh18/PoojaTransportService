@@ -49,6 +49,7 @@ export default defineConfig({
         privacyPolicy: resolve(__dirname, 'privacy-policy.html'),
         privacy: resolve(__dirname, 'privacy.html'),
         admin: resolve(__dirname, 'admin.html'),
+        bookingConfirmation: resolve(__dirname, 'booking-confirmation.html'),
         confirmation: resolve(__dirname, 'confirmation.html'),
         dehradun: resolve(__dirname, 'cities/packers-movers-dehradun.html'),
         greaterNoida: resolve(__dirname, 'cities/packers-movers-greater-noida.html'),

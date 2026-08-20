@@ -184,7 +184,23 @@ function showStaticBookingConfirmationPopup(booking) {
 Hello Pooja Transport Team, I have submitted my relocation booking request with Reference ID *${booking.id}*. Can you provide me quote for same?`;
 
     const waUrl = 'https://wa.me/919910204916?text=' + encodeURIComponent(waMsg);
-    const receiptUrl = `/confirmation.html?id=${encodeURIComponent(booking.id)}&name=${encodeURIComponent(booking.name)}&mobile=${encodeURIComponent(booking.mobile)}&from=${encodeURIComponent(booking.from)}&to=${encodeURIComponent(booking.to)}&service=${encodeURIComponent(booking.serviceType)}&date=${encodeURIComponent(booking.moveDate)}`;
+    const receiptUrl = `/booking-confirmation?id=${encodeURIComponent(booking.id)}&name=${encodeURIComponent(booking.name)}&mobile=${encodeURIComponent(booking.mobile)}&from=${encodeURIComponent(booking.from)}&to=${encodeURIComponent(booking.to)}&service=${encodeURIComponent(booking.serviceType)}&date=${encodeURIComponent(booking.moveDate)}`;
+
+    // Sync browser URL bar to /booking-confirmation
+    const currentFullUrl = window.location.pathname + window.location.search + window.location.hash;
+    window.history.pushState(
+        { modal: 'booking-confirmation', bookingId: booking.id, prevUrl: currentFullUrl },
+        '',
+        `/booking-confirmation?id=${encodeURIComponent(booking.id)}`
+    );
+
+    window.onpopstate = function() {
+        const popup = document.getElementById('staticConfirmationPopup');
+        if (popup) {
+            popup.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    };
 
     popup.className = 'fixed inset-0 z-[250] flex items-center justify-center p-4 bg-[#0b1c30]/85 backdrop-blur-md overflow-y-auto';
     popup.innerHTML = `
@@ -198,7 +214,7 @@ Hello Pooja Transport Team, I have submitted my relocation booking request with 
                         <span class="text-xs text-slate-300 font-medium">Pooja Transport Service</span>
                     </div>
                 </div>
-                <button type="button" onclick="closeStaticConfirmationPopup()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-white/10 text-xl font-bold transition-colors">&times;</button>
+                <button type="button" onclick="closeStaticConfirmationPopup()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-white/10 text-xl font-bold transition-colors cursor-pointer">&times;</button>
             </div>
 
             <!-- Body -->
@@ -277,6 +293,12 @@ function closeStaticConfirmationPopup() {
     if (popup) {
         popup.style.display = 'none';
         document.body.style.overflow = '';
+    }
+    if (window.history.state && window.history.state.modal === 'booking-confirmation') {
+        window.history.back();
+    } else if (window.location.pathname.includes('booking-confirmation')) {
+        const returnUrl = (window.history.state && window.history.state.prevUrl) || '/';
+        window.history.pushState(null, '', returnUrl);
     }
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
   CheckCircle2, 
   Copy, 
@@ -29,6 +29,41 @@ export const BookingConfirmationModal: React.FC<BookingConfirmationModalProps> =
 }) => {
   const [copied, setCopied] = useState(false);
 
+  const handleClose = useCallback(() => {
+    if (window.history.state?.modal === 'booking-confirmation') {
+      window.history.back();
+    } else if (window.location.pathname.includes('booking-confirmation')) {
+      const returnUrl = window.history.state?.prevUrl || '/';
+      window.history.pushState(null, '', returnUrl);
+    }
+    onClose();
+  }, [onClose]);
+
+  // Synchronize browser URL bar to /booking-confirmation when modal opens
+  useEffect(() => {
+    if (!isOpen || !booking) return;
+
+    const currentFullUrl = window.location.pathname + window.location.search + window.location.hash;
+    const targetUrl = `/booking-confirmation?id=${encodeURIComponent(booking.id)}`;
+
+    // Update browser address bar to /booking-confirmation
+    window.history.pushState(
+      { modal: 'booking-confirmation', bookingId: booking.id, prevUrl: currentFullUrl },
+      '',
+      targetUrl
+    );
+
+    const handlePopState = () => {
+      onClose();
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [isOpen, booking, onClose]);
+
   if (!isOpen || !booking) return null;
 
   const handleCopyId = () => {
@@ -41,7 +76,7 @@ export const BookingConfirmationModal: React.FC<BookingConfirmationModalProps> =
 
   const whatsappUrl = createWhatsAppBookingUrl(booking);
 
-  const confirmationPageUrl = `/confirmation.html?id=${encodeURIComponent(booking.id)}&name=${encodeURIComponent(booking.name)}&mobile=${encodeURIComponent(booking.mobile)}&from=${encodeURIComponent(booking.from)}&to=${encodeURIComponent(booking.to)}&service=${encodeURIComponent(booking.serviceType)}&date=${encodeURIComponent(booking.moveDate)}`;
+  const confirmationPageUrl = `/booking-confirmation?id=${encodeURIComponent(booking.id)}&name=${encodeURIComponent(booking.name)}&mobile=${encodeURIComponent(booking.mobile)}&from=${encodeURIComponent(booking.from)}&to=${encodeURIComponent(booking.to)}&service=${encodeURIComponent(booking.serviceType)}&date=${encodeURIComponent(booking.moveDate)}`;
 
   return (
     <div 
@@ -62,8 +97,8 @@ export const BookingConfirmationModal: React.FC<BookingConfirmationModalProps> =
             </div>
           </div>
           <button
-            onClick={onClose}
-            className="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+            onClick={handleClose}
+            className="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
