@@ -177,11 +177,11 @@ export const Hero: React.FC = () => {
                   Instant Relocation Booking
                 </span>
                 <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0b1c30] leading-tight m-0 p-0">
-                  Get Shifting Estimation
+                  Get Free Moving Quote
                 </h2>
               </div>
 
-              <form id="hero-quote-form" aria-label="Instant Relocation Estimation Form" onSubmit={handleSubmit} className="space-y-2.5">
+              <form id="hero-quote-form" aria-label="Instant Relocation Booking Form" onSubmit={handleSubmit} className="space-y-2.5">
                 
                 {/* Route Selector */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -313,15 +313,15 @@ export const Hero: React.FC = () => {
                     }`}
                   >
                     {submitStatus === 'submitting' ? (
-                      <span>Calculating Estimation...</span>
+                      <span>Processing Request...</span>
                     ) : submitStatus === 'success' ? (
                       <span className="text-white font-bold flex items-center gap-2 text-sm normal-case tracking-normal">
                         <CheckCircle2 className="w-5 h-5 text-white" /> We'll reach out soon!
                       </span>
                     ) : (
                       <>
-                        <Calculator className="w-4 h-4 text-amber-400" />
-                        Get Estimation
+                        <Truck className="w-4 h-4 text-amber-400" />
+                        Get Free Quote
                       </>
                     )}
                   </button>

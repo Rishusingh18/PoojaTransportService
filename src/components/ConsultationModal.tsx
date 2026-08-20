@@ -166,7 +166,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <p className="text-xs text-slate-500 mb-2">
-                Fill in your move details below for an instant price estimation & expert phone consultation.
+                Fill in your move details below for a tailored relocation quote & expert phone consultation.
               </p>
 
               {/* Name & Mobile */}
