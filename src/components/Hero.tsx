@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CustomDatePicker from './CustomDatePicker';
 import LocationAutocomplete from './LocationAutocomplete';
-import { Calendar as CalendarIcon, ChevronDown, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Calendar as CalendarIcon, ChevronDown, CheckCircle2, AlertCircle, ShieldCheck, Truck, Clock, Calculator } from 'lucide-react';
 import { validateIndianMobile } from '../lib/validation';
 import { insertSupabaseQuote } from '../lib/supabase';
 import { BookingDetails, generateBookingId, saveLastBooking } from '../lib/booking';
@@ -154,15 +154,15 @@ export const Hero: React.FC = () => {
 
             <div className="pt-4 flex flex-wrap gap-8 items-center text-xs text-slate-300 font-semibold tracking-wider uppercase">
               <div className="flex items-center gap-2">
-                <i className="fas fa-shield-alt text-amber-400 text-base"></i>
+                <ShieldCheck className="w-4 h-4 text-amber-400" />
                 <span>Zero Damage Claim Policy</span>
               </div>
               <div className="flex items-center gap-2">
-                <i className="fas fa-truck-loading text-amber-400 text-base"></i>
+                <Truck className="w-4 h-4 text-amber-400" />
                 <span>Hydraulic Fleet</span>
               </div>
               <div className="flex items-center gap-2">
-                <i className="fas fa-clock text-amber-400 text-base"></i>
+                <Clock className="w-4 h-4 text-amber-400" />
                 <span>24x7 Realtime GPS</span>
               </div>
             </div>
@@ -320,7 +320,7 @@ export const Hero: React.FC = () => {
                       </span>
                     ) : (
                       <>
-                        <i className="fas fa-[#10b981] fa-calculator text-amber-400 text-sm"></i>
+                        <Calculator className="w-4 h-4 text-amber-400" />
                         Get Estimation
                       </>
                     )}

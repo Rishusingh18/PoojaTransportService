@@ -44,24 +44,35 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu, onOpenConsultation
           
           {/* Services Dropdown */}
           <div className="relative group">
-            <a href="/service.html" className="text-slate-300 text-sm font-medium hover:text-white transition-colors flex items-center gap-1 py-6">
-              Services <i className="fas fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform"></i>
+            <a href="/service.html" className="text-slate-300 text-sm font-medium hover:text-white transition-colors flex items-center gap-1.5 py-6">
+              Services
+              <svg className="w-3.5 h-3.5 opacity-70 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </a>
             <div className="absolute top-full left-1/2 -translate-x-1/2 w-[560px] bg-[#131b2e] border border-white/10 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-5 grid grid-cols-2 gap-3 z-50">
               <a href="/service.html#household" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
-                <div className="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-amber-400 shrink-0"><i className="fas fa-home text-sm"></i></div>
+                <div className="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-amber-400 shrink-0">
+                  <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                </div>
                 <div><div className="font-semibold text-sm text-white">Household Relocation</div><p className="text-xs text-slate-300 mt-0.5">White-glove packing & safe transit for homes.</p></div>
               </a>
               <a href="/service.html#office" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
-                <div className="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-amber-400 shrink-0"><i className="fas fa-building text-sm"></i></div>
+                <div className="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-amber-400 shrink-0">
+                  <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                </div>
                 <div><div className="font-semibold text-sm text-white">Corporate Infrastructure</div><p className="text-xs text-slate-300 mt-0.5">Headquarters & office move execution.</p></div>
               </a>
               <a href="/service.html#vehicle" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
-                <div className="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-amber-400 shrink-0"><i className="fas fa-car text-sm"></i></div>
+                <div className="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-amber-400 shrink-0">
+                  <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8 17a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4zM5 11l2-5h10l2 5M5 11h14M5 11v6h2m12-6v6h-2m-10 0h6"/></svg>
+                </div>
                 <div><div className="font-semibold text-sm text-white">Car & Bike Carrier</div><p className="text-xs text-slate-300 mt-0.5">Enclosed vehicle transport with live tracking.</p></div>
               </a>
               <a href="/service.html#warehousing" className="p-3 rounded-md hover:bg-white/10 transition-colors flex items-start gap-3">
-                <div className="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-amber-400 shrink-0"><i className="fas fa-warehouse text-sm"></i></div>
+                <div className="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-amber-400 shrink-0">
+                  <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                </div>
                 <div><div className="font-semibold text-sm text-white">Bespoke Warehousing</div><p className="text-xs text-slate-300 mt-0.5">Climate-controlled short & long term storage.</p></div>
               </a>
             </div>
@@ -69,8 +80,11 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu, onOpenConsultation
 
           {/* Cities Dropdown */}
           <div className="relative group">
-            <a href="#" className="text-slate-300 text-sm font-medium hover:text-white transition-colors flex items-center gap-1 py-6">
-              Cities <i className="fas fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform"></i>
+            <a href="#" className="text-slate-300 text-sm font-medium hover:text-white transition-colors flex items-center gap-1.5 py-6">
+              Cities
+              <svg className="w-3.5 h-3.5 opacity-70 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </a>
             <div className="absolute top-full left-0 w-52 bg-[#131b2e] border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
               <a href="/cities/packers-movers-dehradun.html" className="block px-4 py-2.5 text-xs font-medium text-slate-200 hover:bg-white/10 hover:text-white">Packers & Movers Dehradun</a>
@@ -91,10 +105,10 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu, onOpenConsultation
           {/* Call Button */}
           <a 
             href="tel:+919910204916" 
-            className="flex items-center justify-center gap-1 text-[11px] sm:text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 px-2 sm:px-3 py-1 sm:py-1.5 rounded-md transition-colors shrink-0"
+            className="flex items-center justify-center gap-1.5 text-[11px] sm:text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 px-2 sm:px-3 py-1 sm:py-1.5 rounded-md transition-colors shrink-0"
             title="Call Us Now"
           >
-            <i className="fas fa-phone-alt text-[10px] text-amber-300"></i>
+            <svg className="w-3.5 h-3.5 text-amber-300 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
             <span className="hidden lg:inline">+91 9910204916</span>
             <span className="inline lg:hidden">Call</span>
           </a>
@@ -124,7 +138,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu, onOpenConsultation
             onClick={onToggleMenu}
             aria-label="Toggle Navigation Menu"
           >
-            <i className="fas fa-bars text-base sm:text-lg"></i>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
           </button>
         </div>
       </div>

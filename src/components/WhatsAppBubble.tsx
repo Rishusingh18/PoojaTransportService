@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Phone } from 'lucide-react';
 
 const WHATSAPP_NUMBER = '919910204916';
 const PHONE_NUMBER = '+919910204916';
@@ -172,7 +173,7 @@ export const WhatsAppBubble: React.FC = () => {
                 href={`tel:${PHONE_NUMBER}`} 
                 className="text-[#0b1c30] font-semibold hover:text-amber-600 transition-colors flex items-center gap-1"
               >
-                <i className="fas fa-phone-alt text-[10px]"></i> +91 9910204916
+                <Phone className="w-3 h-3 text-amber-600 shrink-0" /> +91 9910204916
               </a>
             </div>
           </div>

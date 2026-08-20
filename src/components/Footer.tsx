@@ -1,4 +1,5 @@
 import React from 'react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -25,25 +26,21 @@ export const Footer: React.FC = () => {
           <p className="text-[11px] text-slate-400 opacity-80 pt-2">
             © {new Date().getFullYear()} Pooja Transport Service. All rights reserved.
           </p>
-          <div className="text-[11px] text-slate-400 pt-1 space-x-2">
-            <a href="/privacy-policy.html" className="text-amber-400 hover:text-amber-300 hover:underline transition-colors">Privacy Policy</a>
-            <span className="opacity-40">•</span>
-            <a href="/contact.html" className="text-slate-300 hover:text-white hover:underline transition-colors">Contact Us</a>
-          </div>
         </div>
 
-        {/* Navigation Column 1: Services */}
-        <div className="flex flex-col space-y-3">
-          <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Services</h3>
-          <a href="service.html#household" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Household Shifting</a>
-          <a href="service.html#office" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Corporate Relocation</a>
-          <a href="service.html#vehicle" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Car & Bike Carriers</a>
-          <a href="service.html#warehousing" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Bespoke Warehousing</a>
+        {/* Quick Links Column */}
+        <div className="flex flex-col space-y-2">
+          <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Company</h3>
+          <a href="index.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Home</a>
+          <a href="about.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">About Us</a>
+          <a href="service.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Services</a>
+          <a href="contact.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Contact Us</a>
+          <a href="privacy-policy.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Privacy Policy</a>
         </div>
 
-        {/* Navigation Column 2: Service Hubs */}
-        <div className="flex flex-col space-y-3">
-          <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Service Hubs</h3>
+        {/* City Landing Pages Column */}
+        <div className="flex flex-col space-y-2">
+          <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Key Cities</h3>
           <a href="cities/packers-movers-dehradun.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Dehradun</a>
           <a href="cities/packers-movers-greater-noida.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Greater Noida</a>
           <a href="cities/packers-movers-kanpur.html" className="text-xs text-slate-300 hover:text-amber-400 hover:underline transition-colors py-1 inline-block">Packers & Movers Kanpur</a>
@@ -55,23 +52,24 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col space-y-3">
           <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Direct Contact</h3>
           <p className="text-xs text-slate-300 flex items-center gap-2">
-            <i className="fas fa-phone-alt text-amber-400"></i>
+            <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <a href="tel:+919528808820" className="hover:text-white transition-colors">+91 9528808820</a>
           </p>
           <p className="text-xs text-slate-300 flex items-center gap-2">
-            <i className="fas fa-phone-alt text-amber-400"></i>
+            <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <a href="tel:+919910204916" className="hover:text-white transition-colors">+91 9910204916</a>
           </p>
           <p className="text-xs text-slate-300 flex items-center gap-2">
-            <i className="fas fa-envelope text-amber-400"></i>
+            <Mail className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <a href="mailto:contact@poojatransportservice.com" className="hover:text-white transition-colors">contact@poojatransportservice.com</a>
           </p>
           <p className="text-xs text-slate-300 flex items-center gap-2">
-            <i className="fas fa-envelope text-amber-400"></i>
+            <Mail className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <a href="mailto:poojatransportservice3@gmail.com" className="hover:text-white transition-colors">poojatransportservice3@gmail.com</a>
           </p>
           <p className="text-xs text-slate-300 flex items-start gap-2">
-            <i className="fas fa-map-marker-alt text-amber-400 mt-0.5"></i> Gaur City Center, Greater Noida, UP, India
+            <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+            <span>Gaur City Center, Greater Noida, UP, India</span>
           </p>
         </div>
       </div>

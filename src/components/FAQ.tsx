@@ -1,5 +1,5 @@
 import React from 'react';
-import { HelpCircle } from 'lucide-react';
+import { HelpCircle, ChevronDown } from 'lucide-react';
 
 export const FAQ: React.FC = () => {
   const faqs = [
@@ -62,7 +62,7 @@ export const FAQ: React.FC = () => {
                   {faq.question}
                 </span>
                 <span className="text-on-surface-variant group-open:rotate-180 transition-transform duration-200">
-                  <i className="fas fa-chevron-down text-sm"></i>
+                  <ChevronDown className="w-4 h-4" />
                 </span>
               </summary>
               <p className="text-xs md:text-sm text-on-surface-variant leading-relaxed mt-4 pt-4 border-t border-outline-variant/30 pl-8">
