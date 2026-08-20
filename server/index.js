@@ -303,14 +303,14 @@ function validateIndianMobileServer(rawInput) {
 
 // POST /api/quotes - Creates new booking/quote
 app.post('/api/quotes', async (req, res) => {
-  const { name, mobile, from, to, serviceType, moveDate, notes } = req.body;
+  const { id, name, mobile, from, to, serviceType, moveDate, notes } = req.body;
 
   const mobileCheck = validateIndianMobileServer(mobile);
   if (!mobileCheck.isValid) {
     return res.status(400).json({ success: false, message: mobileCheck.error });
   }
 
-  const quoteId = `quote-${Date.now()}`;
+  const quoteId = id && typeof id === 'string' && id.trim() ? id.trim() : `PTS-BK-${Math.floor(100000 + Math.random() * 900000)}`;
   const createdAtIso = new Date().toISOString();
 
   // Universal Record inserting both from/to AND origin/destination for 100% Supabase column compatibility
@@ -380,8 +380,10 @@ app.post('/api/quotes', async (req, res) => {
 
   res.status(201).json({ 
     success: true, 
+    bookingId: quoteId,
+    referenceId: quoteId,
     supabaseSynced: supabaseSuccess,
-    message: 'Quote request saved successfully.',
+    message: 'Booking quote request saved successfully.',
     data: localRecord 
   });
 });

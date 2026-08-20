@@ -122,11 +122,11 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
           autoComplete="off"
           style={{
             width: '100%',
-            padding: '0.75rem 2.2rem 0.75rem 2.4rem',
+            padding: '0.5rem 2rem 0.5rem 2.2rem',
             border: '1px solid #cbd5e1',
-            borderRadius: '12px',
+            borderRadius: '10px',
             background: '#ffffff',
-            fontSize: '0.9rem',
+            fontSize: '0.85rem',
             fontFamily: 'inherit',
             color: '#0f172a',
             fontWeight: 600,

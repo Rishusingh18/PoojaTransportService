@@ -36,6 +36,18 @@
   ],
   "quotes": [
     {
+      "id": "PTS-BK-529593",
+      "name": "Test Customer",
+      "mobile": "+919910204916",
+      "from": "Greater Noida",
+      "to": "Dehradun",
+      "serviceType": "Household Relocation",
+      "moveDate": "Aug 25, 2026",
+      "notes": "",
+      "status": "Pending",
+      "createdAt": "2026-08-20T14:46:39.358Z"
+    },
+    {
       "id": "quote-1786032566614",
       "name": "Vikram Malhotra",
       "mobile": "9810204916",
@@ -82,6 +94,54 @@
       "notes": "",
       "status": "Pending",
       "createdAt": "2026-08-06T17:24:35.18+00:00"
+    },
+    {
+      "id": "quote-1786184703883",
+      "name": "rishu",
+      "mobile": "+919310138154",
+      "from": "Gharoli Extension",
+      "to": "Noida, Sector 62",
+      "serviceType": "Household Relocation",
+      "moveDate": "Aug 09, 2026",
+      "notes": "",
+      "status": "Pending",
+      "createdAt": "2026-08-08T10:25:03.883+00:00"
+    },
+    {
+      "id": "quote-1786549707072",
+      "name": "rishu",
+      "mobile": "+919310138154",
+      "from": "Delhi NCR",
+      "to": "Noida, Sector 62",
+      "serviceType": "Car & Bike Carrier",
+      "moveDate": "Aug 13, 2026",
+      "notes": "",
+      "status": "Pending",
+      "createdAt": "2026-08-12T15:48:27.072+00:00"
+    },
+    {
+      "id": "quote-1786562361056",
+      "name": "Satya",
+      "mobile": "+919211396141",
+      "from": "Delhi NCR",
+      "to": "Chandigarh",
+      "serviceType": "Household Relocation",
+      "moveDate": "Aug 19, 2026",
+      "notes": "",
+      "status": "Pending",
+      "createdAt": "2026-08-12T19:19:21.056+00:00"
+    },
+    {
+      "id": "quote-1787235991562",
+      "name": "Rishu",
+      "mobile": "+919310138154",
+      "from": "Delhi NCR",
+      "to": "Noida, Sector 62",
+      "serviceType": "Corporate Relocation",
+      "moveDate": "Aug 21, 2026",
+      "notes": "",
+      "status": "Pending",
+      "createdAt": "2026-08-20T14:26:31.562+00:00"
     }
   ]
 }

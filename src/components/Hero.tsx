@@ -3,7 +3,9 @@ import CustomDatePicker from './CustomDatePicker';
 import LocationAutocomplete from './LocationAutocomplete';
 import { Calendar as CalendarIcon, ChevronDown, CheckCircle2, AlertCircle } from 'lucide-react';
 import { validateIndianMobile } from '../lib/validation';
-import { getSupabase } from '../lib/supabase';
+import { insertSupabaseQuote } from '../lib/supabase';
+import { BookingDetails, generateBookingId, saveLastBooking } from '../lib/booking';
+import { BookingConfirmationModal } from './BookingConfirmationModal';
 
 export const Hero: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -22,78 +24,69 @@ export const Hero: React.FC = () => {
   });
 
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
+  const [phoneError, setPhoneError] = useState<string | null>(null);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
-  const [phoneError, setPhoneError] = useState('');
+  const [confirmedBooking, setConfirmedBooking] = useState<BookingDetails | null>(null);
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
-    if (id === 'h-mobile') setPhoneError('');
-    const fieldMap: Record<string, string> = {
-      'h-name': 'name',
-      'h-mobile': 'mobile',
-      'h-service': 'serviceType'
-    };
-    const key = fieldMap[id] || id;
-    setFormData(prev => ({ ...prev, [key]: value }));
+    if (id === 'h-name') setFormData(prev => ({ ...prev, name: value }));
+    if (id === 'h-mobile') {
+      setFormData(prev => ({ ...prev, mobile: value }));
+      if (phoneError) setPhoneError(null);
+    }
+    if (id === 'h-service') setFormData(prev => ({ ...prev, serviceType: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    const mobileCheck = validateIndianMobile(formData.mobile);
-    if (!mobileCheck.isValid) {
-      setPhoneError(mobileCheck.error);
+    
+    // Validate Phone Number
+    const phoneCheck = validateIndianMobile(formData.mobile);
+    if (!phoneCheck.isValid) {
+      setPhoneError(phoneCheck.error || 'Please enter a valid 10-digit mobile number.');
       return;
     }
-    setPhoneError('');
-
+    setPhoneError(null);
     setSubmitStatus('submitting');
-    const formattedDate = selectedDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
 
-    const payload = {
-      id: `quote-${Date.now()}`,
-      name: formData.name || 'Valued Customer',
-      mobile: mobileCheck.normalized,
-      from: formData.from || 'Not specified',
-      to: formData.to || 'Not specified',
+    const formattedDate = selectedDate.toLocaleDateString('en-US', {
+      month: 'short',
+      day: '2-digit',
+      year: 'numeric'
+    });
+
+    const bookingId = generateBookingId();
+
+    const payload: BookingDetails = {
+      id: bookingId,
+      name: formData.name.trim(),
+      mobile: phoneCheck.normalized,
+      from: formData.from.trim(),
+      to: formData.to.trim(),
       serviceType: formData.serviceType,
       moveDate: formattedDate,
       status: 'Pending',
       createdAt: new Date().toISOString()
     };
 
-    // 1. Local storage instant fallback
-    try {
-      const existing = JSON.parse(localStorage.getItem('pooja_local_quotes') || '[]');
-      localStorage.setItem('pooja_local_quotes', JSON.stringify([payload, ...existing]));
-    } catch (err) {
-      console.error('Local quote cache error:', err);
-    }
+    // 1. Local storage & Last Booking cache
+    saveLastBooking(payload);
 
     // 2. Direct Supabase insert to guarantee instant backend delivery
-    try {
-      const supabase = await getSupabase();
-      const supabaseRecord = {
-        id: payload.id,
-        name: payload.name,
-        mobile: payload.mobile,
-        from: payload.from,
-        to: payload.to,
-        serviceType: payload.serviceType,
-        moveDate: payload.moveDate,
-        notes: '',
-        status: 'Pending',
-        created_at: payload.createdAt
-      };
-      const { error: sbErr } = await supabase.from('quotes').insert([supabaseRecord]);
-      if (sbErr) {
-        console.warn('Supabase direct quote insert note:', sbErr.message);
-      } else {
-        console.log('✓ Quote saved directly to Supabase:', payload.id);
-      }
-    } catch (sbEx: any) {
-      console.error('Supabase direct quote exception:', sbEx?.message || sbEx);
-    }
+    insertSupabaseQuote({
+      id: payload.id,
+      name: payload.name,
+      mobile: payload.mobile,
+      from: payload.from,
+      to: payload.to,
+      serviceType: payload.serviceType,
+      moveDate: payload.moveDate,
+      notes: '',
+      status: 'Pending',
+      created_at: payload.createdAt
+    });
 
     // 3. Post to Backend REST API endpoint (if serverless or express server active)
     try {
@@ -107,17 +100,18 @@ export const Hero: React.FC = () => {
     }
 
     setSubmitStatus('success');
+    setConfirmedBooking(payload);
+    setIsConfirmationOpen(true);
 
-    setTimeout(() => {
-      setSubmitStatus('idle');
-      setFormData({
-        name: '',
-        mobile: '',
-        from: '',
-        to: '',
-        serviceType: 'Household Relocation'
-      });
-    }, 4000);
+    // Reset Form state
+    setFormData({
+      name: '',
+      mobile: '',
+      from: '',
+      to: '',
+      serviceType: 'Household Relocation'
+    });
+    setSubmitStatus('idle');
   };
 
   return (
@@ -176,23 +170,23 @@ export const Hero: React.FC = () => {
 
           {/* Right Floating Shifting Quote Form */}
           <div id="quote" className="lg:col-span-5 scroll-mt-24">
-            <div className="bg-white text-[#0b1c30] rounded-2xl p-6 sm:p-8 shadow-2xl border border-white/20">
+            <div className="bg-white text-[#0b1c30] rounded-2xl p-4 sm:p-5 shadow-2xl border border-white/20">
               
-              <div className="mb-6 border-b border-slate-100 pb-4">
-                <span className="text-[10px] font-bold text-amber-600 uppercase tracking-widest block mb-1">
+              <div className="mb-1.5">
+                <span className="text-[10px] font-bold text-amber-600 uppercase tracking-widest block leading-none mb-1">
                   Instant Relocation Booking
                 </span>
-                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0b1c30]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0b1c30] leading-tight m-0 p-0">
                   Get Shifting Estimation
                 </h2>
               </div>
 
-              <form id="hero-quote-form" aria-label="Instant Relocation Estimation Form" onSubmit={handleSubmit} className="space-y-4">
+              <form id="hero-quote-form" aria-label="Instant Relocation Estimation Form" onSubmit={handleSubmit} className="space-y-2.5">
                 
                 {/* Route Selector */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <div>
-                    <label htmlFor="h-from" className="text-[11px] font-semibold text-slate-500 block mb-1">
+                    <label htmlFor="h-from" className="text-[11px] font-semibold text-slate-500 block mb-0.5">
                       Origin City / Location *
                     </label>
                     <LocationAutocomplete
@@ -204,7 +198,7 @@ export const Hero: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="h-to" className="text-[11px] font-semibold text-slate-500 block mb-1">
+                    <label htmlFor="h-to" className="text-[11px] font-semibold text-slate-500 block mb-0.5">
                       Destination City / Location *
                     </label>
                     <LocationAutocomplete
@@ -218,7 +212,7 @@ export const Hero: React.FC = () => {
                 </div>
 
                 {/* Name & Contact Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <div>
                     <label htmlFor="h-name" className="text-[11px] font-semibold text-slate-500 block mb-1">
                       Your Full Name *
@@ -228,7 +222,7 @@ export const Hero: React.FC = () => {
                       id="h-name" 
                       required
                       autoComplete="name"
-                      className="w-full bg-transparent border-0 border-b-2 border-slate-300 focus:border-[#0b1c30] focus:ring-0 px-0 py-2 text-sm text-[#0b1c30] font-medium" 
+                      className="w-full bg-transparent border-0 border-b-2 border-slate-300 focus:border-[#0b1c30] focus:ring-0 px-0 py-1.5 text-sm text-[#0b1c30] font-medium" 
                       placeholder="e.g. Rajesh Kumar" 
                       value={formData.name}
                       onChange={handleChange}
@@ -247,7 +241,7 @@ export const Hero: React.FC = () => {
                       maxLength={15}
                       aria-invalid={Boolean(phoneError)}
                       aria-describedby={phoneError ? "h-mobile-error" : undefined}
-                      className={`w-full bg-transparent border-0 border-b-2 ${phoneError ? 'border-red-500' : 'border-slate-300'} focus:border-[#0b1c30] focus:ring-0 px-0 py-2 text-sm text-[#0b1c30] font-medium`} 
+                      className={`w-full bg-transparent border-0 border-b-2 ${phoneError ? 'border-red-500' : 'border-slate-300'} focus:border-[#0b1c30] focus:ring-0 px-0 py-1.5 text-sm text-[#0b1c30] font-medium`} 
                       placeholder="+91 9910204916" 
                       value={formData.mobile}
                       onChange={handleChange}
@@ -269,7 +263,7 @@ export const Hero: React.FC = () => {
                     id="h-service"
                     value={formData.serviceType}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-0 border-b-2 border-slate-300 focus:border-[#0b1c30] focus:ring-0 px-0 py-2 text-sm text-[#0b1c30] font-medium appearance-none cursor-pointer"
+                    className="w-full bg-transparent border-0 border-b-2 border-slate-300 focus:border-[#0b1c30] focus:ring-0 px-0 py-1.5 text-sm text-[#0b1c30] font-medium appearance-none cursor-pointer"
                   >
                     <option value="Household Relocation">Household Shifting</option>
                     <option value="Corporate Relocation">Corporate Relocation</option>
@@ -290,7 +284,7 @@ export const Hero: React.FC = () => {
                     aria-expanded={isDatePickerOpen}
                     aria-labelledby="h-date-label"
                     onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
-                    className="w-full flex items-center justify-between py-2 border-b-2 border-slate-300 text-left text-sm text-[#0b1c30]"
+                    className="w-full flex items-center justify-between py-1.5 border-b-2 border-slate-300 text-left text-sm text-[#0b1c30]"
                   >
                     <div className="flex items-center gap-2">
                       <CalendarIcon className="w-4 h-4 text-slate-500" />
@@ -308,11 +302,11 @@ export const Hero: React.FC = () => {
                 </div>
 
                 {/* Submit Action Button */}
-                <div className="pt-4">
+                <div className="pt-2">
                   <button 
                     type="submit" 
                     disabled={submitStatus === 'submitting'}
-                    className={`w-full font-bold text-xs uppercase tracking-widest py-4 px-6 rounded-lg transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 ${
+                    className={`w-full font-bold text-xs uppercase tracking-widest py-3 px-6 rounded-lg transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 ${
                       submitStatus === 'success' 
                         ? 'bg-emerald-600 text-white' 
                         : 'bg-[#0b1c30] text-white hover:bg-[#131b2e]'
@@ -337,6 +331,13 @@ export const Hero: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Confirmation Popup Modal */}
+      <BookingConfirmationModal 
+        isOpen={isConfirmationOpen} 
+        onClose={() => setIsConfirmationOpen(false)} 
+        booking={confirmedBooking} 
+      />
     </section>
   );
 };

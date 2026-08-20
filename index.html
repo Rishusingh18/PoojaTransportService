@@ -35,7 +35,6 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/src/index.css">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
@@ -57,27 +56,14 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/favicon.png">
-  <!-- Google tag (gtag.js) - Deferred until idle to avoid main-thread & network blocking during LCP -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18154472207"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    function loadGtag() {
-      if (window._gtagLoaded) return;
-      window._gtagLoaded = true;
-      const s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18154472207';
-      document.head.appendChild(s);
-      gtag('config', 'AW-18154472207');
-    }
-
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => setTimeout(loadGtag, 1200));
-    } else {
-      window.addEventListener('load', () => setTimeout(loadGtag, 1500));
-    }
+    gtag('config', 'AW-18154472207');
   </script>
 
   <!-- Structured Data: LocalBusiness + Organization -->

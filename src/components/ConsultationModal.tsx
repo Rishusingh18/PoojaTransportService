@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { X, CheckCircle2, AlertCircle, Phone, MapPin, Calendar as CalendarIcon, Send } from 'lucide-react';
 import { validateIndianMobile } from '../lib/validation';
-import { getSupabase } from '../lib/supabase';
+import { insertSupabaseQuote } from '../lib/supabase';
 import CustomDatePicker from './CustomDatePicker';
 import LocationAutocomplete from './LocationAutocomplete';
+import { BookingDetails, generateBookingId, saveLastBooking } from '../lib/booking';
+import { BookingConfirmationModal } from './BookingConfirmationModal';
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -28,43 +30,45 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
   });
 
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
+  const [phoneError, setPhoneError] = useState<string | null>(null);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
-  const [phoneError, setPhoneError] = useState('');
+  const [confirmedBooking, setConfirmedBooking] = useState<BookingDetails | null>(null);
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
 
-  if (!isOpen) return null;
+  if (!isOpen && !isConfirmationOpen) return null;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
-    if (id === 'cm-mobile') setPhoneError('');
-    const fieldMap: Record<string, string> = {
-      'cm-name': 'name',
-      'cm-mobile': 'mobile',
-      'cm-service': 'serviceType',
-      'cm-notes': 'notes'
-    };
-    const key = fieldMap[id] || id;
+    const key = id.replace('cm-', '');
+    if (key === 'mobile' && phoneError) setPhoneError(null);
     setFormData(prev => ({ ...prev, [key]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const mobileCheck = validateIndianMobile(formData.mobile);
-    if (!mobileCheck.isValid) {
-      setPhoneError(mobileCheck.error);
+    const phoneCheck = validateIndianMobile(formData.mobile);
+    if (!phoneCheck.isValid) {
+      setPhoneError(phoneCheck.error || 'Please enter a valid 10-digit mobile number.');
       return;
     }
-    setPhoneError('');
-
+    setPhoneError(null);
     setSubmitStatus('submitting');
-    const formattedDate = selectedDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
 
-    const payload = {
-      id: `quote-${Date.now()}`,
-      name: formData.name || 'Valued Customer',
-      mobile: mobileCheck.normalized,
-      from: formData.from || 'Not specified',
-      to: formData.to || 'Not specified',
+    const formattedDate = selectedDate.toLocaleDateString('en-US', {
+      month: 'short',
+      day: '2-digit',
+      year: 'numeric'
+    });
+
+    const bookingId = generateBookingId();
+
+    const payload: BookingDetails = {
+      id: bookingId,
+      name: formData.name.trim(),
+      mobile: phoneCheck.normalized,
+      from: formData.from.trim(),
+      to: formData.to.trim(),
       serviceType: formData.serviceType,
       moveDate: formattedDate,
       notes: formData.notes,
@@ -73,32 +77,21 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
     };
 
     // 1. Save to local storage
-    try {
-      const existing = JSON.parse(localStorage.getItem('pooja_local_quotes') || '[]');
-      localStorage.setItem('pooja_local_quotes', JSON.stringify([payload, ...existing]));
-    } catch (err) {
-      console.error('Local quote cache error:', err);
-    }
+    saveLastBooking(payload);
 
     // 2. Direct Supabase insert
-    try {
-      const supabase = await getSupabase();
-      const supabaseRecord = {
-        id: payload.id,
-        name: payload.name,
-        mobile: payload.mobile,
-        from: payload.from,
-        to: payload.to,
-        serviceType: payload.serviceType,
-        moveDate: payload.moveDate,
-        notes: payload.notes || '',
-        status: 'Pending',
-        created_at: payload.createdAt
-      };
-      const { error: sbErr } = await supabase.from('quotes').insert([supabaseRecord]);
-    } catch (sbEx: any) {
-      console.error('Supabase direct quote exception:', sbEx?.message || sbEx);
-    }
+    insertSupabaseQuote({
+      id: payload.id,
+      name: payload.name,
+      mobile: payload.mobile,
+      from: payload.from,
+      to: payload.to,
+      serviceType: payload.serviceType,
+      moveDate: payload.moveDate,
+      notes: payload.notes || '',
+      status: 'Pending',
+      created_at: payload.createdAt
+    });
 
     // 3. Post to REST endpoint if available
     try {
@@ -112,19 +105,20 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
     }
 
     setSubmitStatus('success');
+    setConfirmedBooking(payload);
+    setIsConfirmationOpen(true);
 
-    setTimeout(() => {
-      setSubmitStatus('idle');
-      setFormData({
-        name: '',
-        mobile: '',
-        from: '',
-        to: '',
-        serviceType: 'Household Relocation',
-        notes: ''
-      });
-      onClose();
-    }, 3000);
+    // Reset Form state & close consultation view
+    setFormData({
+      name: '',
+      mobile: '',
+      from: '',
+      to: '',
+      serviceType: 'Household Relocation',
+      notes: ''
+    });
+    setSubmitStatus('idle');
+    onClose();
   };
 
   return (
@@ -324,6 +318,13 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
           )}
         </div>
       </div>
+
+      {/* Confirmation Modal Popup */}
+      <BookingConfirmationModal
+        isOpen={isConfirmationOpen}
+        onClose={() => setIsConfirmationOpen(false)}
+        booking={confirmedBooking}
+      />
     </div>
   );
 };

@@ -49,6 +49,7 @@ export default defineConfig({
         privacyPolicy: resolve(__dirname, 'privacy-policy.html'),
         privacy: resolve(__dirname, 'privacy.html'),
         admin: resolve(__dirname, 'admin.html'),
+        confirmation: resolve(__dirname, 'confirmation.html'),
         dehradun: resolve(__dirname, 'cities/packers-movers-dehradun.html'),
         greaterNoida: resolve(__dirname, 'cities/packers-movers-greater-noida.html'),
         kanpur: resolve(__dirname, 'cities/packers-movers-kanpur.html'),
@@ -60,9 +61,6 @@ export default defineConfig({
           if (id.includes('node_modules')) {
             if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
               return 'vendor-react';
-            }
-            if (id.includes('@supabase') || id.includes('date-fns')) {
-              return 'vendor-data';
             }
             if (id.includes('lucide-react')) {
               return 'vendor-icons';
