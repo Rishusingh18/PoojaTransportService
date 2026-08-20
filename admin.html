@@ -72,9 +72,9 @@
         </div>
 
         <div class="flex items-center gap-4">
-          <span class="text-xs text-slate-300 bg-white/10 px-3 py-1 rounded-full"><i class="fas fa-[#10b981] fa-circle text-[8px] text-emerald-400 mr-1.5"></i> Live API Connected</span>
-          <button onclick="handleAdminLogout()" class="text-xs font-bold text-slate-300 hover:text-white bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded transition-all">
-            <i class="fas fa-sign-out-alt mr-1"></i> Logout
+          <span class="text-xs text-slate-300 bg-white/10 px-3 py-1 rounded-full flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Live API Connected</span>
+          <button onclick="handleAdminLogout()" class="text-xs font-bold text-slate-300 hover:text-white bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded transition-all cursor-pointer">
+            Logout ➔
           </button>
         </div>
       </div>
@@ -83,12 +83,12 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex-grow w-full">
       <!-- Tabs Switcher -->
       <div class="flex border-b border-slate-200 mb-8 gap-4">
-        <button id="tab-btn-reviews" onclick="switchTab('reviews')" class="pb-3 text-sm font-bold border-b-2 border-[#0b1c30] text-[#0b1c30] flex items-center gap-2">
-          <i class="fas fa-star text-amber-500"></i> Review Moderation <span id="pending-count-badge" class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded-full font-bold">0</span>
+        <button id="tab-btn-reviews" onclick="switchTab('reviews')" class="pb-3 text-sm font-bold border-b-2 border-[#0b1c30] text-[#0b1c30] flex items-center gap-2 cursor-pointer">
+          ★ Review Moderation <span id="pending-count-badge" class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded-full font-bold">0</span>
         </button>
 
-        <button id="tab-btn-quotes" onclick="switchTab('quotes')" class="pb-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-[#0b1c30] flex items-center gap-2">
-          <i class="fas fa-calculator text-blue-600"></i> Shifting Quotes <span id="quotes-count-badge" class="bg-blue-100 text-blue-800 text-[10px] px-2 py-0.5 rounded-full font-bold">0</span>
+        <button id="tab-btn-quotes" onclick="switchTab('quotes')" class="pb-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-[#0b1c30] flex items-center gap-2 cursor-pointer">
+          📦 Shifting Quotes <span id="quotes-count-badge" class="bg-blue-100 text-blue-800 text-[10px] px-2 py-0.5 rounded-full font-bold">0</span>
         </button>
       </div>
 
@@ -114,21 +114,31 @@
 
       <!-- SECTION 2: SHIFTING QUOTES PANEL -->
       <section id="section-quotes" class="hidden">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <div>
             <h2 class="font-display text-2xl font-bold text-[#0b1c30]">Consultation & Shifting Quote Requests</h2>
-            <p class="text-xs text-slate-500">Customer requests submitted via website quote form.</p>
+            <p class="text-xs text-slate-500">Realtime customer booking requests registered in system.</p>
           </div>
 
-          <!-- Sort Controls -->
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-semibold text-slate-500 mr-1"><i class="fas fa-sort-amount-down mr-1"></i>Sort by Date:</span>
+          <!-- Search & Sort Controls -->
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="relative">
+              <input 
+                type="text" 
+                id="quoteSearchInput" 
+                oninput="renderQuotes()" 
+                placeholder="Search Booking ID, Name, Phone..." 
+                class="bg-white border border-slate-300 text-xs rounded-lg pl-8 pr-3 py-2 w-64 outline-none focus:ring-2 focus:ring-[#0b1c30] shadow-xs"
+              >
+              <svg class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+
             <div class="flex items-center bg-white p-1 rounded-lg border border-slate-200 shadow-sm">
               <button onclick="setSortOrder('desc')" id="sort-desc-btn" class="px-3 py-1.5 text-xs font-bold rounded bg-[#0b1c30] text-white flex items-center gap-1">
-                <i class="fas fa-arrow-down text-[10px]"></i> Newest First
+                <span>↓</span> Newest First
               </button>
               <button onclick="setSortOrder('asc')" id="sort-asc-btn" class="px-3 py-1.5 text-xs font-semibold rounded text-slate-600 hover:bg-slate-100 flex items-center gap-1">
-                <i class="fas fa-arrow-up text-[10px]"></i> Oldest First
+                <span>↑</span> Oldest First
               </button>
             </div>
           </div>
@@ -139,6 +149,7 @@
             <table class="w-full text-left text-xs text-slate-600">
               <thead class="bg-slate-50 border-b border-slate-200 text-[#0b1c30] uppercase font-bold tracking-wider">
                 <tr>
+                  <th class="p-4">Reference Booking ID</th>
                   <th class="p-4">Customer</th>
                   <th class="p-4">Phone</th>
                   <th class="p-4">Route</th>
@@ -146,7 +157,7 @@
                   <th class="p-4">Move Date</th>
                   <th class="p-4 cursor-pointer select-none" onclick="toggleSortOrder()">
                     <span class="flex items-center gap-1">
-                      Received <i id="sort-icon" class="fas fa-arrow-down text-[#0b1c30] text-[10px]"></i>
+                      Received <span id="sort-icon">↓</span>
                     </span>
                   </th>
                   <th class="p-4">Status</th>
@@ -318,8 +329,8 @@
             <div class="flex items-center justify-between mb-3">
               <span class="text-amber-500 font-bold text-xs">${'★'.repeat(r.rating)}</span>
               ${r.verified ? 
-                `<span class="text-[10px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full"><i class="fas fa-check-circle mr-1"></i> Live Verified</span>` : 
-                `<span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full"><i class="fas fa-clock mr-1"></i> Pending Verification</span>`
+                `<span class="text-[10px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full inline-flex items-center gap-1">✓ Live Verified</span>` : 
+                `<span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full inline-flex items-center gap-1">⏱ Pending Verification</span>`
               }
             </div>
 
@@ -338,12 +349,12 @@
             </div>
 
             <div class="flex items-center gap-2 pt-2">
-              <button onclick="toggleVerifyReview('${r.id}', ${!r.verified})" class="flex-1 ${r.verified ? 'bg-slate-200 text-slate-700 hover:bg-slate-300' : 'bg-emerald-600 text-white hover:bg-emerald-700'} text-xs font-bold py-2 rounded transition-colors flex items-center justify-center gap-1">
-                <i class="fas ${r.verified ? 'fa-eye-slash' : 'fa-check'}"></i> ${r.verified ? 'Unverify' : 'Approve Live'}
+              <button onclick="toggleVerifyReview('${r.id}', ${!r.verified})" class="flex-1 ${r.verified ? 'bg-slate-200 text-slate-700 hover:bg-slate-300' : 'bg-emerald-600 text-white hover:bg-emerald-700'} text-xs font-bold py-2 rounded transition-colors flex items-center justify-center gap-1 cursor-pointer">
+                <span>${r.verified ? 'Unverify' : '✓ Approve Live'}</span>
               </button>
 
-              <button onclick="deleteReview('${r.id}')" class="bg-red-50 text-red-600 hover:bg-red-100 p-2 rounded transition-colors" title="Delete Review">
-                <i class="fas fa-trash-alt"></i>
+              <button onclick="deleteReview('${r.id}')" class="bg-red-50 text-red-600 hover:bg-red-100 p-2 rounded transition-colors cursor-pointer" title="Delete Review">
+                🗑️
               </button>
             </div>
           </div>
@@ -444,11 +455,11 @@
       if (order === 'desc') {
         descBtn.className = 'px-3 py-1.5 text-xs font-bold rounded bg-[#0b1c30] text-white flex items-center gap-1';
         ascBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded text-slate-600 hover:bg-slate-100 flex items-center gap-1';
-        icon.className = 'fas fa-arrow-down text-[#0b1c30] text-[10px]';
+        if (icon) icon.innerText = '↓';
       } else {
         ascBtn.className = 'px-3 py-1.5 text-xs font-bold rounded bg-[#0b1c30] text-white flex items-center gap-1';
         descBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded text-slate-600 hover:bg-slate-100 flex items-center gap-1';
-        icon.className = 'fas fa-arrow-up text-[#0b1c30] text-[10px]';
+        if (icon) icon.innerText = '↑';
       }
       renderQuotes();
     }
@@ -459,13 +470,29 @@
 
     function renderQuotes() {
       const tbody = document.getElementById('quotes-table-body');
-      if (!allQuotes.length) {
-        tbody.innerHTML = `<tr><td colspan="8" class="p-8 text-center text-slate-400">No shifting quote requests submitted yet.</td></tr>`;
+      const searchInput = document.getElementById('quoteSearchInput');
+      const searchQuery = (searchInput ? searchInput.value : '').toLowerCase().trim();
+
+      let filtered = allQuotes;
+      if (searchQuery) {
+        filtered = allQuotes.filter(q => {
+          const id = (q.id || '').toLowerCase();
+          const name = (q.name || '').toLowerCase();
+          const mobile = (q.mobile || '').toLowerCase();
+          const from = (q.from || '').toLowerCase();
+          const to = (q.to || '').toLowerCase();
+          const service = (q.serviceType || '').toLowerCase();
+          return id.includes(searchQuery) || name.includes(searchQuery) || mobile.includes(searchQuery) || from.includes(searchQuery) || to.includes(searchQuery) || service.includes(searchQuery);
+        });
+      }
+
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="9" class="p-8 text-center text-slate-400">No shifting quote requests matching query.</td></tr>`;
         return;
       }
 
       // Sort by received date
-      const sorted = [...allQuotes].sort((a, b) => {
+      const sorted = [...filtered].sort((a, b) => {
         const dateA = new Date(a.createdAt || a.created_at || 0).getTime();
         const dateB = new Date(b.createdAt || b.created_at || 0).getTime();
         return quoteSortOrder === 'desc' ? dateB - dateA : dateA - dateB;
@@ -479,8 +506,18 @@
           receivedStr = d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })
             + '<br><span class="text-slate-400 text-[10px]">' + d.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true }) + '</span>';
         }
+        const bookingId = q.id || 'N/A';
+        const receiptUrl = `/booking-confirmation?id=${encodeURIComponent(bookingId)}&name=${encodeURIComponent(q.name || '')}&mobile=${encodeURIComponent(q.mobile || '')}&from=${encodeURIComponent(q.from || '')}&to=${encodeURIComponent(q.to || '')}&service=${encodeURIComponent(q.serviceType || '')}&date=${encodeURIComponent(q.moveDate || '')}`;
+
         return `
         <tr class="hover:bg-slate-50 transition-colors">
+          <td class="p-4">
+            <div class="flex items-center gap-1.5">
+              <span class="font-mono font-bold text-[11px] bg-amber-50 text-amber-900 border border-amber-300 px-2 py-1 rounded shadow-2xs">${bookingId}</span>
+              <button onclick="navigator.clipboard.writeText('${bookingId}'); this.innerText='✓'; setTimeout(() => this.innerText='📋', 1500);" title="Copy Booking ID" class="text-slate-400 hover:text-amber-800 p-0.5 text-xs cursor-pointer">📋</button>
+              <a href="${receiptUrl}" target="_blank" title="View Full Receipt" class="text-slate-400 hover:text-blue-600 p-0.5 text-xs">↗</a>
+            </div>
+          </td>
           <td class="p-4 font-bold text-[#0b1c30]">${q.name}</td>
           <td class="p-4 font-semibold text-blue-600"><a href="tel:${q.mobile}">${q.mobile}</a></td>
           <td class="p-4">${q.from} → ${q.to}</td>
@@ -488,14 +525,14 @@
           <td class="p-4">${q.moveDate}</td>
           <td class="p-4 text-slate-600">${receivedStr}</td>
           <td class="p-4">
-            <select onchange="updateQuoteStatus('${q.id}', this.value)" class="bg-white border border-slate-300 text-xs rounded px-2 py-1 font-semibold text-[#0b1c30]">
+            <select onchange="updateQuoteStatus('${q.id}', this.value)" class="bg-white border border-slate-300 text-xs rounded px-2 py-1 font-semibold text-[#0b1c30] cursor-pointer">
               <option value="Pending" ${q.status === 'Pending' ? 'selected' : ''}>Pending</option>
               <option value="Contacted" ${q.status === 'Contacted' ? 'selected' : ''}>Contacted</option>
               <option value="Completed" ${q.status === 'Completed' ? 'selected' : ''}>Completed</option>
             </select>
           </td>
           <td class="p-4 text-right">
-            <button onclick="deleteQuote('${q.id}')" class="text-red-500 hover:text-red-700 p-1"><i class="fas fa-trash-alt"></i></button>
+            <button onclick="deleteQuote('${q.id}')" class="text-red-500 hover:text-red-700 p-1.5 rounded hover:bg-red-50 text-sm cursor-pointer" title="Delete Quote">🗑️</button>
           </td>
         </tr>`;
       }).join('');
