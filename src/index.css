@@ -124,3 +124,46 @@ body {
   transform: scale(0.95);
 }
 
+/* ================= Mobile Navigation Drawer & Overlay ================= */
+.mobile-drawer {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: 85% !important;
+  max-width: 320px !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  background-color: #ffffff !important;
+  z-index: 10000 !important;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25) !important;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-y: auto !important;
+  transform: translateX(100%) !important;
+  visibility: hidden;
+}
+
+.mobile-drawer.active {
+  transform: translateX(0) !important;
+  visibility: visible !important;
+}
+
+.mobile-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background-color: rgba(11, 28, 48, 0.6) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  z-index: 9999 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.mobile-overlay.active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+

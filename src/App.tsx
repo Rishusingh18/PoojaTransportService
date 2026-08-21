@@ -6,9 +6,10 @@ import { FloatingStats } from './components/FloatingStats';
 import { Footer } from './components/Footer';
 import { StickyActions } from './components/StickyActions';
 
-// Lazy-loaded below-the-fold and modal components
-const MobileDrawer = lazy(() => import('./components/MobileDrawer').then(m => ({ default: m.MobileDrawer })));
-const ConsultationModal = lazy(() => import('./components/ConsultationModal').then(m => ({ default: m.ConsultationModal })));
+import { MobileDrawer } from './components/MobileDrawer';
+import { ConsultationModal } from './components/ConsultationModal';
+
+// Lazy-loaded below-the-fold components
 const Services = lazy(() => import('./components/Services').then(m => ({ default: m.Services })));
 const About = lazy(() => import('./components/About').then(m => ({ default: m.About })));
 const Process = lazy(() => import('./components/Process').then(m => ({ default: m.Process })));
@@ -36,10 +37,8 @@ export const App: React.FC = () => {
 
   return (
     <div className="app-wrapper">
-      <Suspense fallback={null}>
-        <MobileDrawer isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
-        <ConsultationModal isOpen={isConsultationOpen} onClose={() => setIsConsultationOpen(false)} />
-      </Suspense>
+      <MobileDrawer isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
+      <ConsultationModal isOpen={isConsultationOpen} onClose={() => setIsConsultationOpen(false)} />
       <TopBar />
       <Header onToggleMenu={toggleMobileMenu} onOpenConsultation={() => setIsConsultationOpen(true)} />
       <main>

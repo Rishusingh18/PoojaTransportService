@@ -17,26 +17,81 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- Mobile Menu Toggle ---
-function toggleMenu() {
+let isTogglingMenu = false;
+function toggleMenu(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    if (e && e.stopPropagation) e.stopPropagation();
+
+    // Prevent double invocation if both inline onclick and document listener fire in same tick
+    if (isTogglingMenu) return;
+    isTogglingMenu = true;
+    setTimeout(() => { isTogglingMenu = false; }, 80);
+
     const drawer = document.getElementById('mobileDrawer');
+    if (!drawer) return;
+
     let overlay = document.querySelector('.mobile-overlay');
-    
     if (!overlay) {
         overlay = document.createElement('div');
         overlay.className = 'mobile-overlay';
         document.body.appendChild(overlay);
-        overlay.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', (evt) => {
+            evt.preventDefault();
+            toggleMenu(evt);
+        });
     }
 
-    if (drawer) {
-        drawer.classList.toggle('active');
-        overlay.classList.toggle('active');
-        document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+    const isOpen = drawer.classList.contains('active');
+    
+    if (isOpen) {
+        drawer.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        updateAriaExpanded(false);
+    } else {
+        drawer.classList.remove('hidden');
+        void drawer.offsetWidth; // force layout refresh
+        drawer.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        updateAriaExpanded(true);
     }
+}
+window.toggleMenu = toggleMenu;
+
+function updateAriaExpanded(state) {
+    document.querySelectorAll('[aria-label="Toggle Navigation Menu"]').forEach(btn => {
+        btn.setAttribute('aria-expanded', state ? 'true' : 'false');
+    });
 }
 
 function initMobileMenu() {
-    // Mobile menu initialization
+    // Explicit event delegation for hamburger & close buttons
+    document.addEventListener('click', (e) => {
+        const toggleBtn = e.target.closest('[aria-label="Toggle Navigation Menu"], .drawer-toggle, .mobile-menu-btn');
+        if (toggleBtn) {
+            e.preventDefault();
+            toggleMenu(e);
+            return;
+        }
+
+        const closeBtn = e.target.closest('.drawer-close, [aria-label="Close menu"], [aria-label="Close Mobile Navigation"]');
+        if (closeBtn) {
+            e.preventDefault();
+            toggleMenu(e);
+            return;
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const drawer = document.getElementById('mobileDrawer');
+            if (drawer && drawer.classList.contains('active')) {
+                toggleMenu();
+            }
+        }
+    });
 }
 
 // --- Dynamic Consultation Modal for Static Pages ---
@@ -45,7 +100,7 @@ function openConsultationModal(e) {
 
     // Check if on home page with #quote element
     const quoteEl = document.getElementById('quote');
-    if (quoteEl && (window.location.pathname.endsWith('index.html') || window.location.pathname === '/')) {
+    if (quoteEl && window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
         quoteEl.scrollIntoView({ behavior: 'smooth' });
     }
 
@@ -64,6 +119,7 @@ function openConsultationModal(e) {
                     <button type="button" onclick="closeConsultationModal()" class="p-1.5 rounded-full text-slate-400 hover:text-white hover:bg-white/10 text-xl font-bold">&times;</button>
                 </div>
                 <form id="staticConsultationForm" onsubmit="handleStaticConsultationSubmit(event)" class="p-6 space-y-4">
+                    <div id="staticConsultationAlert" class="hidden p-3 bg-green-100 text-green-800 rounded-lg text-xs font-semibold text-center"></div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="text-[11px] font-semibold text-slate-600 block mb-1">Full Name *</label>
@@ -392,3 +448,4 @@ function initWhatsAppBubble() {
         }
     }, 8000);
 }
+
