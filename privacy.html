@@ -10,6 +10,21 @@
 
     gtag('config', 'AW-18154472207');
   </script>
+  <!-- Event snippet for Click to call (1) conversion page -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18154472207/ijgLCKPPveUcEI-G3dBD',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>
   <meta charset="UTF-8">
   <meta http-equiv="refresh" content="0; url=/privacy-policy.html">
   <link rel="canonical" href="https://www.poojatransportservice.com/privacy-policy">

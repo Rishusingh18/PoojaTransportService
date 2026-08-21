@@ -171,6 +171,7 @@ export const WhatsAppBubble: React.FC = () => {
               <span>Need immediate call?</span>
               <a 
                 href={`tel:${PHONE_NUMBER}`} 
+                onClick={() => (window as any).gtag_report_conversion?.(`tel:${PHONE_NUMBER}`)}
                 className="text-[#0b1c30] font-semibold hover:text-amber-600 transition-colors flex items-center gap-1"
               >
                 <Phone className="w-3 h-3 text-amber-600 shrink-0" /> +91 9910204916

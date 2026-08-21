@@ -204,6 +204,7 @@ export const BookingConfirmationModal: React.FC<BookingConfirmationModalProps> =
             <div className="grid grid-cols-2 gap-2">
               <a
                 href="tel:+919910204916"
+                onClick={() => (window as any).gtag_report_conversion?.('tel:+919910204916')}
                 className="bg-[#0b1c30] hover:bg-[#152e4d] text-white text-xs font-semibold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-amber-400" />

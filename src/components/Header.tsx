@@ -105,6 +105,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMenu, onOpenConsultation
           {/* Call Button */}
           <a 
             href="tel:+919910204916" 
+            onClick={() => (window as any).gtag_report_conversion?.('tel:+919910204916')}
             className="flex items-center justify-center gap-1.5 text-[11px] sm:text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 px-2 sm:px-3 py-1 sm:py-1.5 rounded-md transition-colors shrink-0"
             title="Call Us Now"
           >

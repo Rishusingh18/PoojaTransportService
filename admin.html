@@ -10,6 +10,21 @@
 
     gtag('config', 'AW-18154472207');
   </script>
+  <!-- Event snippet for Click to call (1) conversion page -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18154472207/ijgLCKPPveUcEI-G3dBD',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -520,7 +535,7 @@
             </div>
           </td>
           <td class="p-4 font-bold text-[#0b1c30]">${q.name}</td>
-          <td class="p-4 font-semibold text-blue-600"><a href="tel:${q.mobile}">${q.mobile}</a></td>
+          <td class="p-4 font-semibold text-blue-600"><a href="tel:${q.mobile}" onclick="return gtag_report_conversion('tel:${q.mobile}');">${q.mobile}</a></td>
           <td class="p-4">${q.from} → ${q.to}</td>
           <td class="p-4"><span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-semibold text-[11px]">${q.serviceType}</span></td>
           <td class="p-4">${q.moveDate}</td>

@@ -53,11 +53,11 @@ export const Footer: React.FC = () => {
           <h3 className="text-xs font-semibold text-white uppercase tracking-widest mb-1">Direct Contact</h3>
           <p className="text-xs text-slate-300 flex items-center gap-2">
             <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-            <a href="tel:+919528808820" className="hover:text-white transition-colors">+91 9528808820</a>
+            <a href="tel:+919528808820" onClick={() => (window as any).gtag_report_conversion?.('tel:+919528808820')} className="hover:text-white transition-colors">+91 9528808820</a>
           </p>
           <p className="text-xs text-slate-300 flex items-center gap-2">
             <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-            <a href="tel:+919910204916" className="hover:text-white transition-colors">+91 9910204916</a>
+            <a href="tel:+919910204916" onClick={() => (window as any).gtag_report_conversion?.('tel:+919910204916')} className="hover:text-white transition-colors">+91 9910204916</a>
           </p>
           <p className="text-xs text-slate-300 flex items-center gap-2">
             <Mail className="w-3.5 h-3.5 text-amber-400 shrink-0" />

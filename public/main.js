@@ -1,4 +1,36 @@
 // Pooja Transport Service - Core Business Logic
+// Public asset copy synced for root serving
+
+// --- Google Ads Click-to-Call Conversion Tracking ---
+if (typeof window.gtag_report_conversion !== 'function') {
+  window.gtag_report_conversion = function (url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18154472207/ijgLCKPPveUcEI-G3dBD',
+        'event_callback': callback
+      });
+    } else if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+    return false;
+  };
+}
+
+// Global delegated click listener for any tel: link across static and React pages
+document.addEventListener('click', (e) => {
+  const telLink = e.target.closest('a[href^="tel:"]');
+  if (telLink && typeof window.gtag_report_conversion === 'function') {
+    const href = telLink.getAttribute('href');
+    if (href) {
+      window.gtag_report_conversion(href);
+    }
+  }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu & Modal listeners
